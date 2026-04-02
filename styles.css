@@ -234,8 +234,14 @@ h1, h2, h3, h4 {
 }
 
 .nav-logo img {
-  height: 44px;
+  height: 52px;
   width: auto;
+}
+
+@media (min-width: 768px) {
+  .nav-logo img {
+    height: 60px;
+  }
 }
 
 .nav-links {
@@ -1421,102 +1427,96 @@ h1, h2, h3, h4 {
 /* ============================================
    Contact / Lead Capture
    ============================================ */
-.contact-section {
+.cta-section {
   padding: var(--section-pad);
   background: var(--navy);
   color: var(--white);
+  text-align: center;
 }
 
-.contact-wrapper {
-  max-width: var(--container-narrow);
+.cta-wrapper {
+  max-width: 800px;
   margin: 0 auto;
 }
 
-.contact-section .section-header h2 {
+.cta-wrapper h2 {
   color: var(--white);
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
 }
 
-.contact-section .section-header p {
+.cta-subtitle {
   color: rgba(255, 255, 255, 0.7);
+  font-size: 1.15rem;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.contact-form {
+.cta-channels {
   display: grid;
-  gap: 1.25rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
 }
 
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
-}
-
-.form-group {
+.cta-channel-card {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 2rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--white);
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.04);
 }
 
-.form-group label {
-  font-size: var(--small);
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-  color: rgba(255, 255, 255, 0.9);
+.cta-channel-card:hover {
+  border-color: var(--pink);
+  background: rgba(255, 107, 139, 0.08);
+  transform: translateY(-3px);
 }
 
-.form-group .required {
+.cta-channel-card.cta-voice {
+  border-color: var(--pink);
+  background: rgba(255, 107, 139, 0.1);
+}
+
+.cta-channel-card.cta-voice .cta-channel-icon {
   color: var(--pink);
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
-  padding: 0.875rem 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--white);
-  font-family: var(--font);
-  font-size: var(--body);
-  transition: border-color var(--transition);
-  width: 100%;
+.cta-channel-icon {
+  color: rgba(255, 255, 255, 0.8);
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--pink);
-  background: rgba(255, 255, 255, 0.12);
+.cta-channel-label {
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: rgba(255, 255, 255, 0.4);
-}
-
-.form-group select {
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='rgba(255,255,255,0.6)' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  padding-right: 2.5rem;
-}
-
-.form-group select option {
-  background: var(--navy);
-  color: var(--white);
-}
-
-.form-group textarea {
-  min-height: 100px;
-  resize: vertical;
-}
-
-.form-trust {
-  text-align: center;
+.cta-channel-detail {
   font-size: var(--small);
-  color: rgba(255, 255, 255, 0.6);
-  margin-top: 0.5rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.cta-trust {
+  font-size: var(--small);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 640px) {
+  .cta-channels {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .cta-wrapper h2 {
+    font-size: 1.75rem;
+  }
 }
 
 .form-feedback {
@@ -1635,7 +1635,7 @@ h1, h2, h3, h4 {
 }
 
 .footer-brand img {
-  height: 40px;
+  height: 48px;
 }
 
 .footer h4 {

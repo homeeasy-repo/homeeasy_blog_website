@@ -246,52 +246,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  /* ------------------------------------------
-     Contact Form
-     ------------------------------------------ */
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const form = this;
-      const submitBtn = form.querySelector('button[type="submit"]');
-
-      // Remove existing feedback
-      const existing = form.querySelector('.form-feedback');
-      if (existing) existing.remove();
-
-      const feedback = document.createElement('div');
-      feedback.className = 'form-feedback';
-
-      submitBtn.disabled = true;
-      const originalText = submitBtn.textContent;
-      submitBtn.textContent = 'Sending...';
-
-      fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      })
-        .then(r => r.json())
-        .then(() => {
-          feedback.className = 'form-feedback success';
-          feedback.textContent = 'Thank you! We\'ll be in touch within 15 minutes.';
-          form.appendChild(feedback);
-          form.reset();
-          submitBtn.disabled = false;
-          submitBtn.textContent = originalText;
-          setTimeout(() => feedback.remove(), 8000);
-        })
-        .catch(() => {
-          feedback.className = 'form-feedback error';
-          feedback.textContent = 'Something went wrong. Please try again or call (312) 468-9893.';
-          form.appendChild(feedback);
-          submitBtn.disabled = false;
-          submitBtn.textContent = originalText;
-        });
-    });
-  }
+  /* Contact form removed — replaced with voice-first CTA */
 
   /* ------------------------------------------
      Interactive Chat Demo

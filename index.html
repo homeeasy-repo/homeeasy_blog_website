@@ -167,7 +167,7 @@
                 <a href="#about">About</a>
                 <a href="#contact">Contact</a>
                 <div class="nav-cta">
-                    <a href="#contact" class="btn btn-pink btn-sm">Find Your Apartment</a>
+                    <a href="tel:+13124689893" class="btn btn-pink btn-sm">Talk to Us</a>
                 </div>
             </div>
             <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -189,7 +189,7 @@
             <h1>We Get You Into the Right Apartment</h1>
             <p class="subtitle">85,000+ buildings. 8 markets. We know the pricing, the approval policies, and the move-in costs before you even apply. Give us your situation — we'll find the solution.</p>
             <div class="hero-cta">
-                <a href="#contact" class="btn btn-pink">Get Started</a>
+                <a href="tel:+13124689893" class="btn btn-pink">Talk to Us</a>
                 <a href="#how-it-works" class="btn btn-outline">How It Works</a>
             </div>
         </div>
@@ -248,7 +248,7 @@
                 <div class="chat-cta-buttons">
                     <a href="tel:+13124689893" class="btn btn-pink">Call Us</a>
                     <a href="sms:+13124689893" class="btn btn-outline-dark">Text Us</a>
-                    <a href="#contact" class="btn btn-outline-dark">Send a Message</a>
+                    <a href="mailto:hello@homeeasy.com" class="btn btn-outline-dark">Email Us</a>
                 </div>
                 <p class="chat-demo-subtext">AI agents, virtual agents, local showing agents — however works best for you. One team.</p>
             </div>
@@ -620,87 +620,35 @@
         </div>
     </section>
 
-    <!-- Contact / Lead Capture -->
-    <section class="contact-section" id="contact">
-        <div class="contact-wrapper">
-            <div class="section-header">
-                <h2>Find Your Next Apartment</h2>
-                <p>Tell us what you're looking for. Average response time: under 15 minutes.</p>
+    <!-- Ready to Start -->
+    <section class="cta-section" id="contact">
+        <div class="cta-wrapper">
+            <h2>Ready? Just talk to us.</h2>
+            <p class="cta-subtitle">Call, text, or leave a voicemail. A real person or AI agent picks up — whichever gets you answers faster.</p>
+            <div class="cta-channels">
+                <a href="tel:+13124689893" class="cta-channel-card cta-voice">
+                    <div class="cta-channel-icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                    </div>
+                    <div class="cta-channel-label">Call us</div>
+                    <div class="cta-channel-detail">(312) 468-9893</div>
+                </a>
+                <a href="sms:+13124689893" class="cta-channel-card">
+                    <div class="cta-channel-icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                    </div>
+                    <div class="cta-channel-label">Text us</div>
+                    <div class="cta-channel-detail">Same number, instant reply</div>
+                </a>
+                <a href="mailto:hello@homeeasy.com" class="cta-channel-card">
+                    <div class="cta-channel-icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <div class="cta-channel-label">Email us</div>
+                    <div class="cta-channel-detail">hello@homeeasy.com</div>
+                </a>
             </div>
-            <form class="contact-form" id="contactForm" action="https://formspree.io/f/mvgzylwo" method="POST">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="firstName">First Name <span class="required">*</span></label>
-                        <input type="text" id="firstName" name="firstName" placeholder="First name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName">Last Name <span class="required">*</span></label>
-                        <input type="text" id="lastName" name="lastName" placeholder="Last name" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="email">Email <span class="required">*</span></label>
-                        <input type="email" id="email" name="_replyto" placeholder="your@email.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone <span class="required">*</span></label>
-                        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="city">City / Market <span class="required">*</span></label>
-                        <select id="city" name="city" required>
-                            <option value="" disabled selected>Select a market</option>
-                            <option value="Chicago">Chicago</option>
-                            <option value="Dallas-Fort Worth">Dallas-Fort Worth</option>
-                            <option value="Houston">Houston</option>
-                            <option value="Austin">Austin</option>
-                            <option value="San Antonio">San Antonio</option>
-                            <option value="Denver">Denver</option>
-                            <option value="Atlanta">Atlanta</option>
-                            <option value="Nashville">Nashville</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="moveDate">Move-In Date</label>
-                        <input type="date" id="moveDate" name="moveDate">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="budget">Monthly Budget</label>
-                        <select id="budget" name="budget">
-                            <option value="" disabled selected>Select budget range</option>
-                            <option value="Under $1,000">Under $1,000</option>
-                            <option value="$1,000-$1,500">$1,000 - $1,500</option>
-                            <option value="$1,500-$2,000">$1,500 - $2,000</option>
-                            <option value="$2,000-$2,500">$2,000 - $2,500</option>
-                            <option value="$2,500-$3,000">$2,500 - $3,000</option>
-                            <option value="$3,000+">$3,000+</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="bedrooms">Bedrooms</label>
-                        <select id="bedrooms" name="bedrooms">
-                            <option value="" disabled selected>Select bedrooms</option>
-                            <option value="Studio">Studio</option>
-                            <option value="1 Bedroom">1 Bedroom</option>
-                            <option value="2 Bedrooms">2 Bedrooms</option>
-                            <option value="3+ Bedrooms">3+ Bedrooms</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="message">Anything else we should know?</label>
-                    <textarea id="message" name="message" placeholder="Tell us about your ideal apartment — neighborhood preferences, must-haves, deal-breakers..."></textarea>
-                </div>
-                <input type="hidden" name="_subject" value="New Apartment Search Request from HomeEasy.com">
-                <input type="text" name="_gotcha" style="display:none">
-                <button type="submit" class="btn btn-pink" style="width:100%;">Start My Search</button>
-                <p class="form-trust">Average response time: under 15 minutes. Always free.</p>
-            </form>
+            <p class="cta-trust">Average response time: under 15 minutes. Always free.</p>
         </div>
     </section>
 
