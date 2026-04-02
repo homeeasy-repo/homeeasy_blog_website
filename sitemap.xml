@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core Pages -->
+  <url><loc>https://homeeasy.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://homeeasy.com/best-deals.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://homeeasy.com/building-intelligence.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://homeeasy.com/data/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+
+  <!-- Market Pages -->
+  <url><loc>https://homeeasy.com/markets/atlanta.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/austin-cedar-park.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/austin-georgetown.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/austin-kyle.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/austin-pflugerville.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/austin-round-rock.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/austin-san-marcos.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/austin.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/chicago-evanston.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/chicago-naperville.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/chicago-oak-brook.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/chicago-oak-park.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/chicago-schaumburg.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/chicago-skokie.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/chicago.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/denver-arvada.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/denver-aurora.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/denver-boulder.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/denver-centennial.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/denver-lakewood.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/denver-littleton.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/denver-westminster.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/denver.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/dfw-addison.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/dfw-arlington.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/dfw-denton.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/dfw-flower-mound.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/dfw-fort-worth.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/dfw-frisco.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/dfw-irving.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/dfw-mckinney.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/dfw-plano.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/dfw-richardson.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/dfw.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/houston-clear-lake.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/houston-conroe.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/houston-cypress.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/houston-friendswood.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/houston-katy.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/houston-league-city.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/houston-pearland.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/houston-spring.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/houston-sugar-land.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/houston-the-woodlands.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/houston.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/nashville.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/san-antonio-boerne.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/san-antonio-live-oak.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/san-antonio-new-braunfels.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/san-antonio-schertz.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://homeeasy.com/markets/san-antonio.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+
+  <!-- Blog -->
+  <url><loc>https://homeeasy.com/blog/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://homeeasy.com/blog/2025-rental-market-forecast.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/2026-market-update.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/ai-changing-apartment-search.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/apartment-listings-misleading.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/best-neighborhoods-chicago-young-professionals.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/chicago-rental-market-2021.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/covid-changed-chicago-rental-market.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/data-behind-your-rent.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/denver-rental-market-guide.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/first-time-renters-guide.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/from-agents-to-ai.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/future-of-real-estate-ai.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/hidden-economics-apartment-hunting.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/homeeasy-expands-dallas.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/houston-vs-austin.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/how-apartment-locators-work.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/how-to-negotiate-rent.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/how-we-analyze-buildings.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/math-behind-rent-arbitrage.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/mid-year-market-report-2024.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/moving-to-chicago-guide.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/pet-friendly-apartments-guide.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/price-anomaly-detection.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/remote-apartment-hunting.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/rent-concessions-what-to-know.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/rent-to-income-ratio.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/renters-insurance-guide.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/rise-of-virtual-tours.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/san-antonio-underrated-market.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/section-8-housing-guide.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/true-cost-breaking-lease.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/understanding-your-lease.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/why-we-built-homeeasy.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://homeeasy.com/blog/why-youre-paying-too-much-rent.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+
+  <!-- Chicago Neighborhoods -->
+  <url><loc>https://homeeasy.com/neighborhoods/chicago/gold-coast.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/chicago/lakeview.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/chicago/lincoln-park.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/chicago/the-loop.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/chicago/river-north.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/chicago/south-loop.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/chicago/west-loop.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/chicago/wicker-park.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <!-- Dfw Neighborhoods -->
+  <url><loc>https://homeeasy.com/neighborhoods/dfw/arlington.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/dfw/bishop-arts.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/dfw/deep-ellum.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/dfw/knox-henderson.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/dfw/uptown-dallas.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/dfw/victory-park.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <!-- Houston Neighborhoods -->
+  <url><loc>https://homeeasy.com/neighborhoods/houston/downtown.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/houston/midtown.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/houston/montrose.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/houston/museum-district.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/houston/river-oaks.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/houston/the-heights.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <!-- Austin Neighborhoods -->
+  <url><loc>https://homeeasy.com/neighborhoods/austin/downtown.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/austin/east-austin.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/austin/mueller.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/austin/south-congress.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/austin/the-domain.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/austin/zilker.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <!-- San Antonio Neighborhoods -->
+  <url><loc>https://homeeasy.com/neighborhoods/san-antonio/alamo-heights.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/san-antonio/downtown.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/san-antonio/king-william.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/san-antonio/pearl-district.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/san-antonio/southtown.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/san-antonio/stone-oak.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <!-- Denver Neighborhoods -->
+  <url><loc>https://homeeasy.com/neighborhoods/denver/baker.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/denver/capitol-hill.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/denver/cherry-creek.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/denver/highlands.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/denver/lodo.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://homeeasy.com/neighborhoods/denver/rino.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+</urlset>

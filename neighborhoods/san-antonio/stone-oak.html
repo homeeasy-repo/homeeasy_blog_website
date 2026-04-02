@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noai, noimageai">
+    <title>Stone Oak Apartments San Antonio | 21 Buildings | HomeEasy</title>
+    <meta name="description" content="Stone Oak apartment data from 21 buildings (20 in our portfolio). Median rent $1,095/mo, $1.64/sqft. 9 buildings running concessions. New construction at low prices.">
+    <link rel="canonical" href="https://homeeasy.com/neighborhoods/san-antonio/stone-oak.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Stone Oak Apartments SA | 21 Buildings | HomeEasy">
+    <meta property="og:description" content="20 buildings in our portfolio. Median $1,095/mo. 9 running concessions. New construction starting at $886.">
+    <meta property="og:url" content="https://homeeasy.com/neighborhoods/san-antonio/stone-oak.html">
+    <meta property="og:site_name" content="HomeEasy">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Stone Oak SA Apartments | Real Data | HomeEasy">
+    <meta name="twitter:description" content="Median rent $1,095. 9 of 20 buildings running concessions. Stone Oak data from the source.">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "HomeEasy - Stone Oak San Antonio Apartment Locator",
+        "description": "Market data and apartment matching for Stone Oak, San Antonio. 20 buildings in our portfolio. Free for renters.",
+        "url": "https://homeeasy.com/neighborhoods/san-antonio/stone-oak.html",
+        "telephone": "+1-312-468-9893",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "332 S Michigan Ave, Suite 8th Floor",
+            "addressLocality": "Chicago",
+            "addressRegion": "IL",
+            "postalCode": "60604",
+            "addressCountry": "US"
+        },
+        "areaServed": {
+            "@type": "Neighborhood",
+            "name": "Stone Oak",
+            "containedInPlace": {
+                "@type": "City",
+                "name": "San Antonio",
+                "containedInPlace": {
+                    "@type": "State",
+                    "name": "Texas"
+                }
+            }
+        },
+        "priceRange": "Free",
+        "openingHours": "Mo-Su 00:00-23:59"
+    }
+    </script>
+
+    <style>
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .data-card {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 1.2rem;
+            text-align: center;
+        }
+        .data-card .number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy, #1a237e);
+            display: block;
+        }
+        .data-card .label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+        .building-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .building-table th {
+            background: var(--navy, #1a237e);
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .building-table td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid #eee;
+        }
+        .building-table tr:hover {
+            background: #f8f8ff;
+        }
+        .concession-tag {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .trade-off-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .trade-off-box .pro, .trade-off-box .con {
+            padding: 1.2rem;
+            border-radius: 8px;
+        }
+        .trade-off-box .pro {
+            background: #e8f5e9;
+            border-left: 4px solid #2e7d32;
+        }
+        .trade-off-box .con {
+            background: #fce4ec;
+            border-left: 4px solid #c62828;
+        }
+        .trade-off-box h4 {
+            margin: 0 0 0.5rem;
+            font-size: 0.95rem;
+        }
+        .trade-off-box p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        .compare-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.4rem 0;
+        }
+        .compare-bar .bar {
+            height: 20px;
+            background: var(--navy, #1a237e);
+            border-radius: 3px;
+            opacity: 0.7;
+        }
+        .compare-bar .bar.highlight {
+            opacity: 1;
+            background: var(--pink, #ff4081);
+        }
+        .compare-bar .hood-label {
+            width: 120px;
+            font-size: 0.8rem;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .compare-bar .bar-value {
+            font-size: 0.8rem;
+            font-weight: 600;
+            flex-shrink: 0;
+            width: 60px;
+        }
+        .budget-section {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .budget-section h3 {
+            margin-top: 0;
+        }
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #888;
+            font-style: italic;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        @media (max-width: 600px) {
+            .trade-off-box {
+                grid-template-columns: 1fr;
+            }
+            .building-table {
+                font-size: 0.8rem;
+            }
+            .building-table th, .building-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav scrolled" id="mainNav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo"><img src="../../images/logo.png" alt="HomeEasy"></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/#how-it-works">How It Works</a>
+                <a href="/#markets">Markets</a>
+                <a href="/blog/">Blog</a>
+                <a href="/data/">Market Data</a>
+                <a href="/#reviews">Reviews</a>
+                <a href="/#about">About</a>
+                <a href="/#contact">Contact</a>
+                <div class="nav-cta"><a href="/#contact" class="btn btn-pink btn-sm">Find Your Apartment</a></div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <section class="neighborhood-hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="neighborhood-hero-content">
+            <div class="breadcrumb"><a href="/">HomeEasy</a> &rsaquo; <a href="/markets/san-antonio.html">San Antonio</a> &rsaquo; Stone Oak</div>
+            <h1>Stone Oak, San Antonio</h1>
+            <p class="neighborhood-subtitle">20 buildings in our portfolio. Median rent $1,095. 9 running concessions right now.</p>
+        </div>
+    </section>
+
+    <section class="neighborhood-content">
+        <div class="neighborhood-layout">
+            <div class="neighborhood-main">
+
+                <div class="data-grid">
+                    <div class="data-card">
+                        <span class="number">21</span>
+                        <span class="label">Total Buildings</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">20</span>
+                        <span class="label">Buildings</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$1,095</span>
+                        <span class="label">Median Rent</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$1.64</span>
+                        <span class="label">Median $/sqft</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">9</span>
+                        <span class="label">Active Concessions</span>
+                    </div>
+                </div>
+
+                <h2>The Market</h2>
+
+                <p>Stone Oak is where the math works best in San Antonio. 20 buildings in our portfolio. New construction. $1.64/sqft median. Entry at $886. Nearly half the buildings running concessions. If your priority is getting the newest apartment with the most space for the least money, this is the neighborhood.</p>
+
+                <p>The trade-off is location. Stone Oak sits in far north San Antonio along US-281 and Loop 1604 -- about 25 minutes from downtown without traffic, longer during rush hour. This is master-planned suburban living. You need a car. There is no walkability to speak of. But the apartment stock is almost entirely post-2010 construction, which means modern floor plans, in-unit laundry, granite counters, and full amenity packages as standard. 9 of 20 buildings with active concessions tells you these buildings are competing hard for residents.</p>
+
+                <h2>How It Compares</h2>
+
+                <p>Stone Oak is the value play in San Antonio's inventory:</p>
+
+                <div style="margin: 1.5rem 0;">
+                    <div class="compare-bar">
+                        <span class="hood-label">Pearl District</span>
+                        <div class="bar" style="width: 160px;"></div>
+                        <span class="bar-value">$2.20</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Downtown</span>
+                        <div class="bar" style="width: 158px;"></div>
+                        <span class="bar-value">$2.18</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Rim/La Cantera</span>
+                        <div class="bar" style="width: 147px;"></div>
+                        <span class="bar-value">$2.02</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label" style="font-weight:700;">Stone Oak</span>
+                        <div class="bar highlight" style="width: 119px;"></div>
+                        <span class="bar-value" style="color: var(--pink, #ff4081);">$1.64</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Alamo Heights</span>
+                        <div class="bar" style="width: 113px;"></div>
+                        <span class="bar-value">$1.56</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Medical Center</span>
+                        <div class="bar" style="width: 105px;"></div>
+                        <span class="bar-value">$1.45</span>
+                    </div>
+                </div>
+
+                <p>25% cheaper per square foot than the Pearl District. 25% cheaper than downtown. And the buildings are newer. The price you pay is the commute.</p>
+
+                <h2>The Trade-Offs</h2>
+
+                <div class="trade-off-box">
+                    <div class="pro">
+                        <h4>What You Get</h4>
+                        <p>New construction at low prices. 20 buildings means real selection -- you can comparison shop. 9 with concessions. Modern amenities as standard. Family-oriented with good schools in the NEISD system. Hill Country scenery. Eisenhower Park nearby for hiking.</p>
+                    </div>
+                    <div class="con">
+                        <h4>What You Give Up</h4>
+                        <p>Suburban. Car required for everything. 25+ minutes to downtown. No walkability -- shopping and dining are clustered at major intersections, not along walkable streets. If you work downtown, the commute will define your daily life.</p>
+                    </div>
+                </div>
+
+                <h2>What's Happening in the Market</h2>
+
+                <p>Stone Oak has been in a building cycle for over a decade. New complexes keep coming online, which drives competition between buildings. When 9 of 20 buildings are running concessions, that is market dynamics working in your favor -- buildings that need to fill units give away months free, waive admin fees, or offer look-and-lease specials.</p>
+
+                <p>Montecristo at $1.22/sqft from $886 is the floor. The Ravinia at $1.28/sqft from $988 is the next step up. Both are well below the neighborhood median, meaning even within Stone Oak there is a wide value range. The best deals go to renters who are flexible on exact location within the Stone Oak area and willing to sign longer leases.</p>
+
+                <h2>Buildings by Value ($/sqft)</h2>
+
+                <p>Buildings ranked by price per square foot -- lowest first.</p>
+
+                <table class="building-table">
+                    <thead>
+                        <tr>
+                            <th>Building</th>
+                            <th>$/sqft</th>
+                            <th>From</th>
+                            <th>Concession</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Montecristo</td>
+                            <td>$1.22</td>
+                            <td>$886</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>The Ravinia</td>
+                            <td>$1.28</td>
+                            <td>$988</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="disclaimer">Data from HomeEasy buildings only. Prices reflect starting rents and may vary by unit, floor, and lease term. Concessions change frequently -- verify current availability with us. 15 additional buildings in Stone Oak are not shown due to incomplete $/sqft data.</p>
+
+                <div class="budget-section">
+                    <h3>What Your Budget Gets You Here</h3>
+                    <p><strong>Under $1,000/mo:</strong> Montecristo from $886, The Ravinia from $988. New construction, full amenities. This is under $1,000 for a modern apartment in a major American city. Concessions can push effective rent even lower.</p>
+                    <p><strong>$1,000-$1,300/mo:</strong> The median band. Multiple buildings competing at this price point. Expect in-unit laundry, pools, fitness centers, updated finishes. This is where most Stone Oak renters land.</p>
+                    <p><strong>$1,300-$1,792/mo:</strong> Top of range. Larger 2-bedroom units, premium finishes, top-floor locations. At $1,792 in Stone Oak you are getting what $2,500+ buys in most Texas downtowns.</p>
+                </div>
+
+                <h2>Getting Around</h2>
+
+                <p>Car required. Walk Score is around 30. US-281 and Loop 1604 are your main arteries. Shopping, dining, and services cluster at major intersections -- Stone Oak Parkway, The Rim, La Cantera. VIA bus service exists but is limited. If you work in the Stone Oak medical corridor or at nearby military installations, the commute is short. If you work downtown, budget 25-40 minutes each way.</p>
+
+                <h2>Who Does Well Here</h2>
+
+                <p>Families who want new construction and good schools at a price that leaves room in the budget. Military personnel at nearby bases. Healthcare workers at the Stone Oak medical corridor. Anyone who prioritizes apartment quality and price over walkability and nightlife. If you need to be in the action, look at the Pearl District or Downtown. If you want the best apartment for the money, Stone Oak is it.</p>
+
+                <div class="article-cta">
+                    <h3>Tell Us Your Budget</h3>
+                    <p>We track 21 buildings and work with 20 buildings in Stone Oak, plus 1,959 total across San Antonio (1,118 in our portfolio). Send us your budget and move-in date -- we will show you which buildings have concessions and where your dollar goes furthest.</p>
+                    <a href="/#contact" class="btn btn-pink">See What's Available</a>
+                </div>
+
+                <h2>Nearby Neighborhoods</h2>
+                <ul>
+                    <li><a href="/neighborhoods/san-antonio/alamo-heights.html">Alamo Heights</a> -- $1.56/sqft. 3 buildings. Affluent enclave, top schools.</li>
+                    <li><a href="/neighborhoods/san-antonio/pearl-district.html">Pearl District</a> -- $2.20/sqft median. 20 buildings in our portfolio. SA's food and culture scene.</li>
+                    <li><a href="/neighborhoods/san-antonio/downtown.html">Downtown</a> -- $2.18/sqft median. 30 buildings in our portfolio. Entry at $554.</li>
+                    <li><a href="/neighborhoods/san-antonio/southtown.html">Southtown</a> -- 4 buildings in our portfolio. Art walks, restaurants.</li>
+                </ul>
+            </div>
+
+            <div class="neighborhood-sidebar">
+                <div class="sidebar-card">
+                    <h4>Stone Oak -- The Numbers</h4>
+                    <div class="sidebar-stat">
+                        <span class="label">Total Buildings</span>
+                        <span class="value">21</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Buildings</span>
+                        <span class="value">20</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Median Rent</span>
+                        <span class="value">$1,095/mo</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Rent Range</span>
+                        <span class="value">$886 - $1,792</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Median $/sqft</span>
+                        <span class="value">$1.64</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Active Concessions</span>
+                        <span class="value">9 of 20 buildings</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Best Value</span>
+                        <span class="value">$1.22/sqft (Montecristo)</span>
+                    </div>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Pro</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">New construction at low prices. 20 buildings. Good selection with active concessions.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Con</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Suburban. Car required. 25+ minutes from downtown.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>See What's Available</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem;">Send us your budget and move-in date. We will match you with Stone Oak buildings that fit.</p>
+                    <a href="/#contact" class="btn btn-pink btn-sm" style="width:100%;text-align:center;">Start</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="../../images/logo.png" alt="HomeEasy">
+                <p>Market data and apartment matching across 85,000+ buildings. Free for renters, always.</p>
+            </div>
+            <div><h4>Company</h4><ul><li><a href="/#about">About</a></li><li><a href="/#how-it-works">How It Works</a></li><li><a href="/blog/">Blog</a></li><li><a href="/privacy.html">Privacy Policy</a></li></ul></div>
+            <div><h4>Markets</h4><ul><li><a href="/markets/chicago.html">Chicago</a></li><li><a href="/markets/dfw.html">Dallas-Fort Worth</a></li><li><a href="/markets/houston.html">Houston</a></li><li><a href="/markets/austin.html">Austin</a></li><li><a href="/markets/san-antonio.html">San Antonio</a></li><li><a href="/markets/denver.html">Denver</a></li></ul></div>
+            <div><h4>Contact</h4><div class="footer-contact-info"><p>332 S Michigan Ave<br>Suite 8th Floor<br>Chicago, IL 60604</p><p><a href="tel:+13124689893">(312) 468-9893</a></p></div></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 HomeEasy | Broker Services Co, Inc.</p><p><a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a></p></div>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>

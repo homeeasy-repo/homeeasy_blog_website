@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noai, noimageai">
+    <title>West Loop Apartments Chicago | 62 Buildings, Real Pricing Data | HomeEasy</title>
+    <meta name="description" content="West Loop apartment data from 76 buildings — 62 in our portfolio. Median $4.45/sqft — highest in downtown Chicago. Real prices, real trade-offs. Part of 2,763 buildings across Chicago.">
+    <link rel="canonical" href="https://homeeasy.com/neighborhoods/chicago/west-loop.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="West Loop Apartments | 62 Buildings | HomeEasy">
+    <meta property="og:description" content="62 buildings in our portfolio. $4.45/sqft median — most expensive in downtown Chicago. Part of 2,763 buildings across Chicago metro.">
+    <meta property="og:url" content="https://homeeasy.com/neighborhoods/chicago/west-loop.html">
+    <meta property="og:site_name" content="HomeEasy">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="West Loop Apartments | 62 Buildings | HomeEasy">
+    <meta name="twitter:description" content="62 buildings in our portfolio. $4.45/sqft median — highest in Chicago. West Loop apartment data from the source.">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "HomeEasy - West Loop Chicago Apartment Locator",
+        "description": "Market data and apartment matching for West Loop, Chicago. 62 buildings in our portfolio. Free for renters.",
+        "url": "https://homeeasy.com/neighborhoods/chicago/west-loop.html",
+        "telephone": "+1-312-468-9893",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "332 S Michigan Ave, Suite 8th Floor",
+            "addressLocality": "Chicago",
+            "addressRegion": "IL",
+            "postalCode": "60604",
+            "addressCountry": "US"
+        },
+        "areaServed": {
+            "@type": "Neighborhood",
+            "name": "West Loop",
+            "containedInPlace": {
+                "@type": "City",
+                "name": "Chicago",
+                "containedInPlace": {
+                    "@type": "State",
+                    "name": "Illinois"
+                }
+            }
+        },
+        "priceRange": "Free",
+        "openingHours": "Mo-Su 00:00-23:59"
+    }
+    </script>
+
+    <style>
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .data-card {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 1.2rem;
+            text-align: center;
+        }
+        .data-card .number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy, #1a237e);
+            display: block;
+        }
+        .data-card .label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+        .building-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .building-table th {
+            background: var(--navy, #1a237e);
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .building-table td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid #eee;
+        }
+        .building-table tr:hover {
+            background: #f8f8ff;
+        }
+        .concession-tag {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .trade-off-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .trade-off-box .pro, .trade-off-box .con {
+            padding: 1.2rem;
+            border-radius: 8px;
+        }
+        .trade-off-box .pro {
+            background: #e8f5e9;
+            border-left: 4px solid #2e7d32;
+        }
+        .trade-off-box .con {
+            background: #fce4ec;
+            border-left: 4px solid #c62828;
+        }
+        .trade-off-box h4 {
+            margin: 0 0 0.5rem;
+            font-size: 0.95rem;
+        }
+        .trade-off-box p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        .compare-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.4rem 0;
+        }
+        .compare-bar .bar {
+            height: 20px;
+            background: var(--navy, #1a237e);
+            border-radius: 3px;
+            opacity: 0.7;
+        }
+        .compare-bar .bar.highlight {
+            opacity: 1;
+            background: var(--pink, #ff4081);
+        }
+        .compare-bar .hood-label {
+            width: 100px;
+            font-size: 0.8rem;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .compare-bar .bar-value {
+            font-size: 0.8rem;
+            font-weight: 600;
+            flex-shrink: 0;
+            width: 60px;
+        }
+        .budget-section {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .budget-section h3 {
+            margin-top: 0;
+        }
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #888;
+            font-style: italic;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        @media (max-width: 600px) {
+            .trade-off-box {
+                grid-template-columns: 1fr;
+            }
+            .building-table {
+                font-size: 0.8rem;
+            }
+            .building-table th, .building-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav scrolled" id="mainNav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo"><img src="../../images/logo.png" alt="HomeEasy"></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/#how-it-works">How It Works</a>
+                <a href="/#markets">Markets</a>
+                <a href="/blog/">Blog</a>
+                <a href="/data/">Market Data</a>
+                <a href="/#reviews">Reviews</a>
+                <a href="/#about">About</a>
+                <a href="/#contact">Contact</a>
+                <div class="nav-cta"><a href="/#contact" class="btn btn-pink btn-sm">Find Your Apartment</a></div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <section class="neighborhood-hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="neighborhood-hero-content">
+            <div class="breadcrumb"><a href="/">HomeEasy</a> &rsaquo; <a href="/markets/chicago.html">Chicago</a> &rsaquo; West Loop</div>
+            <h1>West Loop, Chicago</h1>
+            <p class="neighborhood-subtitle">76 buildings tracked. 62 in our portfolio. $4.45/sqft median — highest in downtown Chicago. Part of 2,763 buildings across Chicago.</p>
+        </div>
+    </section>
+
+    <section class="neighborhood-content">
+        <div class="neighborhood-layout">
+            <div class="neighborhood-main">
+
+                <div class="data-grid">
+                    <div class="data-card">
+                        <span class="number">76</span>
+                        <span class="label">Buildings Tracked</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">62</span>
+                        <span class="label">Buildings</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$4.45</span>
+                        <span class="label">Median $/sqft</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$1,660–$10,129</span>
+                        <span class="label">Rent Range</span>
+                    </div>
+                </div>
+
+                <h2>The Market</h2>
+
+                <p>Restaurant Row. Randolph Street. The dining capital of Chicago. The West Loop is also the most expensive near-downtown rental market in the city. At $4.45/sqft median, you're paying more here than Streeterville ($4.30), River North ($4.25), or anywhere else downtown.</p>
+
+                <p>What you're paying for: the food scene and the converted warehouse aesthetic. Fulton Market, Randolph Street, the loft conversions with exposed timber and brick — that's the product. It's real. It's also priced accordingly.</p>
+
+                <p>We track 76 buildings in the West Loop — 62 of which are in our portfolio directly. Even the most expensive neighborhood in Chicago has vacancy pressure. Buildings don't give away free rent when they're full. That's leverage if you know how to use it.</p>
+
+                <h2>How It Compares</h2>
+
+                <p>The West Loop sits at the top of the price chart. Here's what you're choosing between:</p>
+
+                <div style="margin: 1.5rem 0;">
+                    <div class="compare-bar">
+                        <span class="hood-label" style="font-weight:700;">West Loop</span>
+                        <div class="bar highlight" style="width: 160px;"></div>
+                        <span class="bar-value" style="color: var(--pink, #ff4081);">$4.45</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Streeterville</span>
+                        <div class="bar" style="width: 155px;"></div>
+                        <span class="bar-value">$4.30</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">River North</span>
+                        <div class="bar" style="width: 153px;"></div>
+                        <span class="bar-value">$4.25</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Gold Coast</span>
+                        <div class="bar" style="width: 153px;"></div>
+                        <span class="bar-value">$4.25</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">The Loop</span>
+                        <div class="bar" style="width: 152px;"></div>
+                        <span class="bar-value">$4.23</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Lincoln Park</span>
+                        <div class="bar" style="width: 145px;"></div>
+                        <span class="bar-value">$4.03</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Lakeview</span>
+                        <div class="bar" style="width: 143px;"></div>
+                        <span class="bar-value">$3.98</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">South Loop</span>
+                        <div class="bar" style="width: 140px;"></div>
+                        <span class="bar-value">$3.90</span>
+                    </div>
+                </div>
+
+                <p>The South Loop gets you 14% more square footage for the same dollar. The Loop is 5% cheaper and has better transit. The West Loop premium is the neighborhood itself — walkable restaurants, the warehouse character, the Fulton Market energy. You're paying for that zip code.</p>
+
+                <h2>The Trade-Offs</h2>
+
+                <div class="trade-off-box">
+                    <div class="pro">
+                        <h4>What You Get</h4>
+                        <p>Best restaurant density in Chicago, hands down. Walk to dinner every night of the week without repeating. Converted lofts with genuine industrial character. Walkable nightlife that skews older and more interesting than the River North bar scene. Fulton Market is where Chicago eats.</p>
+                    </div>
+                    <div class="con">
+                        <h4>What You Give Up</h4>
+                        <p>Most expensive $/sqft in downtown Chicago — you're paying for the zip code. Transit is weaker than The Loop or River North: Green and Pink lines run on the edges, but much of the neighborhood lacks a direct L station. No lakefront access. Under $2,000/mo exists but barely.</p>
+                    </div>
+                </div>
+
+                <h2>What's Happening in the Market</h2>
+
+                <p>The West Loop building stock spans 63 years — from Presidential Towers (1983) to new construction delivered in 2024. The newer builds are clustered around Fulton Market and south of Randolph, pushing the high end past $10,000 for premium units.</p>
+
+                <p>But the concession data tells the real story. With 62 buildings in our portfolio, the supply caught up with the hype. New inventory keeps coming online, and even at $4.45/sqft median, buildings have to compete for tenants. Concessions aren't permanent — they exist because units are empty. When they fill, the specials go away.</p>
+
+                <p>The loft conversions — Gin Alley, the old Fulton Market warehouse buildings — are the character plays. They're also where you find some of the best $/sqft value in the neighborhood. New construction commands top dollar. The older stock, if you can handle the vintage layouts, is where the pricing gaps live.</p>
+
+                <h2>Buildings by Value ($/sqft)</h2>
+
+                <p>These are buildings ranked by price per square foot — lowest first. This is where your dollar goes furthest in the West Loop.</p>
+
+                <table class="building-table">
+                    <thead>
+                        <tr>
+                            <th>Building</th>
+                            <th>$/sqft</th>
+                            <th>From</th>
+                            <th>Built</th>
+                            <th>Concession</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>The Lofts at Gin Alley</td>
+                            <td>$3.19</td>
+                            <td>$3,486</td>
+                            <td>1961</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Presidential Towers</td>
+                            <td>$3.52</td>
+                            <td>$1,660</td>
+                            <td>1983</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Monroe Aberdeen Place</td>
+                            <td>$3.60</td>
+                            <td>$3,599</td>
+                            <td>2018</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>TRIO Apartments</td>
+                            <td>$3.60</td>
+                            <td>$2,533</td>
+                            <td>2018</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Luxe on Madison</td>
+                            <td>$3.65</td>
+                            <td>$2,374</td>
+                            <td>2020</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="disclaimer">Data from HomeEasy buildings only. Prices reflect starting rents and may vary by unit, floor, and lease term. Concessions change frequently — verify current availability with us.</p>
+
+                <div class="budget-section">
+                    <h3>What Your Budget Gets You Here</h3>
+                    <p><strong>Under $2,000/mo:</strong> Presidential Towers. Built 1983, massive complex, functional but not fancy. At $1,660 start and $3.52/sqft, it's the budget entry point to the West Loop. It exists — barely. This is not what most people picture when they say "West Loop apartment."</p>
+                    <p><strong>$2,000–$2,500/mo:</strong> Luxe on Madison ($2,374 start, 2020 construction) and TRIO Apartments ($2,533, built 2018). This is where the real West Loop starts. Modern finishes, in-unit laundry, rooftop amenities. Concessions can shave $150–$250/mo off effective rent.</p>
+                    <p><strong>$2,500–$3,500/mo:</strong> The core of the market. Monroe Aberdeen Place, TRIO's larger units, and several newer mid-rises. One-bedrooms with Fulton Market walkability and contemporary finishes. This is the price range where most West Loop renters land.</p>
+                    <p><strong>$3,500+:</strong> The Lofts at Gin Alley (warehouse conversion with character — $3,486 start at $3.19/sqft is actually strong value for the size). Premium two-bedrooms in newer builds. Units pushing toward $10,000+ exist at the top end for penthouses and large floorplans.</p>
+                </div>
+
+                <h2>Getting Around</h2>
+
+                <p>Green and Pink lines serve the West Loop along Lake Street, with Morgan station as the main hub. That gets you to the Loop in a few minutes. But here's the honest take: much of the neighborhood — especially the Fulton Market and Randolph Street corridor — is a 10-15 minute walk from the nearest L station. It's not River North, where you trip over a Brown Line entrance every three blocks.</p>
+
+                <p>Bus routes fill the gaps. The #8 Halsted and #20 Madison run frequently. Cycling is popular — the neighborhood is flat, relatively compact, and the Loop is a straight shot east. Driving is fine but parking ranges from tight to expensive depending on the block.</p>
+
+                <h2>Who Does Well Here</h2>
+
+                <p>Foodies who want to walk to dinner every night without getting in a car. People who want walkable nightlife without the River North scene — the West Loop crowd skews older, more interesting. Creative professionals and tech workers who value the warehouse aesthetic. People who care more about what's on the street than what's in the building.</p>
+
+                <p>If your budget is under $2,000 and you're not willing to live in Presidential Towers, the West Loop isn't your neighborhood. Look at the South Loop ($3.90/sqft) or Lakeview ($3.98/sqft) for significantly more apartment per dollar. If the restaurant scene is why you moved to Chicago, this is the neighborhood that earns its premium.</p>
+
+                <div class="article-cta">
+                    <h3>Tell Us Your Budget</h3>
+                    <p>We track 76 buildings and work with 62 buildings in the West Loop. Send us your budget and move-in date — we'll show you what's available and what concessions you qualify for.</p>
+                    <a href="/#contact" class="btn btn-pink">See What's Available</a>
+                </div>
+
+                <h2>Nearby Neighborhoods</h2>
+                <ul>
+                    <li><a href="/neighborhoods/chicago/the-loop.html">The Loop</a> — 95 buildings. $4.23/sqft median. Better transit, 5% cheaper per square foot.</li>
+                    <li><a href="/neighborhoods/chicago/south-loop.html">South Loop</a> — 102 buildings. $3.90/sqft median. Lakefront access, 14% cheaper.</li>
+                    <li><a href="/neighborhoods/chicago/wicker-park.html">Wicker Park</a> — 22 buildings. Creative energy to the northwest.</li>
+                    <li><a href="/neighborhoods/chicago/river-north.html">River North</a> — 81 buildings. $4.25/sqft median. Nightlife and galleries.</li>
+                </ul>
+            </div>
+
+            <div class="neighborhood-sidebar">
+                <div class="sidebar-card">
+                    <h4>West Loop — The Numbers</h4>
+                    <div class="sidebar-stat">
+                        <span class="label">Buildings Tracked</span>
+                        <span class="value">76</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Buildings</span>
+                        <span class="value">62</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Rent Range</span>
+                        <span class="value">$1,660 – $10,129</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Median $/sqft</span>
+                        <span class="value">$4.45</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Chicago Metro Buildings</span>
+                        <span class="value">2,763</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Year Built Range</span>
+                        <span class="value">1961 – 2024</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Best Value</span>
+                        <span class="value">$3.19/sqft (Lofts at Gin Alley)</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Budget Entry</span>
+                        <span class="value">$1,660 (Presidential Towers)</span>
+                    </div>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Pro</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Best restaurant density in Chicago, hands down. Walk to dinner every night of the week.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Con</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Most expensive $/sqft in downtown Chicago. You're paying for the zip code.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>See What's Available</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem;">Send us your budget and move-in date. We'll match you with West Loop buildings that fit.</p>
+                    <a href="/#contact" class="btn btn-pink btn-sm" style="width:100%;text-align:center;">Start</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="../../images/logo.png" alt="HomeEasy">
+                <p>Market data and apartment matching across 85,000+ buildings. Free for renters, always.</p>
+            </div>
+            <div><h4>Company</h4><ul><li><a href="/#about">About</a></li><li><a href="/#how-it-works">How It Works</a></li><li><a href="/blog/">Blog</a></li><li><a href="/privacy.html">Privacy Policy</a></li></ul></div>
+            <div><h4>Markets</h4><ul><li><a href="/markets/chicago.html">Chicago</a></li><li><a href="/markets/dfw.html">Dallas-Fort Worth</a></li><li><a href="/markets/houston.html">Houston</a></li><li><a href="/markets/austin.html">Austin</a></li><li><a href="/markets/san-antonio.html">San Antonio</a></li><li><a href="/markets/denver.html">Denver</a></li></ul></div>
+            <div><h4>Contact</h4><div class="footer-contact-info"><p>332 S Michigan Ave<br>Suite 8th Floor<br>Chicago, IL 60604</p><p><a href="tel:+13124689893">(312) 468-9893</a></p></div></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 HomeEasy | Broker Services Co, Inc.</p><p><a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a></p></div>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>

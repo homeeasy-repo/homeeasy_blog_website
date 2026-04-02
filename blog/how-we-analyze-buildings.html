@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noai, noimageai">
+  <title>How We Analyze 85,000+ Buildings | HomeEasy Blog</title>
+  <meta name="description" content="Under the hood of HomeEasy's AI: how we aggregate data from thousands of sources, detect pricing anomalies, and identify the best apartment deals across eight major metros.">
+  <link rel="canonical" href="https://homeeasy.com/blog/how-we-analyze-buildings.html">
+  <meta property="og:title" content="How We Analyze 85,000+ Buildings">
+  <meta property="og:description" content="Under the hood of HomeEasy's AI: data aggregation, pricing anomaly detection, and how we find the best apartment deals across eight major metros.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://homeeasy.com/blog/how-we-analyze-buildings.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How We Analyze 85,000+ Buildings">
+  <meta name="twitter:description" content="Under the hood of HomeEasy's AI: data sources, pricing anomaly detection, and the methodology behind finding the best apartment deals.">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How We Analyze 85,000+ Buildings",
+    "datePublished": "2024-02-14",
+    "author": { "@type": "Person", "name": "Mukund Chopra" },
+    "publisher": { "@type": "Organization", "name": "HomeEasy" },
+    "description": "Under the hood of HomeEasy's AI: how we aggregate data from thousands of sources, detect pricing anomalies, and identify the best apartment deals across eight major metros."
+  }
+  </script>
+</head>
+<body>
+  <nav class="nav scrolled" id="mainNav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><img src="../images/logo.png" alt="HomeEasy"></a>
+      <div class="nav-links" id="navLinks">
+        <a href="/#how-it-works">How It Works</a>
+        <a href="/#markets">Markets</a>
+        <a href="/blog/">Blog</a>
+        <a href="/data/">Market Data</a>
+        <a href="/#reviews">Reviews</a>
+        <a href="/#about">About</a>
+        <a href="/#contact">Contact</a>
+        <div class="nav-cta"><a href="/#contact" class="btn btn-pink btn-sm">Find Your Apartment</a></div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <section class="article-hero">
+    <div class="article-hero-inner">
+      <span class="category">Technology</span>
+      <h1>How We Analyze 85,000+ Buildings</h1>
+      <p class="article-meta">February 14, 2024 &bull; 10 min read</p>
+    </div>
+  </section>
+
+  <article class="article-content">
+    <p>When someone asks how HomeEasy works, I usually give the short version: we analyze pricing data across 85,000+ buildings to find apartments priced below comparable properties. That answer is accurate but incomplete. The real answer involves data infrastructure, building knowledge databases, matching algorithms, and signal intelligence that took years to build. Here is the long version.</p>
+
+    <h2>The Data Sources</h2>
+
+    <p>Everything starts with data, and in apartment markets, data is fragmented across dozens of sources. There is no single database of all apartments for rent in America. No Bloomberg terminal for rental pricing. The data is scattered, inconsistent, and often out of date. Assembling it into something useful is the first technical challenge.</p>
+
+    <p>Our data comes from multiple categories of sources:</p>
+
+    <p><strong>Building websites.</strong> Most large apartment buildings maintain their own websites with current pricing and availability. These are the most reliable and most up-to-date sources. We track these continuously. When a building updates a price, we see it.</p>
+
+    <p><strong>Listing aggregators.</strong> Apartments.com, Zillow, Rent.com, and similar platforms aggregate listings from buildings and brokers. These are useful for coverage (they have listings from buildings that do not maintain their own websites) but can be stale. A price on Apartments.com might be days or weeks behind the building's actual current pricing.</p>
+
+    <p><strong>MLS data.</strong> In some markets, particularly where apartment locators use the Multiple Listing Service, MLS data provides structured information about available units including pricing, square footage, and floor plans.</p>
+
+    <p><strong>Public records.</strong> County assessor data provides building age, unit counts, ownership history, and tax assessment values. This is useful for inferring building quality and financial health. A building with a recent tax assessment increase likely received renovations. A building that changed ownership recently may be adjusting its pricing strategy.</p>
+
+    <p><strong>Our building knowledge database.</strong> This is our proprietary layer. Over years of operations, we have built enriched profiles on 76,688 buildings: management company reputation, maintenance responsiveness, pet policies, actual (not listed) amenity quality, and lease terms. This knowledge is gathered from 43,245 logged building interactions, 37,037 verified leasing contacts, and systematic outreach across all six metros. It includes intelligence you will not find on any listing site: which buildings accept Housing Choice Vouchers, which software system each building runs (Yardi, RealPage, ResMan, or MRI), and whether a building offers self-guided tours, walk-in showings, or requires scheduled appointments.</p>
+
+    <h2>What We Track Per Building</h2>
+
+    <p>For each building in our database, we maintain a comprehensive profile. Here is what it includes:</p>
+
+    <p><strong>Unit pricing.</strong> Current asking rent for every available unit type, updated as the building changes prices. This includes base rent, concessions (free months, reduced deposits), and additional fees (parking, pet, storage, utilities). We calculate the net effective rent: the total you will actually pay over the lease term, divided by the number of months.</p>
+
+    <p><strong>Square footage.</strong> Unit sizes by floor plan, which allows rent-per-sqft calculations for benchmarking against comparable properties.</p>
+
+    <p><strong>Amenities.</strong> Building-level amenities (gym, pool, rooftop, package room, concierge) and unit-level amenities (in-unit laundry, dishwasher, balcony, renovated finishes). These factor into quality tier classification.</p>
+
+    <p><strong>Pet policies.</strong> Whether pets are allowed, breed restrictions, weight limits, pet deposits, and monthly pet rent. This is a non-negotiable filter for a significant percentage of our clients.</p>
+
+    <p><strong>Availability signals.</strong> Whether the building is actively seeking new tenants and how urgently. Buildings that need to fill units quickly often offer better terms. We track these signals systematically.</p>
+
+    <div class="highlight-box">
+      <p><strong>The urgency signal:</strong> When a building changes its marketing posture, it tells us about occupancy confidence. A building that pulls back on incentives is signaling strong demand. A building that starts offering aggressive move-in specials is signaling it needs to fill units fast. These shifts are leading indicators of pricing changes — and they often happen weeks before the listing sites reflect the new reality.</p>
+    </div>
+
+    <p><strong>Showing type intelligence.</strong> How you actually tour a building matters. We have classified over 13,000 buildings by showing method: 11,359 accept walk-in tours, 1,276 require scheduling, and 601 offer self-guided or key-based access. This lets us route you to buildings where you can tour today, not next Tuesday.</p>
+
+    <p><strong>Section 8 voucher acceptance.</strong> We have verified voucher acceptance status on over 16,000 buildings. Acceptance rates vary dramatically by market: 81% in Chicago (where source-of-income discrimination is banned by ordinance), 77% in Denver, but only 24% in DFW. For voucher holders, this data eliminates the most painful part of the search: calling 50 buildings and getting rejected by 40.</p>
+
+    <p><strong>Property management software.</strong> We track which software system each building uses: 9,307 buildings on Yardi, 3,131 on OneSite/RealPage, 1,543 on ResMan, 954 on MRI. This matters because the software determines how pricing is set, how quickly availability updates, and how lease applications are processed.</p>
+
+    <p><strong>Management company data.</strong> Who operates the building, their portfolio size, their reputation score (based on aggregated reviews and our own interaction history), and their typical operating practices. Some management companies are known for aggressive rent increases at renewal. Some are known for slow maintenance. Some are known for flexible lease terms. This matters for the client experience beyond just the initial lease price.</p>
+
+    <p><strong>Geographic coordinates.</strong> Every building is geolocated with precise latitude and longitude. This is the foundation of our comparison methodology. When we benchmark a building's pricing against comparable properties, the comparison set is defined by geographic proximity (within 1 mile), not by neighborhood name or zip code. Geographic coordinates do not lie. Neighborhood labels are marketing decisions.</p>
+
+    <h2>The Matching Algorithm</h2>
+
+    <p>When a client tells us what they are looking for, the matching process is more sophisticated than applying filters to a database. Here is how it works.</p>
+
+    <p><strong>Step 1: Hard filters.</strong> We eliminate units that fail the client's non-negotiable criteria. If they need a 2BR, studios and 1BRs are out. If their budget is $1,800, units above $1,800 (net effective, after concessions) are out. If they need to allow a 60-pound dog, buildings with 30-pound weight limits are out. These are binary filters that reduce the universe of 85,000+ buildings to a manageable subset.</p>
+
+    <p><strong>Step 2: Preference weighting.</strong> Clients have preferences that are not binary. They prefer to be near transit, but it is not required. They prefer in-unit laundry, but they will consider on-site laundry for the right price. They prefer a gym, but it is not a deal-breaker. Each preference is weighted based on how important the client indicated it is. A unit that matches 4 out of 5 preferences at a better price will rank above a unit that matches 5 out of 5 at a higher price.</p>
+
+    <p><strong>Step 3: Value scoring.</strong> Every unit that passes the hard filters and preference weighting receives a value score. This score compares the unit's net effective rent-per-sqft against the median for comparable units within 1 mile. Units priced below the comparable median receive higher scores. Units priced above receive lower scores. This is the rent arbitrage layer: we prioritize units where you are getting more value per dollar than the surrounding market.</p>
+
+    <p><strong>Step 4: Quality signals.</strong> The value score is adjusted by quality signals: building age, management company reputation, recent reviews, availability trend changes, and our own historical data on client satisfaction with the building. A unit that is cheap but managed by a company with a 2-star average rating gets penalized. A unit at a slight premium but managed by a top-rated company gets a boost.</p>
+
+    <p><strong>Step 5: Ranked shortlist.</strong> The output is a ranked list of 5-10 units, ordered by overall value adjusted for quality. Each recommendation comes with context: why this building made the shortlist, how its pricing compares to the neighborhood, what concessions are available, and any notable details from our building knowledge database.</p>
+
+    <h2>The Human Verification Layer</h2>
+
+    <p>The algorithm generates the shortlist. But algorithms are not infallible. They can be wrong about building quality. They can miss factors that are not in the data: a construction site next door, a poorly lit parking garage, a building that photographs well but feels neglected in person.</p>
+
+    <p>Before final recommendations go to a client, they pass through a verification layer. This is where human judgment enters: does this building actually deliver on what the data suggests? Are there red flags in recent reviews that the algorithm might underweight? Is there local context (a nearby development project, a management change, a recent incident) that affects the recommendation?</p>
+
+    <p>This hybrid approach, algorithm-generated shortlists refined by human judgment, is what separates useful AI from reckless automation. The algorithm handles scale and precision. The humans handle nuance and verification.</p>
+
+    <h2>What Makes This Hard</h2>
+
+    <p>Building this system is technically challenging for reasons that are not obvious from the outside.</p>
+
+    <p><strong>Data freshness.</strong> Apartment pricing changes constantly. A price that was accurate this morning might be different this afternoon. Keeping 85,000+ building profiles current requires continuous data collection and processing. Stale data is worse than no data because it creates false confidence.</p>
+
+    <p><strong>Entity resolution.</strong> The same building appears under different names on different platforms. "The Lofts at River East" on Apartments.com, "River East Lofts" on Zillow, "456 E Illinois" on its own website. Matching these to a single building record without duplication or confusion requires sophisticated entity resolution. We use geographic coordinates as the primary matching key, not building names, because coordinates are unambiguous while names are not.</p>
+
+    <p><strong>Concession normalization.</strong> "One month free" on a 12-month lease is a different discount than "one month free" on a 14-month lease. "Two months free" with a $500/month parking fee baked in is different from "two months free" with parking included. Normalizing all concession structures to a consistent net effective rent requires parsing the specific terms of each offer.</p>
+
+    <p>These are solvable problems, but they require infrastructure that takes years to build. The moat in apartment intelligence is not the algorithm. It is the data layer underneath it.</p>
+
+    <h2>What You Get</h2>
+
+    <p>The output of all this infrastructure, from the renter's perspective, is simple: you tell us what you are looking for, and we give you a shortlist of the best-value apartments that match your criteria. Each recommendation is backed by data. Each comes with context about why it is a good deal. We have served over 126,000 clients and processed more than 390,000 messages through this system. And the entire process is free because buildings pay us when you sign a lease, not you.</p>
+
+    <p>The technology behind the simplicity is complex. But the value proposition is not: better information leads to better apartments at better prices.</p>
+
+    <div class="article-cta">
+      <h3>Let Our System Work for You</h3>
+      <p>HomeEasy's AI analyzes pricing data across 85,000+ buildings to find the best value for your budget. Tell us what you need, and we will find it. Free for renters, always.</p>
+      <a href="/#contact" class="btn btn-pink">Find Your Apartment</a>
+    </div>
+  </article>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../images/logo.png" alt="HomeEasy">
+        <p>AI-powered apartment locator analyzing pricing data across 85,000+ buildings. Free for renters, always.</p>
+      </div>
+      <div><h4>Company</h4><ul><li><a href="/#about">About</a></li><li><a href="/#how-it-works">How It Works</a></li><li><a href="/blog/">Blog</a></li><li><a href="/privacy.html">Privacy Policy</a></li></ul></div>
+      <div><h4>Markets</h4><ul><li><a href="/markets/chicago.html">Chicago</a></li><li><a href="/markets/dfw.html">Dallas-Fort Worth</a></li><li><a href="/markets/houston.html">Houston</a></li><li><a href="/markets/austin.html">Austin</a></li><li><a href="/markets/san-antonio.html">San Antonio</a></li><li><a href="/markets/denver.html">Denver</a></li></ul></div>
+      <div><h4>Contact</h4><div class="footer-contact-info"><p>332 S Michigan Ave<br>Suite 8th Floor<br>Chicago, IL 60604</p><p><a href="tel:+13124689893">(312) 468-9893</a></p></div></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 HomeEasy | Broker Services Co, Inc.</p><p><a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a></p></div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

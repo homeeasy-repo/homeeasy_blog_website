@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noai, noimageai">
+    <title>The Hive Mind | HomeEasy — Collective Intelligence Across 85,000+ Buildings</title>
+    <meta name="description" content="Five data streams, one intelligence layer: online data, offline calls, field observations, geolocation, and transaction history across 85,000+ buildings. Every HomeEasy agent knows every deal ever done.">
+    <link rel="canonical" href="https://homeeasy.com/building-intelligence.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="The Hive Mind | HomeEasy">
+    <meta property="og:description" content="Five data streams, one intelligence layer across 85,000+ buildings. Online data, offline calls, field observations, geolocation, and transaction history — collective intelligence no individual agent can match.">
+    <meta property="og:url" content="https://homeeasy.com/building-intelligence.html">
+    <meta property="og:site_name" content="HomeEasy">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Building Intelligence | HomeEasy">
+    <meta name="twitter:description" content="What we know about 76,000+ buildings that listing sites don't. Free for renters.">
+
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "HomeEasy Building Intelligence",
+        "description": "HomeEasy's proprietary building intelligence database covers 76,000+ apartment buildings across 8 markets with verified approval policies, showing procedures, and pricing data.",
+        "url": "https://homeeasy.com/building-intelligence.html",
+        "publisher": {
+            "@type": "Organization",
+            "name": "HomeEasy",
+            "url": "https://homeeasy.com"
+        }
+    }
+    </script>
+
+    <style>
+        .intel-hero {
+            background: var(--navy);
+            color: white;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+        }
+        .intel-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .intel-hero p {
+            font-size: 1.15rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .intel-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 3rem auto 0;
+        }
+        .intel-stat {
+            text-align: center;
+        }
+        .intel-stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--pink);
+        }
+        .intel-stat-label {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-top: 0.25rem;
+        }
+        .intel-section {
+            padding: 4rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .intel-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--navy);
+        }
+        .intel-section > p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+        .intel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .intel-card {
+            background: white;
+            border: 1px solid var(--medium-gray);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: box-shadow 0.2s;
+        }
+        .intel-card:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .intel-card h3 {
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+        .intel-card .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--pink);
+            margin-bottom: 0.25rem;
+        }
+        .intel-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .intel-bar {
+            background: var(--light-gray);
+            border-radius: 6px;
+            height: 8px;
+            margin: 0.75rem 0;
+            overflow: hidden;
+        }
+        .intel-bar-fill {
+            background: var(--pink);
+            height: 100%;
+            border-radius: 6px;
+        }
+        .intel-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+        .intel-table th {
+            text-align: left;
+            padding: 0.75rem 1rem;
+            background: var(--light-gray);
+            color: var(--navy);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .intel-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--medium-gray);
+            font-size: 0.95rem;
+        }
+        .intel-table tr:last-child td {
+            border-bottom: none;
+        }
+        .acceptance-high { color: #2e7d32; font-weight: 600; }
+        .acceptance-medium { color: #f57f17; font-weight: 600; }
+        .acceptance-low { color: #c62828; font-weight: 600; }
+        .intel-cta {
+            background: var(--navy);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .intel-cta h2 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        .intel-cta p {
+            color: rgba(255,255,255,0.85);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-size: 1.05rem;
+        }
+        .divider {
+            border: none;
+            border-top: 1px solid var(--medium-gray);
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .intel-stats { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+            .intel-hero h1 { font-size: 1.8rem; }
+            .intel-stat-number { font-size: 1.6rem; }
+            .intel-table { font-size: 0.85rem; }
+            .intel-table th, .intel-table td { padding: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav scrolled" id="mainNav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo"><img src="images/logo.png" alt="HomeEasy"></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/#how-it-works">How It Works</a>
+                <a href="/#markets">Markets</a>
+                <a href="/blog/">Blog</a>
+                <a href="building-intelligence.html" class="active">Building Intelligence</a>
+                <a href="best-deals.html">Best Deals</a>
+                <a href="/data/">Market Data</a>
+                <a href="/#reviews">Reviews</a>
+                <a href="/#contact">Contact</a>
+                <div class="nav-cta"><a href="/#contact" class="btn btn-pink btn-sm">Find Your Apartment</a></div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <!-- Hero -->
+    <section class="intel-hero">
+        <h1>The Hive Mind</h1>
+        <p>Most apartment locators know the deals they've personally done. We know <em>every deal ever</em>. Online data, offline calls, field observations, geolocation, leasing office conversations — everything feeds into a collective intelligence system that makes every HomeEasy agent the most knowledgeable locator you'll ever work with.</p>
+        <div class="intel-stats">
+            <div class="intel-stat">
+                <div class="intel-stat-number">85,722</div>
+                <div class="intel-stat-label">Buildings in Database</div>
+            </div>
+            <div class="intel-stat">
+                <div class="intel-stat-number">76,688</div>
+                <div class="intel-stat-label">Enriched Profiles</div>
+            </div>
+            <div class="intel-stat">
+                <div class="intel-stat-number">37,037</div>
+                <div class="intel-stat-label">Verified Leasing Contacts</div>
+            </div>
+            <div class="intel-stat">
+                <div class="intel-stat-number">43,245</div>
+                <div class="intel-stat-label">Logged Building Interactions</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How the Hive Mind Works -->
+    <section class="intel-section" style="background: var(--off-white); max-width: 100%; padding: 4rem 2rem;">
+        <div style="max-width: 1100px; margin: 0 auto;">
+            <h2 style="text-align: center; margin-bottom: 2rem;">Five Data Streams, One Intelligence Layer</h2>
+            <p style="text-align: center; color: var(--text-light); max-width: 700px; margin: 0 auto 2.5rem;">Every other apartment locator works from personal memory — 50, 100, maybe 200 deals they've done. Our system aggregates intelligence from every interaction across every market into a single knowledge base that every agent can access instantly.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                <div style="background: white; padding: 1.5rem; border-radius: var(--radius-lg); border-left: 4px solid var(--navy);">
+                    <h3 style="color: var(--navy); font-size: 1.1rem; margin-bottom: 0.5rem;">Online Data</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">Crawled inventory from every major listing platform. Pricing, availability, amenities, floor plans — structured and standardized across 85,000+ buildings. We see price changes before they hit Zillow.</p>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: var(--radius-lg); border-left: 4px solid var(--navy);">
+                    <h3 style="color: var(--navy); font-size: 1.1rem; margin-bottom: 0.5rem;">Offline Call Data</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">43,245+ direct calls to leasing offices. Credit minimums, voucher handling, application fees, deposit structures, co-signer policies — the information no listing site captures because you have to <em>ask</em> for it.</p>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: var(--radius-lg); border-left: 4px solid var(--navy);">
+                    <h3 style="color: var(--navy); font-size: 1.1rem; margin-bottom: 0.5rem;">Field Intelligence</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">What agents see in person that never makes it online. Actual condition vs marketing photos. Parking reality. Noise levels. Neighborhood feel. Management responsiveness. Every tour feeds back into the building profile.</p>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: var(--radius-lg); border-left: 4px solid var(--pink);">
+                    <h3 style="color: var(--navy); font-size: 1.1rem; margin-bottom: 0.5rem;">Geolocation Data</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">Precise lat/lng for every building. Proximity to transit, downtown, grocery, schools — calculated, not estimated. When we say "10 minutes from downtown," that's a measured distance, not a marketing claim.</p>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: var(--radius-lg); border-left: 4px solid var(--pink);">
+                    <h3 style="color: var(--navy); font-size: 1.1rem; margin-bottom: 0.5rem;">Transaction History</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">Every deal we've ever done. Which buildings approved which credit profiles. Actual move-in costs versus what was quoted. How long the process really took. Not a one-time data pull — a living record that gets smarter with every lease signed.</p>
+                </div>
+            </div>
+
+            <p style="text-align: center; color: var(--text-light); font-size: 0.9rem; margin-top: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                The result: when you work with any HomeEasy agent, you're working with the collective knowledge of every deal, every call, and every building interaction we've ever had — across all 8 markets, dating back to 2017.
+            </p>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Section 8 / Voucher Intelligence -->
+    <section class="intel-section">
+        <h2>Housing Voucher Intelligence</h2>
+        <p>Acceptance is just the first question. The real complexity is everything that comes after: How fast does the building process voucher paperwork? Can you move in before the inspection? Will they hold the unit while the housing authority reviews? We track the full voucher journey, not just yes or no.</p>
+        <table class="intel-table">
+            <thead>
+                <tr>
+                    <th>Market</th>
+                    <th>Buildings Verified</th>
+                    <th>Acceptance Rate</th>
+                    <th>What This Means</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Chicago</td>
+                    <td>2,800+</td>
+                    <td class="acceptance-high">81%</td>
+                    <td>Illinois source-of-income protection. Most buildings accept, but processing speed varies widely.</td>
+                </tr>
+                <tr>
+                    <td>Denver</td>
+                    <td>1,200+</td>
+                    <td class="acceptance-high">77%</td>
+                    <td>Colorado statewide protection. High acceptance, competitive market for voucher units.</td>
+                </tr>
+                <tr>
+                    <td>Austin</td>
+                    <td>2,400+</td>
+                    <td class="acceptance-medium">36%</td>
+                    <td>No state protection. Acceptance varies by property and management company.</td>
+                </tr>
+                <tr>
+                    <td>Houston</td>
+                    <td>3,100+</td>
+                    <td class="acceptance-medium">31%</td>
+                    <td>Houston Housing Authority is one of the largest in the US. Options exist but require targeted searching.</td>
+                </tr>
+                <tr>
+                    <td>Dallas-Fort Worth</td>
+                    <td>4,200+</td>
+                    <td class="acceptance-low">24%</td>
+                    <td>Lowest acceptance across our markets. Our verified database is essential here.</td>
+                </tr>
+                <tr>
+                    <td>San Antonio</td>
+                    <td>2,100+</td>
+                    <td class="acceptance-medium">33%</td>
+                    <td>Large military population using housing allowances. Strong options in specific neighborhoods.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 style="margin-top:2.5rem;color:var(--navy);">Beyond Yes or No: The Full Voucher Journey</h3>
+        <p style="margin-top:0.75rem;">Acceptance is step one. The questions that actually determine whether a voucher holder can move in on time are:</p>
+        <div class="intel-grid" style="margin-top:1.5rem;">
+            <div class="intel-card">
+                <h3>Processing Speed</h3>
+                <p>How long does the building take to complete voucher paperwork? Some leasing offices process in 48 hours; others take 3 weeks. We track which buildings have fast turnaround.</p>
+            </div>
+            <div class="intel-card">
+                <h3>Move-In Before Inspection?</h3>
+                <p>Some buildings let you move in while the housing authority schedules the HQS inspection. Others won't hand over keys until the unit passes. This can mean a 2-4 week difference in your move-in date.</p>
+            </div>
+            <div class="intel-card">
+                <h3>Unit Hold Policy</h3>
+                <p>Will the building hold a unit while the housing authority processes paperwork? For how long? Some buildings hold for 30 days; others release the unit after a week. Knowing this prevents last-minute scrambles.</p>
+            </div>
+            <div class="intel-card">
+                <h3>Inspection Pass Rate</h3>
+                <p>Buildings that regularly work with voucher holders tend to keep units inspection-ready. We know which buildings pass HQS inspections consistently versus those where failed inspections delay move-ins.</p>
+            </div>
+            <div class="intel-card">
+                <h3>Deposit Policies</h3>
+                <p>Some buildings charge voucher holders the same deposit as market-rate renters. Others adjust based on the voucher portion. We verify so you know the actual out-of-pocket cost before you apply.</p>
+            </div>
+            <div class="intel-card">
+                <h3>Utility Inclusion</h3>
+                <p>Whether rent includes utilities affects the voucher payment standard calculation. Buildings that include water/trash in rent often work better for voucher budgets than those that don't.</p>
+            </div>
+        </div>
+        <p style="margin-top:1.5rem;font-size:0.9rem;color:var(--text-light);">Why this matters: A voucher holder doesn't just need a building that says "yes." They need one that processes fast, holds the unit, passes inspection, and works within the payment standard. We're building the most comprehensive voucher-readiness intelligence in the industry.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Showing Type Intelligence -->
+    <section class="intel-section">
+        <h2>Showing Type Intelligence</h2>
+        <p>Before you spend 30 minutes on hold trying to schedule a tour, we already know how each building handles showings.</p>
+        <div class="intel-grid">
+            <div class="intel-card">
+                <div class="number">11,359</div>
+                <h3>Walk-In Tours Available</h3>
+                <div class="intel-bar"><div class="intel-bar-fill" style="width:85%"></div></div>
+                <p>No appointment needed. Walk in during leasing office hours and see units same-day. The most convenient option for renters with flexible schedules.</p>
+            </div>
+            <div class="intel-card">
+                <div class="number">1,276</div>
+                <h3>Require Scheduling</h3>
+                <div class="intel-bar"><div class="intel-bar-fill" style="width:10%"></div></div>
+                <p>Must book ahead. Knowing this in advance saves you a wasted trip. We book the appointment for you and confirm the time slot.</p>
+            </div>
+            <div class="intel-card">
+                <div class="number">601</div>
+                <h3>We Have Keys / Self-Guided</h3>
+                <div class="intel-bar"><div class="intel-bar-fill" style="width:5%"></div></div>
+                <p>Buildings that provide access codes or keys for self-guided tours. Tour on your own time — evenings, weekends, whenever works for you.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Approval Intelligence -->
+    <section class="intel-section">
+        <h2>Approval Intelligence</h2>
+        <p>The most valuable intel isn't about the apartment — it's about whether you'll get approved. Every building has its own approval criteria, and none of them publish it. We find out through direct conversations with leasing teams.</p>
+
+        <h3 style="margin-top:1.5rem;color:var(--navy);">What We've Verified So Far</h3>
+        <div class="intel-grid" style="margin-top:1rem;">
+            <div class="intel-card">
+                <h3>Second-Chance Leasing</h3>
+                <div class="number">66</div>
+                <p>Buildings confirmed to offer second-chance programs for renters with prior evictions or broken leases. These buildings evaluate your current situation, not just your history.</p>
+            </div>
+            <div class="intel-card">
+                <h3>Credit Requirements</h3>
+                <div class="number">284</div>
+                <p>Buildings where we've verified the actual credit score minimum or documented flexible credit policies. Ranges from no-credit-check to 700+ minimum — knowing saves you $50-75 per wasted application.</p>
+            </div>
+        </div>
+
+        <h3 style="margin-top:2.5rem;color:var(--navy);">The Full Approval Spectrum</h3>
+        <p style="margin-top:0.75rem;">Approval isn't one thing — it's a dozen factors that vary building by building. Here's what we track and verify:</p>
+        <div class="intel-grid" style="margin-top:1.5rem;">
+            <div class="intel-card">
+                <h3>Credit Score Requirements</h3>
+                <p>What's the actual minimum? Some buildings say 600, some say 650, some have no hard floor but use a sliding scale with higher deposits. We verify the real number, not the one on the website.</p>
+            </div>
+            <div class="intel-card">
+                <h3>Income Verification</h3>
+                <p>2x rent? 3x rent? Gross or net? Do they accept offer letters for job relocations? What about self-employment income? These rules vary wildly and aren't posted anywhere.</p>
+            </div>
+            <div class="intel-card">
+                <h3>Criminal Background Policies</h3>
+                <p>Lookback period (3 years? 7 years? Lifetime?), types of offenses that disqualify, and whether they do individual assessments vs. blanket denials. Critical for the 1 in 3 Americans with a record.</p>
+            </div>
+            <div class="intel-card">
+                <h3>Co-Signer vs. Co-Applicant</h3>
+                <p>Huge difference. A co-signer guarantees your lease without living there. A co-applicant must live with you. Some buildings accept one but not the other. Some accept neither. We verify.</p>
+            </div>
+            <div class="intel-card">
+                <h3>Third-Party Guarantors</h3>
+                <p>Services like Jetty, Leap, and Insurent can guarantee your lease if you don't have a co-signer. But not every building accepts them. We track which ones do.</p>
+            </div>
+            <div class="intel-card">
+                <h3>Application Fees</h3>
+                <p>Ranges from $0 to $75+ per person. Some buildings charge per applicant and per co-signer. A couple applying together can spend $150+ before knowing if they'll be approved. We tell you the fee upfront.</p>
+            </div>
+            <div class="intel-card">
+                <h3>Move-In Cost Breakdown</h3>
+                <p>First month, last month, security deposit, admin fee, pet deposit, parking deposit — it adds up fast. We verify the total out-of-pocket so you can budget accurately, not discover hidden fees at signing.</p>
+            </div>
+            <div class="intel-card">
+                <h3>Eviction History Policies</h3>
+                <p>How far back do they look? 3 years? 5 years? Do they distinguish between filed evictions and actual judgments? Second-chance buildings exist — we know which ones they are.</p>
+            </div>
+            <div class="intel-card">
+                <h3>Lease Flexibility</h3>
+                <p>Month-to-month available? 6-month leases? What's the premium for a short-term lease? What's the lease-break fee — flat rate or remaining rent obligation? These details matter for people with uncertain timelines.</p>
+            </div>
+        </div>
+        <p style="margin-top:1.5rem;font-size:0.9rem;color:var(--text-light);">Why this matters: The average renter pays $50-75 per application. Apply to 5 buildings that reject you for credit, and you've lost $300+ before you find a home. We pre-match you to buildings where your profile fits their approval criteria — saving you money, time, and the stress of repeated rejections. This data grows with every call our team makes.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Software & Systems Intelligence -->
+    <section class="intel-section">
+        <h2>Property Management Software Intelligence</h2>
+        <p>We know what software each building runs — which tells us how they process applications, manage pricing, and handle leasing workflows.</p>
+        <div class="intel-grid">
+            <div class="intel-card">
+                <h3>Yardi Systems</h3>
+                <div class="number">9,307</div>
+                <p>The most common property management platform. Buildings on Yardi typically have standardized application processes and automated screening.</p>
+            </div>
+            <div class="intel-card">
+                <h3>RealPage / OneSite</h3>
+                <div class="number">3,131</div>
+                <p>Common in larger portfolio properties. RealPage buildings often use algorithmic pricing that creates exploitable price variance between similar units.</p>
+            </div>
+            <div class="intel-card">
+                <h3>ResMan</h3>
+                <div class="number">1,543</div>
+                <p>Growing platform popular with mid-size operators. ResMan buildings tend to have more flexible leasing processes and direct communication with on-site teams.</p>
+            </div>
+            <div class="intel-card">
+                <h3>MRI Software</h3>
+                <div class="number">954</div>
+                <p>Enterprise-grade platform used by institutional owners. MRI buildings often have the most structured application processes with clear approval criteria.</p>
+            </div>
+        </div>
+        <p style="margin-top:1.5rem;font-size:0.9rem;color:var(--text-light);">Why this matters: The software a building uses determines how pricing is set, how quickly applications are processed, and what flexibility the leasing team has. A building on algorithmic pricing may drop rates overnight for units that need to fill — we spot these before they show up on listing sites.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Rent Intelligence by Market -->
+    <section class="intel-section">
+        <h2>Real Rent Data by Market</h2>
+        <p>Current median rents from our active inventory of 6,000+ verified listings. These are real asking prices, not estimates or historical averages.</p>
+        <table class="intel-table">
+            <thead>
+                <tr>
+                    <th>Market</th>
+                    <th>Active Listings</th>
+                    <th>Median Rent</th>
+                    <th>25th Percentile</th>
+                    <th>75th Percentile</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Dallas-Fort Worth</td>
+                    <td>1,840</td>
+                    <td><strong>$1,250</strong></td>
+                    <td>$1,080</td>
+                    <td>$1,424</td>
+                </tr>
+                <tr>
+                    <td>Houston</td>
+                    <td>1,426</td>
+                    <td><strong>$1,213</strong></td>
+                    <td>$1,050</td>
+                    <td>$1,416</td>
+                </tr>
+                <tr>
+                    <td>Austin</td>
+                    <td>1,038</td>
+                    <td><strong>$1,140</strong></td>
+                    <td>$992</td>
+                    <td>$1,340</td>
+                </tr>
+                <tr>
+                    <td>San Antonio</td>
+                    <td>559</td>
+                    <td><strong>$1,015</strong></td>
+                    <td>$890</td>
+                    <td>$1,187</td>
+                </tr>
+                <tr>
+                    <td>Denver</td>
+                    <td>358</td>
+                    <td><strong>$1,638</strong></td>
+                    <td>$1,466</td>
+                    <td>$1,771</td>
+                </tr>
+                <tr>
+                    <td>Chicago</td>
+                    <td>289</td>
+                    <td><strong>$2,287</strong></td>
+                    <td>$1,976</td>
+                    <td>$2,495</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="margin-top:1.5rem;font-size:0.9rem;color:var(--text-light);">Data from HomeEasy's live inventory. Updated continuously as buildings change pricing. The spread between the 25th and 75th percentile shows where value exists — in every market, renters paying attention to pricing data can save $200-400/month on comparable units.</p>
+    </section>
+
+    <!-- CTA -->
+    <section class="intel-cta">
+        <h2>Put Our Intelligence to Work for You</h2>
+        <p>Tell us your budget, your move-in date, and your situation. We'll match you to buildings where the data says you'll get approved and pay less.</p>
+        <a href="/#contact" class="btn btn-pink">Start My Search — It's Free</a>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="images/logo.png" alt="HomeEasy">
+                <p>AI-powered apartment locator analyzing pricing data across 85,000+ buildings. Free for renters, always.</p>
+            </div>
+            <div><h4>Company</h4><ul><li><a href="/#about">About</a></li><li><a href="/#how-it-works">How It Works</a></li><li><a href="/blog/">Blog</a></li><li><a href="privacy.html">Privacy Policy</a></li></ul></div>
+            <div><h4>Markets</h4><ul><li><a href="markets/chicago.html">Chicago</a></li><li><a href="markets/dfw.html">Dallas-Fort Worth</a></li><li><a href="markets/houston.html">Houston</a></li><li><a href="markets/austin.html">Austin</a></li><li><a href="markets/san-antonio.html">San Antonio</a></li><li><a href="markets/denver.html">Denver</a></li></ul></div>
+            <div><h4>Contact</h4><div class="footer-contact-info"><p>332 S Michigan Ave<br>Suite 8th Floor<br>Chicago, IL 60604</p><p><a href="tel:+13124689893">(312) 468-9893</a></p></div></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 HomeEasy | Broker Services Co, Inc.</p><p><a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a></p></div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

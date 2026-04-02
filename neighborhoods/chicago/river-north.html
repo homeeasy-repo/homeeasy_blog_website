@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noai, noimageai">
+    <title>River North Apartments Chicago | 81 Buildings, Real Pricing Data | HomeEasy</title>
+    <meta name="description" content="River North apartment data from 104 buildings — 81 in our portfolio. Median $4.25/sqft. Real prices, real trade-offs. Part of 2,763 buildings across Chicago.">
+    <link rel="canonical" href="https://homeeasy.com/neighborhoods/chicago/river-north.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="River North Apartments | 81 Buildings | HomeEasy">
+    <meta property="og:description" content="81 buildings in our portfolio. Part of 2,763 buildings across Chicago metro. The data on River North apartments.">
+    <meta property="og:url" content="https://homeeasy.com/neighborhoods/chicago/river-north.html">
+    <meta property="og:site_name" content="HomeEasy">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="River North Apartments | 81 Buildings | HomeEasy">
+    <meta name="twitter:description" content="81 buildings in our portfolio. River North apartment data from the source.">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "HomeEasy - River North Chicago Apartment Locator",
+        "description": "Market data and apartment matching for River North, Chicago. 81 buildings in our portfolio. Free for renters.",
+        "url": "https://homeeasy.com/neighborhoods/chicago/river-north.html",
+        "telephone": "+1-312-468-9893",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "332 S Michigan Ave, Suite 8th Floor",
+            "addressLocality": "Chicago",
+            "addressRegion": "IL",
+            "postalCode": "60604",
+            "addressCountry": "US"
+        },
+        "areaServed": {
+            "@type": "Neighborhood",
+            "name": "River North",
+            "containedInPlace": {
+                "@type": "City",
+                "name": "Chicago",
+                "containedInPlace": {
+                    "@type": "State",
+                    "name": "Illinois"
+                }
+            }
+        },
+        "priceRange": "Free",
+        "openingHours": "Mo-Su 00:00-23:59"
+    }
+    </script>
+
+    <style>
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .data-card {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 1.2rem;
+            text-align: center;
+        }
+        .data-card .number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy, #1a237e);
+            display: block;
+        }
+        .data-card .label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+        .building-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .building-table th {
+            background: var(--navy, #1a237e);
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .building-table td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid #eee;
+        }
+        .building-table tr:hover {
+            background: #f8f8ff;
+        }
+        .concession-tag {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .trade-off-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .trade-off-box .pro, .trade-off-box .con {
+            padding: 1.2rem;
+            border-radius: 8px;
+        }
+        .trade-off-box .pro {
+            background: #e8f5e9;
+            border-left: 4px solid #2e7d32;
+        }
+        .trade-off-box .con {
+            background: #fce4ec;
+            border-left: 4px solid #c62828;
+        }
+        .trade-off-box h4 {
+            margin: 0 0 0.5rem;
+            font-size: 0.95rem;
+        }
+        .trade-off-box p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        .compare-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.4rem 0;
+        }
+        .compare-bar .bar {
+            height: 20px;
+            background: var(--navy, #1a237e);
+            border-radius: 3px;
+            opacity: 0.7;
+        }
+        .compare-bar .bar.highlight {
+            opacity: 1;
+            background: var(--pink, #ff4081);
+        }
+        .compare-bar .hood-label {
+            width: 100px;
+            font-size: 0.8rem;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .compare-bar .bar-value {
+            font-size: 0.8rem;
+            font-weight: 600;
+            flex-shrink: 0;
+            width: 60px;
+        }
+        .budget-section {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .budget-section h3 {
+            margin-top: 0;
+        }
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #888;
+            font-style: italic;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        @media (max-width: 600px) {
+            .trade-off-box {
+                grid-template-columns: 1fr;
+            }
+            .building-table {
+                font-size: 0.8rem;
+            }
+            .building-table th, .building-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav scrolled" id="mainNav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo"><img src="../../images/logo.png" alt="HomeEasy"></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/#how-it-works">How It Works</a>
+                <a href="/#markets">Markets</a>
+                <a href="/blog/">Blog</a>
+                <a href="/data/">Market Data</a>
+                <a href="/#reviews">Reviews</a>
+                <a href="/#about">About</a>
+                <a href="/#contact">Contact</a>
+                <div class="nav-cta"><a href="/#contact" class="btn btn-pink btn-sm">Find Your Apartment</a></div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <section class="neighborhood-hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="neighborhood-hero-content">
+            <div class="breadcrumb"><a href="/">HomeEasy</a> &rsaquo; <a href="/markets/chicago.html">Chicago</a> &rsaquo; River North</div>
+            <h1>River North, Chicago</h1>
+            <p class="neighborhood-subtitle">104 buildings tracked. 81 in our portfolio. Median $4.25/sqft. Part of 2,763 buildings across Chicago.</p>
+        </div>
+    </section>
+
+    <section class="neighborhood-content">
+        <div class="neighborhood-layout">
+            <div class="neighborhood-main">
+
+                <div class="data-grid">
+                    <div class="data-card">
+                        <span class="number">104</span>
+                        <span class="label">Buildings Tracked</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">81</span>
+                        <span class="label">Buildings</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$4.25</span>
+                        <span class="label">Median $/sqft</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$1,324–$4,280</span>
+                        <span class="label">Rent Range</span>
+                    </div>
+                </div>
+
+                <h2>The Market</h2>
+
+                <p>River North is Chicago's nightlife and entertainment district. Galleries, rooftop bars, Michigan Avenue shopping. It's the neighborhood everyone pictures when they think "downtown Chicago living." We track 104 buildings here — 81 of which are in our portfolio directly.</p>
+
+                <p>With 81 buildings, concession activity is widespread. The most "popular" neighborhood in Chicago and buildings are still competing for tenants. Read into that — it means vacancy pressure is real, even here. Buildings don't offer months free when they're full.</p>
+
+                <p>The price range is unusually wide for a neighborhood with this reputation. Rent starts at $1,324 and runs up to $4,280, with some top-floor units pushing past $9,400. That low end surprises people. River North is not exclusively a $3,000+ neighborhood — not if you know where to look.</p>
+
+                <h2>How It Compares</h2>
+
+                <p>At $4.25/sqft, River North sits in the middle of the downtown pack — not the cheapest, not the most expensive:</p>
+
+                <div style="margin: 1.5rem 0;">
+                    <div class="compare-bar">
+                        <span class="hood-label">West Loop</span>
+                        <div class="bar" style="width: 160px;"></div>
+                        <span class="bar-value">$4.45</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Streeterville</span>
+                        <div class="bar" style="width: 155px;"></div>
+                        <span class="bar-value">$4.30</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label" style="font-weight:700;">River North</span>
+                        <div class="bar highlight" style="width: 153px;"></div>
+                        <span class="bar-value" style="color: var(--pink, #ff4081);">$4.25</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Gold Coast</span>
+                        <div class="bar" style="width: 153px;"></div>
+                        <span class="bar-value">$4.25</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">The Loop</span>
+                        <div class="bar" style="width: 152px;"></div>
+                        <span class="bar-value">$4.23</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Lincoln Park</span>
+                        <div class="bar" style="width: 145px;"></div>
+                        <span class="bar-value">$4.03</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Lakeview</span>
+                        <div class="bar" style="width: 143px;"></div>
+                        <span class="bar-value">$3.98</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">South Loop</span>
+                        <div class="bar" style="width: 140px;"></div>
+                        <span class="bar-value">$3.90</span>
+                    </div>
+                </div>
+
+                <p>Same price per square foot as Gold Coast, a nickel below Streeterville, twenty cents below the West Loop. The difference: River North has 81 buildings to choose from. More options, more leverage, more concessions to play with.</p>
+
+                <h2>The Trade-Offs</h2>
+
+                <div class="trade-off-box">
+                    <div class="pro">
+                        <h4>What You Get</h4>
+                        <p>81 buildings — deep selection across every price point from $1,324 to $9,400+. Walkable to Michigan Avenue, the gallery district, and hundreds of restaurants and bars. The building stock spans 1901 to 2024 — vintage conversions, 1980s high-rises, and brand new towers.</p>
+                    </div>
+                    <div class="con">
+                        <h4>What You Give Up</h4>
+                        <p>Quiet. The entertainment is the selling point and the problem. Weekend nights are loud — bar crowds on the sidewalks, rideshares double-parked, noise until 3am. The tourist density is higher than any other residential neighborhood. If you're a light sleeper or you work early Saturday mornings, the bar crowd is not your neighbor of choice.</p>
+                    </div>
+                </div>
+
+                <h2>What's Happening in the Market</h2>
+
+                <p>River North has deep concession activity across our 81 buildings — months free, waived admin fees, look-and-lease specials. That's unusual for a neighborhood this well-known. It tells you that supply has outpaced demand, even in the most popular zip code.</p>
+
+                <p>The building stock here spans over a century. Early 1900s warehouse conversions sit next to 1980s high-rises and 2020s glass towers. That variety is part of what creates the wide price range. A converted loft from 1981 prices differently than a brand new tower from 2024, and both exist on the same block.</p>
+
+                <p>Credit requirements vary widely with that building age. Newer luxury towers tend to want 680+. Older buildings are more flexible. If your credit is below 650, there are still buildings here that will work — you just need to know which ones.</p>
+
+                <h2>Buildings by Value ($/sqft)</h2>
+
+                <p>These are buildings ranked by price per square foot — lowest first. This is where your dollar goes furthest in River North.</p>
+
+                <table class="building-table">
+                    <thead>
+                        <tr>
+                            <th>Building</th>
+                            <th>$/sqft</th>
+                            <th>From</th>
+                            <th>Built</th>
+                            <th>Concession</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Asbury Plaza</td>
+                            <td>$2.95</td>
+                            <td>$1,993</td>
+                            <td>1981</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>100 W Chestnut St</td>
+                            <td>$3.32</td>
+                            <td>$2,340</td>
+                            <td>1983</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>750 N. Rush</td>
+                            <td>$3.32</td>
+                            <td>$2,860</td>
+                            <td>1990</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Grand Plaza</td>
+                            <td>$3.35</td>
+                            <td>$2,309</td>
+                            <td>2003</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Flair Tower</td>
+                            <td>$3.50</td>
+                            <td>$2,495</td>
+                            <td>2018</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="disclaimer">Data from HomeEasy buildings only. Prices reflect starting rents and may vary by unit, floor, and lease term. Concessions change frequently — verify current availability with us.</p>
+
+                <div class="budget-section">
+                    <h3>What Your Budget Gets You Here</h3>
+                    <p><strong>Under $1,500/mo:</strong> Yes, River North. Starting at $1,324. These are older buildings and smaller units, but the zip code is the same. Not every River North apartment costs $3,000.</p>
+                    <p><strong>$1,500–$2,000/mo:</strong> Asbury Plaza is the standout — $1,993 start, $2.95/sqft, built 1981. That's a steal for River North. At this price point you're looking at 1980s high-rises with solid bones and working amenities. Not new finishes, but real value.</p>
+                    <p><strong>$2,000–$2,500/mo:</strong> The options open up. 100 W Chestnut ($2,340), Grand Plaza ($2,309), Flair Tower ($2,495). Mix of eras — 1983, 2003, 2018. Concessions at this level can drop effective rent by $150–$250/mo.</p>
+                    <p><strong>$2,500–$4,000/mo:</strong> The bulk of River North inventory. Newer towers, updated finishes, rooftop pools, in-unit laundry. With 81 buildings in our portfolio, this is where you have the most negotiating room.</p>
+                    <p><strong>$4,000+:</strong> Top-floor units, 2- and 3-bedrooms, the newest construction. Ceiling goes to $9,400+. At this level the concessions save real money — 1 month free on a $4,200 unit is $350/mo off your effective rent.</p>
+                </div>
+
+                <h2>Getting Around</h2>
+
+                <p>Brown and Purple lines at Merchandise Mart. Red Line at Grand and Chicago stations. The Loop is a 10-minute walk south. Michigan Avenue is right there. The lakefront trail is a short walk east — runners and cyclists don't have to work for it.</p>
+
+                <p>Groceries: Whole Foods on Huron, Trader Joe's on Ontario. Both walkable. Dining is not a problem — River North has more restaurants per block than anywhere in Chicago.</p>
+
+                <h2>Who Does Well Here</h2>
+
+                <p>Nightlife people. Young professionals who want to be in the center of everything. People who eat out five nights a week and don't mind paying for the location. People who want the most options — 81 buildings means we have something at nearly every price point.</p>
+
+                <p>If you want quiet evenings and early bedtimes, Gold Coast is a block north and a different world. If you want the same energy at a lower price, check South Loop ($3.90/sqft, 102 buildings). But if River North is where you want to be — we have 81 buildings to work with.</p>
+
+                <div class="article-cta">
+                    <h3>Tell Us Your Budget</h3>
+                    <p>We track 104 buildings and work with 81 buildings in River North. Send us your budget and move-in date. We'll show you what's available and what concessions you qualify for.</p>
+                    <a href="/#contact" class="btn btn-pink">See What's Available</a>
+                </div>
+
+                <h2>Nearby Neighborhoods</h2>
+                <ul>
+                    <li><a href="/neighborhoods/chicago/gold-coast.html">Gold Coast</a> — 94 buildings. $4.25/sqft median. Quieter, more residential, Oak Street Beach.</li>
+                    <li><a href="/neighborhoods/chicago/the-loop.html">The Loop</a> — 95 buildings. $4.23/sqft median. The business district.</li>
+                    <li><a href="/neighborhoods/chicago/west-loop.html">West Loop</a> — 62 buildings. $4.45/sqft median. Restaurant Row.</li>
+                    <li><a href="/neighborhoods/chicago/south-loop.html">South Loop</a> — 102 buildings. $3.90/sqft median. Museum Campus, lakefront, best value downtown.</li>
+                </ul>
+            </div>
+
+            <div class="neighborhood-sidebar">
+                <div class="sidebar-card">
+                    <h4>River North — The Numbers</h4>
+                    <div class="sidebar-stat">
+                        <span class="label">Buildings Tracked</span>
+                        <span class="value">104</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Buildings</span>
+                        <span class="value">81</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Median $/sqft</span>
+                        <span class="value">$4.25</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Rent Range</span>
+                        <span class="value">$1,324 – $4,280</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Chicago Metro Buildings</span>
+                        <span class="value">2,763</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Year Built Range</span>
+                        <span class="value">1901 – 2024</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Best Value</span>
+                        <span class="value">$2.95/sqft (Asbury Plaza)</span>
+                    </div>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Pro</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">81 buildings with deep selection at every price point. Widespread concession activity across the neighborhood.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Con</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Loud. Tourist-heavy. Weekend nights are not quiet living. The bar crowd is the trade-off for the location.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>See What's Available</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem;">Send us your budget and move-in date. We'll match you with River North buildings that fit.</p>
+                    <a href="/#contact" class="btn btn-pink btn-sm" style="width:100%;text-align:center;">Start</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="../../images/logo.png" alt="HomeEasy">
+                <p>Market data and apartment matching across 85,000+ buildings. Free for renters, always.</p>
+            </div>
+            <div><h4>Company</h4><ul><li><a href="/#about">About</a></li><li><a href="/#how-it-works">How It Works</a></li><li><a href="/blog/">Blog</a></li><li><a href="/privacy.html">Privacy Policy</a></li></ul></div>
+            <div><h4>Markets</h4><ul><li><a href="/markets/chicago.html">Chicago</a></li><li><a href="/markets/dfw.html">Dallas-Fort Worth</a></li><li><a href="/markets/houston.html">Houston</a></li><li><a href="/markets/austin.html">Austin</a></li><li><a href="/markets/san-antonio.html">San Antonio</a></li><li><a href="/markets/denver.html">Denver</a></li></ul></div>
+            <div><h4>Contact</h4><div class="footer-contact-info"><p>332 S Michigan Ave<br>Suite 8th Floor<br>Chicago, IL 60604</p><p><a href="tel:+13124689893">(312) 468-9893</a></p></div></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 HomeEasy | Broker Services Co, Inc.</p><p><a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a></p></div>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>

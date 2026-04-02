@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noai, noimageai">
+    <title>Lakeview Apartments Chicago | 186 Buildings, Real Pricing Data | HomeEasy</title>
+    <meta name="description" content="Lakeview apartment data from 213 buildings — 186 in our portfolio. Median $3.98/sqft. Rent from $1,205. Real prices, real trade-offs. Part of 2,763 buildings across Chicago.">
+    <link rel="canonical" href="https://homeeasy.com/neighborhoods/chicago/lakeview.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Lakeview Apartments | 186 Buildings | HomeEasy">
+    <meta property="og:description" content="186 buildings in our portfolio. $3.98/sqft median. Part of 2,763 buildings across Chicago metro.">
+    <meta property="og:url" content="https://homeeasy.com/neighborhoods/chicago/lakeview.html">
+    <meta property="og:site_name" content="HomeEasy">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lakeview Apartments | 186 Buildings | HomeEasy">
+    <meta name="twitter:description" content="186 buildings in our portfolio. $3.98/sqft median. Lakeview apartment data from the source.">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "HomeEasy - Lakeview Chicago Apartment Locator",
+        "description": "Market data and apartment matching for Lakeview, Chicago. 186 buildings in our portfolio. Free for renters.",
+        "url": "https://homeeasy.com/neighborhoods/chicago/lakeview.html",
+        "telephone": "+1-312-468-9893",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "332 S Michigan Ave, Suite 8th Floor",
+            "addressLocality": "Chicago",
+            "addressRegion": "IL",
+            "postalCode": "60604",
+            "addressCountry": "US"
+        },
+        "areaServed": {
+            "@type": "Neighborhood",
+            "name": "Lakeview",
+            "containedInPlace": {
+                "@type": "City",
+                "name": "Chicago",
+                "containedInPlace": {
+                    "@type": "State",
+                    "name": "Illinois"
+                }
+            }
+        },
+        "priceRange": "Free",
+        "openingHours": "Mo-Su 00:00-23:59"
+    }
+    </script>
+
+    <style>
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .data-card {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 1.2rem;
+            text-align: center;
+        }
+        .data-card .number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy, #1a237e);
+            display: block;
+        }
+        .data-card .label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+        .building-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .building-table th {
+            background: var(--navy, #1a237e);
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .building-table td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid #eee;
+        }
+        .building-table tr:hover {
+            background: #f8f8ff;
+        }
+        .concession-tag {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .trade-off-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .trade-off-box .pro, .trade-off-box .con {
+            padding: 1.2rem;
+            border-radius: 8px;
+        }
+        .trade-off-box .pro {
+            background: #e8f5e9;
+            border-left: 4px solid #2e7d32;
+        }
+        .trade-off-box .con {
+            background: #fce4ec;
+            border-left: 4px solid #c62828;
+        }
+        .trade-off-box h4 {
+            margin: 0 0 0.5rem;
+            font-size: 0.95rem;
+        }
+        .trade-off-box p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        .compare-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.4rem 0;
+        }
+        .compare-bar .bar {
+            height: 20px;
+            background: var(--navy, #1a237e);
+            border-radius: 3px;
+            opacity: 0.7;
+        }
+        .compare-bar .bar.highlight {
+            opacity: 1;
+            background: var(--pink, #ff4081);
+        }
+        .compare-bar .hood-label {
+            width: 100px;
+            font-size: 0.8rem;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .compare-bar .bar-value {
+            font-size: 0.8rem;
+            font-weight: 600;
+            flex-shrink: 0;
+            width: 60px;
+        }
+        .budget-section {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .budget-section h3 {
+            margin-top: 0;
+        }
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #888;
+            font-style: italic;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        @media (max-width: 600px) {
+            .trade-off-box {
+                grid-template-columns: 1fr;
+            }
+            .building-table {
+                font-size: 0.8rem;
+            }
+            .building-table th, .building-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav scrolled" id="mainNav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo"><img src="../../images/logo.png" alt="HomeEasy"></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/#how-it-works">How It Works</a>
+                <a href="/#markets">Markets</a>
+                <a href="/blog/">Blog</a>
+                <a href="/data/">Market Data</a>
+                <a href="/#reviews">Reviews</a>
+                <a href="/#about">About</a>
+                <a href="/#contact">Contact</a>
+                <div class="nav-cta"><a href="/#contact" class="btn btn-pink btn-sm">Find Your Apartment</a></div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <section class="neighborhood-hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="neighborhood-hero-content">
+            <div class="breadcrumb"><a href="/">HomeEasy</a> &rsaquo; <a href="/markets/chicago.html">Chicago</a> &rsaquo; Lakeview</div>
+            <h1>Lakeview, Chicago</h1>
+            <p class="neighborhood-subtitle">213 buildings tracked. 186 in our portfolio. $3.98/sqft median. Part of 2,763 buildings across Chicago.</p>
+        </div>
+    </section>
+
+    <section class="neighborhood-content">
+        <div class="neighborhood-layout">
+            <div class="neighborhood-main">
+
+                <div class="data-grid">
+                    <div class="data-card">
+                        <span class="number">213</span>
+                        <span class="label">Buildings Tracked</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">186</span>
+                        <span class="label">Buildings</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$3.98</span>
+                        <span class="label">Median $/sqft</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$1,205</span>
+                        <span class="label">Starting Rent</span>
+                    </div>
+                </div>
+
+                <h2>The Market</h2>
+
+                <p>Wrigley Field. Boystown. The lakefront. Lakeview is one of Chicago's most residential neighborhoods — and at $3.98/sqft, it undercuts every downtown neighborhood while giving you lake access and the Red Line.</p>
+
+                <p>We track 213 buildings in Lakeview — 186 of which are in our portfolio directly. That's the highest building count of any Chicago neighborhood we cover. Competition is real here, just at a different price tier than downtown.</p>
+
+                <p>Rent starts at $1,205 and runs up to $3,088 on the starting side, with some units pushing past $7,600. The building stock is mostly vintage — 1950s through 1970s — with a few newer additions like Wrigleyville Lofts (2021). That means character: hardwood floors, bigger layouts, the kind of square footage that new construction can't match at this price.</p>
+
+                <h2>How It Compares</h2>
+
+                <p>Here's what Lakeview looks like against downtown and near-downtown Chicago:</p>
+
+                <div style="margin: 1.5rem 0;">
+                    <div class="compare-bar">
+                        <span class="hood-label">West Loop</span>
+                        <div class="bar" style="width: 160px;"></div>
+                        <span class="bar-value">$4.45</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Streeterville</span>
+                        <div class="bar" style="width: 155px;"></div>
+                        <span class="bar-value">$4.30</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">River North</span>
+                        <div class="bar" style="width: 153px;"></div>
+                        <span class="bar-value">$4.25</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Gold Coast</span>
+                        <div class="bar" style="width: 153px;"></div>
+                        <span class="bar-value">$4.25</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">The Loop</span>
+                        <div class="bar" style="width: 152px;"></div>
+                        <span class="bar-value">$4.23</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Lincoln Park</span>
+                        <div class="bar" style="width: 145px;"></div>
+                        <span class="bar-value">$4.03</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label" style="font-weight:700;">Lakeview</span>
+                        <div class="bar highlight" style="width: 143px;"></div>
+                        <span class="bar-value" style="color: var(--pink, #ff4081);">$3.98</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">South Loop</span>
+                        <div class="bar" style="width: 140px;"></div>
+                        <span class="bar-value">$3.90</span>
+                    </div>
+                </div>
+
+                <p>Cheaper than Lincoln Park by a hair. Cheaper than every downtown neighborhood by a meaningful margin. The difference: you're not downtown. You're in a neighborhood. That's the trade.</p>
+
+                <h2>The Trade-Offs</h2>
+
+                <div class="trade-off-box">
+                    <div class="pro">
+                        <h4>What You Get</h4>
+                        <p>Real neighborhood energy — people walking dogs, local bars, corner grocery stores. Lakefront access. The Red Line to downtown. Lower price per square foot than any downtown neighborhood. Vintage buildings with bigger layouts. Wrigley Field. Boystown. 186 buildings — the most in any Chicago neighborhood. An entry point of $1,205 that's hard to beat.</p>
+                    </div>
+                    <div class="con">
+                        <h4>What You Give Up</h4>
+                        <p>You're not downtown. The L ride to the Loop is 15-20 minutes minimum. Nightlife is neighborhood bars and Wrigleyville sports pubs, not River North bottle service. If you need to be in the center of everything, this isn't it. The building stock skews older — don't expect floor-to-ceiling glass and rooftop pools at these prices.</p>
+                    </div>
+                </div>
+
+                <h2>What's Happening in the Market</h2>
+
+                <p>Lakeview's building stock tells a story. Many of these buildings went up between 1951 and 1970. They're established, they're paid off, and they're competing for tenants against each other and against the shiny new construction downtown. With 186 buildings in our portfolio, the competition drives concessions.</p>
+
+                <p>The newer additions are interesting. Wrigleyville Lofts (2021) brought modern construction to the neighborhood at $3.45/sqft — still below the downtown median. That's the market telling you something: even new builds in Lakeview price below what vintage buildings charge in the West Loop.</p>
+
+                <p>The $1,205 entry point is one of the lowest starting rents in the portfolio for a neighborhood with lake access and direct L service. If you're budget-constrained but want to stay on the North Side with real transit, this is where the math works.</p>
+
+                <h2>Buildings by Value ($/sqft)</h2>
+
+                <p>These are buildings ranked by price per square foot — lowest first. This is where your dollar goes furthest.</p>
+
+                <table class="building-table">
+                    <thead>
+                        <tr>
+                            <th>Building</th>
+                            <th>$/sqft</th>
+                            <th>From</th>
+                            <th>Built</th>
+                            <th>Concession</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>515 W. Barry</td>
+                            <td>$3.13</td>
+                            <td>$1,846</td>
+                            <td>1970</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Wrigleyville Lofts</td>
+                            <td>$3.45</td>
+                            <td>$2,171</td>
+                            <td>2021</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>441 W. Barry</td>
+                            <td>$3.55</td>
+                            <td>$2,661</td>
+                            <td>1968</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>3130 N. Lake Shore Dr</td>
+                            <td>$3.66</td>
+                            <td>$3,088</td>
+                            <td>1957</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Reside on Barry</td>
+                            <td>$3.68</td>
+                            <td>$2,254</td>
+                            <td>1967</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="disclaimer">Data from HomeEasy buildings only. Prices reflect starting rents and may vary by unit, floor, and lease term. Concessions change frequently — verify current availability with us.</p>
+
+                <div class="budget-section">
+                    <h3>What Your Budget Gets You Here</h3>
+                    <p><strong>Under $1,500/mo:</strong> Entry-level units starting at $1,205. You're in Lakeview with lake access and L service. The buildings are older, the finishes are basic. But you're in the neighborhood.</p>
+                    <p><strong>$1,500–$2,000/mo:</strong> This is where Lakeview starts to shine. 515 W. Barry at $1,846 is solid value — $3.13/sqft for a lakefront-adjacent building with active concessions. Vintage construction, bigger rooms than anything you'll get downtown at this price.</p>
+                    <p><strong>$2,000–$2,500/mo:</strong> Your options open up. Wrigleyville Lofts ($2,171, built 2021) gives you new construction. Reside on Barry ($2,254) puts you in the heart of East Lakeview. Both running concessions.</p>
+                    <p><strong>$2,500+:</strong> 441 W. Barry ($2,661) and 3130 N. Lake Shore Dr ($3,088) — the latter puts you on the lakefront in a classic high-rise. At this price in Lakeview, you're getting space and location that would cost significantly more in Lincoln Park or downtown.</p>
+                </div>
+
+                <h2>Getting Around</h2>
+
+                <p>The Red Line is the lifeline. Belmont, Addison, Sheridan — multiple stations mean you're never more than a few blocks from a train. The Brown Line runs along the western edge. Downtown in 15-20 minutes. Not 5, not 10. Be honest with yourself about whether that commute works for you.</p>
+
+                <p>The Lakefront Trail is right there — runners, cyclists, and dog walkers are on it year-round. Clark Street and Broadway are the commercial spines: groceries, coffee, restaurants, bars. This is a neighborhood where you can do most of your life on foot.</p>
+
+                <h2>Who Does Well Here</h2>
+
+                <p>People who want a neighborhood that actually feels like a neighborhood. Not a downtown high-rise canyon, not a suburban quiet — somewhere in between with its own identity. Cubs fans. The LGBTQ+ community, especially around Boystown. Lakefront runners. People who prioritize space and character over being in the center of the action.</p>
+
+                <p>If you need to be out in River North three nights a week, this is a long cab ride. If you want to walk to the lake, grab a beer at a local spot, and pay less per square foot than every downtown neighborhood in Chicago, Lakeview is it.</p>
+
+                <div class="article-cta">
+                    <h3>Tell Us Your Budget</h3>
+                    <p>We track 213 buildings and work with 186 buildings in Lakeview — more than any other Chicago neighborhood. Send us your budget and move-in date — we'll show you what's available and what concessions you qualify for.</p>
+                    <a href="/#contact" class="btn btn-pink">See What's Available</a>
+                </div>
+
+                <h2>Nearby Neighborhoods</h2>
+                <ul>
+                    <li><a href="/neighborhoods/chicago/lincoln-park.html">Lincoln Park</a> — 130 buildings. $4.03/sqft median. Tree-lined streets, the zoo, lakefront.</li>
+                    <li><a href="/neighborhoods/chicago/wicker-park.html">Wicker Park</a> — 22 buildings. Creative energy, boutiques, indie music.</li>
+                    <li><a href="/neighborhoods/chicago/the-loop.html">The Loop</a> — 95 buildings. $4.23/sqft median. The business district.</li>
+                    <li><a href="/neighborhoods/chicago/gold-coast.html">Gold Coast</a> — 94 buildings. $4.25/sqft median. Lakefront south of Lincoln Park.</li>
+                </ul>
+            </div>
+
+            <div class="neighborhood-sidebar">
+                <div class="sidebar-card">
+                    <h4>Lakeview — The Numbers</h4>
+                    <div class="sidebar-stat">
+                        <span class="label">Buildings Tracked</span>
+                        <span class="value">213</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Buildings</span>
+                        <span class="value">186</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Starting Rent</span>
+                        <span class="value">$1,205/mo</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Rent Range</span>
+                        <span class="value">$1,205 – $3,088</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Median $/sqft</span>
+                        <span class="value">$3.98</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Chicago Metro Buildings</span>
+                        <span class="value">2,763</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Year Built Range</span>
+                        <span class="value">1951 – 2022</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Best Value</span>
+                        <span class="value">$3.13/sqft (515 W. Barry)</span>
+                    </div>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Pro</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Real neighborhood energy. Lakefront access. Lower price point than every downtown neighborhood in Chicago.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Con</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Not downtown. 20-minute L ride minimum to the Loop. Limited nightlife compared to River North.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>See What's Available</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem;">Send us your budget and move-in date. We'll match you with Lakeview buildings that fit.</p>
+                    <a href="/#contact" class="btn btn-pink btn-sm" style="width:100%;text-align:center;">Start</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="../../images/logo.png" alt="HomeEasy">
+                <p>Market data and apartment matching across 85,000+ buildings. Free for renters, always.</p>
+            </div>
+            <div><h4>Company</h4><ul><li><a href="/#about">About</a></li><li><a href="/#how-it-works">How It Works</a></li><li><a href="/blog/">Blog</a></li><li><a href="/privacy.html">Privacy Policy</a></li></ul></div>
+            <div><h4>Markets</h4><ul><li><a href="/markets/chicago.html">Chicago</a></li><li><a href="/markets/dfw.html">Dallas-Fort Worth</a></li><li><a href="/markets/houston.html">Houston</a></li><li><a href="/markets/austin.html">Austin</a></li><li><a href="/markets/san-antonio.html">San Antonio</a></li><li><a href="/markets/denver.html">Denver</a></li></ul></div>
+            <div><h4>Contact</h4><div class="footer-contact-info"><p>332 S Michigan Ave<br>Suite 8th Floor<br>Chicago, IL 60604</p><p><a href="tel:+13124689893">(312) 468-9893</a></p></div></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 HomeEasy | Broker Services Co, Inc.</p><p><a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a></p></div>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>

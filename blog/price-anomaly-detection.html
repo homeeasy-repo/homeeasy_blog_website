@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noai, noimageai">
+  <title>Price Anomaly Detection: How We Find Underpriced Apartments | HomeEasy Blog</title>
+  <meta name="description" content="A deep dive into HomeEasy's pricing methodology: how we index 85,000+ buildings, benchmark rent-per-sqft, and flag apartments priced 10%+ below comparable units in the same neighborhood.">
+  <link rel="canonical" href="https://homeeasy.com/blog/price-anomaly-detection.html">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Price Anomaly Detection: How We Find Underpriced Apartments",
+    "datePublished": "2023-03-28",
+    "author": { "@type": "Person", "name": "HomeEasy Team" },
+    "publisher": { "@type": "Organization", "name": "HomeEasy" },
+    "description": "A deep dive into HomeEasy's pricing methodology: how we index 85,000+ buildings, benchmark rent-per-sqft, and flag apartments priced 10%+ below comparable units in the same neighborhood."
+  }
+  </script>
+</head>
+<body>
+  <nav class="nav scrolled" id="mainNav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><img src="../images/logo.png" alt="HomeEasy"></a>
+      <div class="nav-links" id="navLinks">
+        <a href="/#how-it-works">How It Works</a>
+        <a href="/#markets">Markets</a>
+        <a href="/blog/">Blog</a>
+        <a href="/data/">Market Data</a>
+        <a href="/#reviews">Reviews</a>
+        <a href="/#about">About</a>
+        <a href="/#contact">Contact</a>
+        <div class="nav-cta"><a href="/#contact" class="btn btn-pink btn-sm">Find Your Apartment</a></div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <section class="article-hero">
+    <div class="article-hero-inner">
+      <span class="category">Technology</span>
+      <h1>Price Anomaly Detection: How We Find Underpriced Apartments</h1>
+      <p class="article-meta">March 28, 2023 &bull; 10 min read</p>
+    </div>
+  </section>
+
+  <article class="article-content">
+    <p>Every week, thousands of apartment units across our six markets are priced below what they should be. Not because the buildings made mistakes. Because the systems that set prices operate on building-level logic, not market-level logic. That gap between local optimization and global awareness is where we find money for our clients.</p>
+
+    <p>Here is exactly how we do it.</p>
+
+    <h2>Step 1: Index Everything</h2>
+
+    <p>The foundation is data. We track available units across more than 85,000 buildings in Chicago, Dallas-Fort Worth, Houston, Austin, San Antonio, and Denver, with enriched profiles on 76,688 of them. At any given time, we are indexing roughly 6,000 active listings: 1,840 in DFW, 1,426 in Houston, 1,038 in Austin, 559 in San Antonio, 358 in Denver, and 289 in Chicago. For each available unit, we capture a standard set of attributes:</p>
+
+    <ul>
+      <li><strong>Price:</strong> The current asking rent, updated as buildings change their pricing.</li>
+      <li><strong>Square footage:</strong> The unit size, which varies significantly even within the same floor plan designation.</li>
+      <li><strong>Bed/bath configuration:</strong> Studio, 1BR/1BA, 2BR/2BA, and so on.</li>
+      <li><strong>Amenities:</strong> In-unit laundry, dishwasher, balcony, updated finishes, parking included or additional.</li>
+      <li><strong>Building amenities:</strong> Pool, gym, rooftop, concierge, package room.</li>
+      <li><strong>Location:</strong> Latitude and longitude coordinates, not just city name or neighborhood label. This is critical because neighborhood boundaries are fuzzy but coordinates are precise.</li>
+      <li><strong>Concessions:</strong> Free months, reduced deposits, waived fees. These dramatically affect the true cost of a lease.</li>
+    </ul>
+
+    <p>This data forms our index. Think of it as a continuously updated spreadsheet with hundreds of thousands of rows, one for each available unit across all markets.</p>
+
+    <h2>Step 2: Calculate Rent-Per-Square-Foot and Benchmark</h2>
+
+    <p>Raw rent numbers are misleading. A one-bedroom at $1,800 per month sounds cheaper than one at $2,000. But if the first is 550 square feet and the second is 850 square feet, the cheaper apartment is actually the worse deal per square foot ($3.27/sqft vs $2.35/sqft). The larger unit gives you 55% more space for 11% more money.</p>
+
+    <p>We calculate rent-per-square-foot for every unit in our index. Then we benchmark each unit against its comparable set: units with the same bed/bath configuration, similar amenity levels, within a defined geographic radius.</p>
+
+    <p>The radius matters. We use a 1-mile radius as the primary benchmark zone. Why one mile? Because at that distance, two apartments are functionally in the same neighborhood. The same grocery stores, the same transit access, the same restaurants. A renter considering one would reasonably consider the other. Beyond one mile, location differences start to matter enough to distort the comparison.</p>
+
+    <p>For each unit, we calculate two numbers:</p>
+
+    <ol>
+      <li>The unit's rent-per-sqft.</li>
+      <li>The median rent-per-sqft for all comparable units within 1 mile.</li>
+    </ol>
+
+    <p>The ratio between these two numbers is the unit's value score. A score below 1.0 means the unit is priced below the neighborhood median. A score above 1.0 means it is priced above.</p>
+
+    <p>To ground this in real numbers: the current median rents across our markets are $2,287 in Chicago, $1,638 in Denver, $1,250 in DFW, $1,213 in Houston, $1,140 in Austin, and $1,015 in San Antonio. These medians shift month to month, and the spread within each market is wide. A unit priced at $1,100 in DFW could be 12% below its local comparable set or 10% above it, depending on its exact location. That is why the 1-mile benchmark matters more than the city-wide number.</p>
+
+    <h2>Step 3: Flag the Anomalies</h2>
+
+    <p>We flag any unit priced 10% or more below the comparable median as a potential anomaly. Why 10%? Because smaller deviations often reflect legitimate differences in quality, floor level, or view that our data does not fully capture. A 5% discount might just mean the unit faces a parking lot instead of the street. A 10%+ discount almost always represents a genuine pricing gap that benefits the renter.</p>
+
+    <div class="highlight-box">
+      <p><strong>The math:</strong> On a $2,000/month apartment, a 10% anomaly means $200/month in savings. That is $2,400 per year. On a 14-month lease, that is $2,800. Across a typical 3-year stay, that is $7,200. These are not trivial numbers. This is the difference between saving for a down payment and not.</p>
+    </div>
+
+    <h2>Why Anomalies Exist</h2>
+
+    <p>If the market were perfectly efficient, pricing anomalies would not exist. But the apartment rental market is not perfectly efficient. It is, in fact, one of the least efficient major markets in the US economy. Here is why.</p>
+
+    <p><strong>Revenue management software optimizes locally, not globally.</strong> Yieldstar and LRO (the two dominant pricing systems) set rents based on each building's own occupancy, lease expiration schedule, and historical demand. We track which software each building uses — 9,307 on Yardi, 3,131 on OneSite/RealPage, 1,543 on ResMan, 954 on MRI — and none of them account for what the building across the street is charging. This means two identical buildings next to each other can have materially different prices if their occupancy cycles are out of sync.</p>
+
+    <p><strong>Occupancy pressure creates urgency.</strong> When a building drops below 90% occupancy, the financial pressure to fill units increases non-linearly. At 95% occupancy, a building can afford to hold out for full-price tenants. At 85%, the lost revenue from empty units exceeds what they would lose by dropping prices. This creates sudden, often steep, price drops that are not always reflected on listing sites for days or weeks.</p>
+
+    <p><strong>Lease expiration staggering creates lumpy supply.</strong> If a building has 30 leases expiring in March and only 10 in April, the building has three times as many units to fill in March. That seasonal supply spike within a single building can depress its pricing relative to neighbors with more evenly distributed expirations.</p>
+
+    <p><strong>New construction absorption.</strong> A new building entering a submarket needs to fill 200-400 units within 12-18 months. The most common strategy is aggressive initial pricing plus concessions. This temporarily depresses prices in a very localized area. The building two blocks away, fully stabilized at 94% occupancy, does not need to match these prices. The result: a pricing gap between the new building and its established neighbors.</p>
+
+    <p><strong>Human error.</strong> Despite the prevalence of algorithmic pricing, many buildings still have leasing managers who manually set or adjust prices. Manual pricing introduces inconsistency. A leasing manager who is too busy, too cautious, or too optimistic about demand will misprice units. These errors create opportunities.</p>
+
+    <h2>A Real Example</h2>
+
+    <p>Let me walk through a real scenario from our Chicago data to make this tangible.</p>
+
+    <p>In River North, we identified a two-bedroom unit listed at $2,100 per month. The unit was 1,050 square feet with in-unit laundry, a dishwasher, and a balcony. Standard Class A finishes. Nothing unusual.</p>
+
+    <p>We benchmarked it against all two-bedroom units with similar amenities within 1 mile. The comparable set included 47 units across 12 buildings. The median rent-per-sqft for the comparable set was $2.33. This unit was at $2.00 per sqft.</p>
+
+    <p>That is 14% below the comparable median. A clear anomaly.</p>
+
+    <p>Why did the anomaly exist? The building had recently gone through a management change. During the transition, their pricing had not been updated to reflect a seasonal demand increase that had already pushed competitors' rents higher. The algorithm was still running on stale parameters. Within six weeks, the building adjusted its pricing upward by $200 per month. But the renter who signed at $2,100 locked in that rate for 14 months.</p>
+
+    <p>The savings: $200/month x 14 months = $2,800. For doing nothing different except having access to better data.</p>
+
+    <h2>The Concession Adjustment</h2>
+
+    <p>Raw asking rent is only half the equation. Concessions change the math significantly. When a building offers "one month free on a 13-month lease," the net effective rent drops by approximately 7.7%. When they offer "two months free on a 14-month lease," it drops by 14.3%.</p>
+
+    <p>We normalize all pricing to net effective rent before performing anomaly detection. This is critical because concessions are not evenly distributed. Building A might list at $2,000 with no concessions. Building B might list at $2,200 with two months free. The net effective on Building B is $1,886 per month, making it the better deal despite the higher sticker price.</p>
+
+    <p>Many renters miss this because they anchor on the listed price. Our system anchors on the price you actually pay over the full lease term.</p>
+
+    <h2>What Happens After We Find an Anomaly</h2>
+
+    <p>Detection is the first step. Validation is the second. Not every statistical anomaly is a genuine deal. Some anomalies exist because the unit has a flaw our data does not capture: a ground-floor unit facing an alley, a unit next to the trash room, a building with known management problems. We cross-reference anomalies against building reviews, management company reputation data, and our own historical records of client feedback.</p>
+
+    <p>The anomalies that survive this validation process are the ones we present to clients. Each recommendation comes with context: why we think this is a good deal, what the comparable units are priced at, and how long we expect the pricing gap to last.</p>
+
+    <p>The goal is not just to find cheap apartments. It is to find apartments where the price-to-value ratio is objectively favorable based on data, not subjective impression.</p>
+
+    <h2>The Scale Advantage</h2>
+
+    <p>A renter searching on their own might compare 5-10 apartments. A diligent renter might compare 20-30. Our system compares every available unit against every comparable unit within a mile, across all six markets, continuously. That is the difference between anecdote and analysis. Between gut feel and statistical rigor.</p>
+
+    <p>Pricing anomalies are not rare. In any given week, 10-20% of available units in our markets are priced meaningfully below their comparable set. The challenge is not that anomalies do not exist. The challenge is finding them among 85,000+ buildings before someone else does. That is a problem perfectly suited to AI.</p>
+
+    <div class="article-cta">
+      <h3>Want Us to Find a Pricing Anomaly for You?</h3>
+      <p>HomeEasy's AI runs this analysis continuously across 85,000+ buildings. Tell us your criteria, and we will find the deals the market is hiding. Free for renters, always.</p>
+      <a href="/#contact" class="btn btn-pink">Find Your Apartment</a>
+    </div>
+  </article>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../images/logo.png" alt="HomeEasy">
+        <p>AI-powered apartment locator analyzing pricing data across 85,000+ buildings. Free for renters, always.</p>
+      </div>
+      <div><h4>Company</h4><ul><li><a href="/#about">About</a></li><li><a href="/#how-it-works">How It Works</a></li><li><a href="/blog/">Blog</a></li><li><a href="/privacy.html">Privacy Policy</a></li></ul></div>
+      <div><h4>Markets</h4><ul><li><a href="/markets/chicago.html">Chicago</a></li><li><a href="/markets/dfw.html">Dallas-Fort Worth</a></li><li><a href="/markets/houston.html">Houston</a></li><li><a href="/markets/austin.html">Austin</a></li><li><a href="/markets/san-antonio.html">San Antonio</a></li><li><a href="/markets/denver.html">Denver</a></li></ul></div>
+      <div><h4>Contact</h4><div class="footer-contact-info"><p>332 S Michigan Ave<br>Suite 8th Floor<br>Chicago, IL 60604</p><p><a href="tel:+13124689893">(312) 468-9893</a></p></div></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 HomeEasy | Broker Services Co, Inc.</p><p><a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a></p></div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

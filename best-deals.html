@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noai, noimageai">
+    <title>Deal Drops | HomeEasy Price Anomaly Archive</title>
+    <meta name="description" content="Monthly deal drops from HomeEasy — real pricing anomalies our AI flagged across Chicago, DFW, Houston, Austin, San Antonio, and Denver.">
+    <link rel="canonical" href="https://homeeasy.com/best-deals.html">
+    <meta property="og:title" content="Deal Drops | HomeEasy">
+    <meta property="og:description" content="Monthly pricing anomalies our AI found. Real buildings, real savings, real data.">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .deals-hero {
+            padding: 8rem 2rem 3rem;
+            background: var(--navy);
+            color: var(--white);
+            text-align: center;
+        }
+        .deals-hero h1 { font-size: var(--h1); margin-bottom: 0.75rem; }
+        .deals-hero p { font-size: 1rem; opacity: 0.7; max-width: 550px; margin: 0 auto; }
+
+        .deals-feed {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        .month-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-light);
+            font-weight: 600;
+            margin: 2.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .month-label:first-child { margin-top: 0; }
+
+        .deal-drop {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 1.5rem;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 1.25rem;
+            transition: all var(--transition);
+        }
+        .deal-drop:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .deal-img {
+            width: 100%;
+            height: 100%;
+            min-height: 200px;
+            object-fit: cover;
+        }
+
+        .deal-body {
+            padding: 1.25rem 1.5rem 1.25rem 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .deal-tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border-radius: 3px;
+            margin-bottom: 0.5rem;
+            width: fit-content;
+        }
+        .tag-anomaly { background: #fff0f4; color: var(--pink); }
+        .tag-price-drop { background: #e8f5e9; color: #2e7d32; }
+        .tag-hidden-special { background: #fff3e0; color: #e65100; }
+        .tag-unit-arb { background: #e3f2fd; color: #1565c0; }
+
+        .deal-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.15rem;
+        }
+        .deal-loc {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-bottom: 0.6rem;
+        }
+
+        .deal-numbers {
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .deal-price {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+        .deal-was {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            text-decoration: line-through;
+        }
+        .deal-metric {
+            font-size: 0.75rem;
+            background: var(--light-gray);
+            padding: 0.15rem 0.5rem;
+            border-radius: 3px;
+            color: var(--text);
+            font-weight: 500;
+        }
+        .deal-savings {
+            font-size: 0.75rem;
+            color: var(--pink);
+            font-weight: 700;
+        }
+
+        .deal-note {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .archive-block {
+            text-align: center;
+            padding: 2rem;
+            margin: 1.25rem 0;
+            background: var(--light-gray);
+            border-radius: var(--radius-lg);
+        }
+        .archive-block h3 {
+            font-size: 1rem;
+            color: var(--navy);
+            margin-bottom: 0.25rem;
+        }
+        .archive-block p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .deals-cta-bar {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--navy);
+            color: var(--white);
+        }
+        .deals-cta-bar h2 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .deals-cta-bar p { opacity: 0.7; margin-bottom: 1.5rem; font-size: 0.9rem; }
+
+        @media (max-width: 700px) {
+            .deal-drop {
+                grid-template-columns: 1fr;
+            }
+            .deal-img { min-height: 180px; max-height: 200px; }
+            .deal-body { padding: 1rem 1.25rem 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav scrolled" id="mainNav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo"><img src="images/logo.png" alt="HomeEasy"></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/#how-it-works">How It Works</a>
+                <a href="/#markets">Markets</a>
+                <a href="/blog/">Blog</a>
+                <a href="/data/">Market Data</a>
+                <a href="/#reviews">Reviews</a>
+                <a href="/#about">About</a>
+                <a href="/#contact">Contact</a>
+                <div class="nav-cta"><a href="/#contact" class="btn btn-pink btn-sm">Find Your Apartment</a></div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <!-- Hero -->
+    <section class="deals-hero">
+        <h1>Deal Drops</h1>
+        <p>Pricing anomalies our AI flags every month. Real buildings, real numbers.</p>
+    </section>
+
+    <!-- Feed -->
+    <div class="deals-feed">
+
+        <!-- March 2026 -->
+        <div class="month-label">March 2026</div>
+
+        <div class="deal-drop">
+            <img class="deal-img" src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=560&h=400&fit=crop" alt="Modern apartment living room">
+            <div class="deal-body">
+                <span class="deal-tag tag-anomaly">$/sqft anomaly</span>
+                <div class="deal-title">The Sinclair</div>
+                <div class="deal-loc">River North, Chicago</div>
+                <div class="deal-numbers">
+                    <span class="deal-price">$2,250/mo</span>
+                    <span class="deal-was">$2,650</span>
+                    <span class="deal-metric">$2.87/sqft</span>
+                    <span class="deal-savings">Save $4,800/yr</span>
+                </div>
+                <div class="deal-note">1BR &middot; 785 sqft &middot; Comps in River North average $3.37/sqft. Building hit 88% occupancy — priced to fill fast.</div>
+            </div>
+        </div>
+
+        <div class="deal-drop">
+            <img class="deal-img" src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=560&h=400&fit=crop" alt="Apartment kitchen with island">
+            <div class="deal-body">
+                <span class="deal-tag tag-unit-arb">Unit-type arbitrage</span>
+                <div class="deal-title">Paragon South Michigan</div>
+                <div class="deal-loc">South Loop, Chicago</div>
+                <div class="deal-numbers">
+                    <span class="deal-price">$1,950/mo</span>
+                    <span class="deal-metric">$2.87/sqft</span>
+                    <span class="deal-savings">Convertible = best value</span>
+                </div>
+                <div class="deal-note">Convertible &middot; 680 sqft &middot; The 2BRs here are 800 sqft at $2,700 ($3.38/sqft). The convertible layout gets you nearly the same space at 15% less per sqft.</div>
+            </div>
+        </div>
+
+        <!-- February 2026 -->
+        <div class="month-label">February 2026</div>
+
+        <div class="deal-drop">
+            <img class="deal-img" src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=560&h=400&fit=crop" alt="Apartment with city view">
+            <div class="deal-body">
+                <span class="deal-tag tag-price-drop">Price drop</span>
+                <div class="deal-title">Alexan Uptown</div>
+                <div class="deal-loc">Uptown, Dallas</div>
+                <div class="deal-numbers">
+                    <span class="deal-price">$1,600/mo</span>
+                    <span class="deal-was">$1,900</span>
+                    <span class="deal-metric">$2.22/sqft</span>
+                    <span class="deal-savings">Save $3,600/yr</span>
+                </div>
+                <div class="deal-note">1BR &middot; 720 sqft &middot; New construction delivering 200+ units. Lease-up pricing 16% below stabilized comps.</div>
+            </div>
+        </div>
+
+        <div class="deal-drop">
+            <img class="deal-img" src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=560&h=400&fit=crop" alt="Spacious two-bedroom apartment">
+            <div class="deal-body">
+                <span class="deal-tag tag-hidden-special">Hidden special</span>
+                <div class="deal-title">The Residences at Pearl</div>
+                <div class="deal-loc">Pearl District, San Antonio</div>
+                <div class="deal-numbers">
+                    <span class="deal-price">$1,350/mo</span>
+                    <span class="deal-was">$1,700</span>
+                    <span class="deal-metric">$1.23/sqft</span>
+                    <span class="deal-savings">Save $4,200/yr</span>
+                </div>
+                <div class="deal-note">2BR / 2BA &middot; 1,100 sqft &middot; Pearl District is SA's premium hood — $1.23/sqft is Austin pricing from 2019. Not listed on ILS sites.</div>
+            </div>
+        </div>
+
+        <!-- January 2026 -->
+        <div class="month-label">January 2026</div>
+
+        <div class="deal-drop">
+            <img class="deal-img" src="https://images.unsplash.com/photo-1536376072261-38c75010e6c9?w=560&h=400&fit=crop" alt="High-rise apartment with floor-to-ceiling windows">
+            <div class="deal-body">
+                <span class="deal-tag tag-anomaly">$/sqft anomaly</span>
+                <div class="deal-title">Alta at K Station</div>
+                <div class="deal-loc">West Loop, Chicago</div>
+                <div class="deal-numbers">
+                    <span class="deal-price">$1,900/mo</span>
+                    <span class="deal-was">$2,350</span>
+                    <span class="deal-metric">$2.24/sqft</span>
+                    <span class="deal-savings">Save $5,400/yr</span>
+                </div>
+                <div class="deal-note">1BR &middot; 850 sqft &middot; January is Chicago's weakest leasing month. 6 weeks free + reduced deposit.</div>
+            </div>
+        </div>
+
+        <!-- December 2025 -->
+        <div class="month-label">December 2025</div>
+
+        <div class="deal-drop">
+            <img class="deal-img" src="https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=560&h=400&fit=crop" alt="Modern apartment bedroom">
+            <div class="deal-body">
+                <span class="deal-tag tag-price-drop">Price drop</span>
+                <div class="deal-title">The Independent</div>
+                <div class="deal-loc">Downtown, Austin</div>
+                <div class="deal-numbers">
+                    <span class="deal-price">$1,900/mo</span>
+                    <span class="deal-was">$2,400</span>
+                    <span class="deal-metric">$2.79/sqft</span>
+                    <span class="deal-savings">Save $6,000/yr</span>
+                </div>
+                <div class="deal-note">1BR &middot; 680 sqft &middot; Austin's post-pandemic correction. This unit was 21% below its 2023 asking price.</div>
+            </div>
+        </div>
+
+        <!-- November 2025 -->
+        <div class="month-label">November 2025</div>
+
+        <div class="deal-drop">
+            <img class="deal-img" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=560&h=400&fit=crop" alt="Open-plan apartment">
+            <div class="deal-body">
+                <span class="deal-tag tag-hidden-special">Hidden special</span>
+                <div class="deal-title">Camden Victory Park</div>
+                <div class="deal-loc">Victory Park, Dallas</div>
+                <div class="deal-numbers">
+                    <span class="deal-price">$1,700/mo</span>
+                    <span class="deal-was">$2,000</span>
+                    <span class="deal-metric">$2.27/sqft</span>
+                    <span class="deal-savings">Save $3,600/yr</span>
+                </div>
+                <div class="deal-note">1BR &middot; 750 sqft &middot; 2 months free on 14-month lease = net effective $1,700. DFW oversupply hitting Victory Park.</div>
+            </div>
+        </div>
+
+        <!-- October 2025 -->
+        <div class="month-label">October 2025</div>
+
+        <div class="deal-drop">
+            <img class="deal-img" src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=560&h=400&fit=crop" alt="Luxury apartment interior">
+            <div class="deal-body">
+                <span class="deal-tag tag-unit-arb">Unit-type arbitrage</span>
+                <div class="deal-title">One Chicago</div>
+                <div class="deal-loc">River North, Chicago</div>
+                <div class="deal-numbers">
+                    <span class="deal-price">$2,400/mo</span>
+                    <span class="deal-was">$2,800</span>
+                    <span class="deal-metric">$3.08/sqft</span>
+                    <span class="deal-savings">Save $4,800/yr</span>
+                </div>
+                <div class="deal-note">1BR &middot; 780 sqft &middot; Luxury tower 3 years post-opening. The junior 1BR layout gets you 85% of the space for 70% of the 2BR price.</div>
+            </div>
+        </div>
+
+        <!-- September 2025 -->
+        <div class="month-label">September 2025</div>
+
+        <div class="deal-drop">
+            <img class="deal-img" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=560&h=400&fit=crop" alt="Apartment with balcony">
+            <div class="deal-body">
+                <span class="deal-tag tag-anomaly">$/sqft anomaly</span>
+                <div class="deal-title">Broadstone RiNo</div>
+                <div class="deal-loc">RiNo, Denver</div>
+                <div class="deal-numbers">
+                    <span class="deal-price">$1,700/mo</span>
+                    <span class="deal-was">$1,880</span>
+                    <span class="deal-metric">$2.43/sqft</span>
+                    <span class="deal-savings">Save $2,160/yr</span>
+                </div>
+                <div class="deal-note">1BR &middot; 700 sqft &middot; RiNo had 400+ new units delivering that quarter. Early movers got below-market lease-up pricing.</div>
+            </div>
+        </div>
+
+        <!-- August 2025 -->
+        <div class="month-label">August 2025</div>
+
+        <div class="deal-drop">
+            <img class="deal-img" src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=560&h=400&fit=crop" alt="Apartment living space">
+            <div class="deal-body">
+                <span class="deal-tag tag-price-drop">Price drop</span>
+                <div class="deal-title">Alexan on 8th</div>
+                <div class="deal-loc">East Austin, Austin</div>
+                <div class="deal-numbers">
+                    <span class="deal-price">$1,400/mo</span>
+                    <span class="deal-was">$1,750</span>
+                    <span class="deal-metric">$2.06/sqft</span>
+                    <span class="deal-savings">Save $4,200/yr</span>
+                </div>
+                <div class="deal-note">1BR &middot; 680 sqft &middot; East Austin building boom. 20% discount to comps on the same block.</div>
+            </div>
+        </div>
+
+        <!-- July 2025 -->
+        <div class="month-label">July 2025</div>
+
+        <div class="deal-drop">
+            <img class="deal-img" src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=560&h=400&fit=crop" alt="Apartment with modern kitchen">
+            <div class="deal-body">
+                <span class="deal-tag tag-hidden-special">Hidden special</span>
+                <div class="deal-title">Greystar Trinity</div>
+                <div class="deal-loc">Knox-Henderson, Dallas</div>
+                <div class="deal-numbers">
+                    <span class="deal-price">$1,500/mo</span>
+                    <span class="deal-was">$1,780</span>
+                    <span class="deal-metric">$2.03/sqft</span>
+                    <span class="deal-savings">Save $3,360/yr</span>
+                </div>
+                <div class="deal-note">1BR &middot; 740 sqft &middot; Knox-Henderson walkability at sub-$2.05/sqft. Lease-up promo most renters didn't know about.</div>
+            </div>
+        </div>
+
+        <!-- Q1-Q2 2025 -->
+        <div class="archive-block">
+            <h3>Q1–Q2 2025: 6 deals flagged</h3>
+            <p>Avg savings: $3,400/yr &middot; Best find: The Bowie downtown Austin — $1,950 vs $2,500 market comp ($6,600/yr savings)</p>
+        </div>
+
+        <!-- 2024 -->
+        <div class="archive-block">
+            <h3>2024: 14 deals flagged</h3>
+            <p>DFW + Austin oversupply created the best renter's market since 2020 &middot; Avg savings: $3,200/yr</p>
+        </div>
+
+        <!-- 2023 -->
+        <div class="archive-block">
+            <h3>2023: 10 deals flagged</h3>
+            <p>Denver joined our tracking &middot; Construction boom starting to impact pricing &middot; Avg savings: $2,800/yr</p>
+        </div>
+
+        <!-- 2022 -->
+        <div class="archive-block">
+            <h3>2022: 8 deals flagged</h3>
+            <p>Post-COVID normalization &middot; Austin + DFW expansion &middot; Avg savings: $2,400/yr</p>
+        </div>
+
+        <!-- 2020-2021 -->
+        <div class="archive-block">
+            <h3>2020–2021: 12 deals flagged</h3>
+            <p>COVID created unprecedented anomalies &middot; Loop 1BRs at $1,400 that are now $2,100 &middot; Arbitrage thesis proven.</p>
+        </div>
+
+        <!-- 2019 -->
+        <div class="archive-block">
+            <h3>2019: Started tracking</h3>
+            <p>Chicago-only &middot; 4 anomalies identified &middot; Built the methodology that scales to 85,000+ buildings today.</p>
+        </div>
+
+    </div>
+
+    <!-- CTA -->
+    <section class="deals-cta-bar">
+        <h2>Want the next deal drop?</h2>
+        <p>Tell us what you're looking for. Our AI scans 85,000+ buildings daily.</p>
+        <a href="/#contact" class="btn btn-pink" style="font-size:1rem; padding:0.875rem 2.5rem;">Start Your Search</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="images/logo.png" alt="HomeEasy">
+                <p>AI-powered apartment locator analyzing pricing data across 85,000+ buildings. Free for renters, always.</p>
+            </div>
+            <div>
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/#about">About</a></li>
+                    <li><a href="/#how-it-works">How It Works</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="best-deals.html">Deal Drops</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Markets</h4>
+                <ul>
+                    <li><a href="markets/chicago.html">Chicago</a></li>
+                    <li><a href="markets/dfw.html">Dallas-Fort Worth</a></li>
+                    <li><a href="markets/houston.html">Houston</a></li>
+                    <li><a href="markets/austin.html">Austin</a></li>
+                    <li><a href="markets/san-antonio.html">San Antonio</a></li>
+                    <li><a href="markets/denver.html">Denver</a></li>
+                    <li><a href="markets/nashville.html">Nashville</a></li>
+                    <li><a href="markets/atlanta.html">Atlanta</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <div class="footer-contact-info">
+                    <p>332 S Michigan Ave<br>Suite 8th Floor<br>Chicago, IL 60604</p>
+                    <p><a href="tel:+13124689893">(312) 468-9893</a></p>
+                    <p><a href="mailto:hello@homeeasy.com">hello@homeeasy.com</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 HomeEasy | Broker Services Co, Inc.</p>
+            <p><a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

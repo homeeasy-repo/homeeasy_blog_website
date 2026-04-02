@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noai, noimageai">
+    <title>The Heights Houston Apartments | 27 Buildings, Real Pricing Data | HomeEasy</title>
+    <meta name="description" content="The Heights Houston apartment data from 27 buildings. Median rent $1,595/mo, $2.32/sqft. 3 buildings running concessions. Real prices, real trade-offs.">
+    <link rel="canonical" href="https://homeeasy.com/neighborhoods/houston/the-heights.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="The Heights Houston Apartments | Real Pricing Data from 27 Buildings | HomeEasy">
+    <meta property="og:description" content="27 buildings. Median $1,595/mo. 3 running concessions. The data on Heights apartments.">
+    <meta property="og:url" content="https://homeeasy.com/neighborhoods/houston/the-heights.html">
+    <meta property="og:site_name" content="HomeEasy">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Heights Houston Apartments | Real Data | HomeEasy">
+    <meta name="twitter:description" content="Median rent $1,595. 3 of 27 buildings running concessions. Heights apartment data from the source.">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "HomeEasy - The Heights Houston Apartment Locator",
+        "description": "Market data and apartment matching for The Heights, Houston. 27 buildings. Free for renters.",
+        "url": "https://homeeasy.com/neighborhoods/houston/the-heights.html",
+        "telephone": "+1-312-468-9893",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "332 S Michigan Ave, Suite 8th Floor",
+            "addressLocality": "Chicago",
+            "addressRegion": "IL",
+            "postalCode": "60604",
+            "addressCountry": "US"
+        },
+        "areaServed": {
+            "@type": "Neighborhood",
+            "name": "The Heights",
+            "containedInPlace": {
+                "@type": "City",
+                "name": "Houston",
+                "containedInPlace": {
+                    "@type": "State",
+                    "name": "Texas"
+                }
+            }
+        },
+        "priceRange": "Free",
+        "openingHours": "Mo-Su 00:00-23:59"
+    }
+    </script>
+
+    <style>
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .data-card {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 1.2rem;
+            text-align: center;
+        }
+        .data-card .number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy, #1a237e);
+            display: block;
+        }
+        .data-card .label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+        .building-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .building-table th {
+            background: var(--navy, #1a237e);
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .building-table td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid #eee;
+        }
+        .building-table tr:hover {
+            background: #f8f8ff;
+        }
+        .concession-tag {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .trade-off-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .trade-off-box .pro, .trade-off-box .con {
+            padding: 1.2rem;
+            border-radius: 8px;
+        }
+        .trade-off-box .pro {
+            background: #e8f5e9;
+            border-left: 4px solid #2e7d32;
+        }
+        .trade-off-box .con {
+            background: #fce4ec;
+            border-left: 4px solid #c62828;
+        }
+        .trade-off-box h4 {
+            margin: 0 0 0.5rem;
+            font-size: 0.95rem;
+        }
+        .trade-off-box p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        .compare-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.4rem 0;
+        }
+        .compare-bar .bar {
+            height: 20px;
+            background: var(--navy, #1a237e);
+            border-radius: 3px;
+            opacity: 0.7;
+        }
+        .compare-bar .bar.highlight {
+            opacity: 1;
+            background: var(--pink, #ff4081);
+        }
+        .compare-bar .hood-label {
+            width: 120px;
+            font-size: 0.8rem;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .compare-bar .bar-value {
+            font-size: 0.8rem;
+            font-weight: 600;
+            flex-shrink: 0;
+            width: 60px;
+        }
+        .budget-section {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .budget-section h3 {
+            margin-top: 0;
+        }
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #888;
+            font-style: italic;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        @media (max-width: 600px) {
+            .trade-off-box {
+                grid-template-columns: 1fr;
+            }
+            .building-table {
+                font-size: 0.8rem;
+            }
+            .building-table th, .building-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav scrolled" id="mainNav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo"><img src="../../images/logo.png" alt="HomeEasy"></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/#how-it-works">How It Works</a>
+                <a href="/#markets">Markets</a>
+                <a href="/blog/">Blog</a>
+                <a href="/data/">Market Data</a>
+                <a href="/#reviews">Reviews</a>
+                <a href="/#about">About</a>
+                <a href="/#contact">Contact</a>
+                <div class="nav-cta"><a href="/#contact" class="btn btn-pink btn-sm">Find Your Apartment</a></div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <section class="neighborhood-hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="neighborhood-hero-content">
+            <div class="breadcrumb"><a href="/">HomeEasy</a> &rsaquo; <a href="/markets/houston.html">Houston</a> &rsaquo; The Heights</div>
+            <h1>The Heights, Houston</h1>
+            <p class="neighborhood-subtitle">27 buildings. Median rent $1,595. 3 running concessions right now.</p>
+        </div>
+    </section>
+
+    <section class="neighborhood-content">
+        <div class="neighborhood-layout">
+            <div class="neighborhood-main">
+
+                <div class="data-grid">
+                    <div class="data-card">
+                        <span class="number">27</span>
+                        <span class="label">Buildings</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$1,595</span>
+                        <span class="label">Median Rent</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$2.32</span>
+                        <span class="label">Median $/sqft</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">3</span>
+                        <span class="label">Active Concessions</span>
+                    </div>
+                </div>
+
+                <h2>The Market</h2>
+
+                <p>The Heights is Houston's "neighborhood" neighborhood. Historic bungalows, Heights Boulevard with its esplanade, local coffee shops on 19th Street, people walking their dogs. It is the closest thing Houston has to the kind of walkable, tree-lined, small-town-in-a-big-city feel that cities like Austin or Portland trade on.</p>
+
+                <p>27 buildings now. The Heights has grown beyond just bungalows and townhomes. While many Heights rentals are still direct-to-landlord vintage bungalows, the inventory has expanded significantly with newer mixed-use developments built as the neighborhood has grown.</p>
+
+                <p>At $2.32/sqft median and $1,595 median rent, The Heights sits below Midtown and Montrose on a $/sqft basis. Rents run from $1,320 to $1,756 — a tight range. 3 of 27 buildings have concessions, which reflects strong organic demand in the neighborhood.</p>
+
+                <h2>How It Compares</h2>
+
+                <p>The Heights is among the more affordable inner-loop neighborhoods by $/sqft, though the inventory limitations are the real story.</p>
+
+                <div style="margin: 1.5rem 0;">
+                    <div class="compare-bar">
+                        <span class="hood-label">Medical Center</span>
+                        <div class="bar" style="width: 160px;"></div>
+                        <span class="bar-value">$2.76</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Downtown</span>
+                        <div class="bar" style="width: 143px;"></div>
+                        <span class="bar-value">$2.47</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Midtown</span>
+                        <div class="bar" style="width: 138px;"></div>
+                        <span class="bar-value">$2.38</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Montrose</span>
+                        <div class="bar" style="width: 138px;"></div>
+                        <span class="bar-value">$2.38</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label" style="font-weight:700;">The Heights</span>
+                        <div class="bar highlight" style="width: 135px;"></div>
+                        <span class="bar-value" style="color: var(--pink, #ff4081);">$2.32</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Galleria</span>
+                        <div class="bar" style="width: 126px;"></div>
+                        <span class="bar-value">$2.18</span>
+                    </div>
+                </div>
+
+                <p>$2.32/sqft is a good number. Lower than Midtown, lower than Montrose, lower than Downtown. And with 27 buildings, The Heights now has competitive selection alongside Montrose's 29 or Downtown's 34.</p>
+
+                <h2>The Trade-Offs</h2>
+
+                <div class="trade-off-box">
+                    <div class="pro">
+                        <h4>What You Get</h4>
+                        <p>Best neighborhood character in Houston. Heights Boulevard, 19th Street local shops, bikeable streets, weekend farmers market. 27 buildings with modern finishes. $2.32/sqft is below Midtown and Montrose. 3 of 27 with concessions.</p>
+                    </div>
+                    <div class="con">
+                        <h4>What You Give Up</h4>
+                        <p>No light rail. Car-dependent for anything outside the neighborhood. Many Heights rentals are still vintage bungalows and townhomes rented directly by owners — not through locators.</p>
+                    </div>
+                </div>
+
+                <h2>What's Happening in the Market</h2>
+
+                <p>The Heights has been Houston's hottest neighborhood for the past decade. Historic bungalows that sold for $150K in 2010 now go for $600K+. The gentrification has brought new restaurants, coffee shops, and mixed-use developments — which is where the buildings come from. Sawyer Heights Lofts, Revl Heights, and the other properties are newer construction that exists because the neighborhood demand justified building them.</p>
+
+                <p>3 of 27 concessions means demand is strong. The Heights attracts people who want character, but those people have alternatives — Montrose for arts and dining, Midtown for nightlife and transit. The buildings need to earn your lease with competitive pricing, and the low concession rate shows they can.</p>
+
+                <p>If you want a Heights bungalow rental, that is a direct-to-landlord search. If you want a modern apartment in The Heights with the neighborhood character as a bonus, the 27 buildings give you real selection.</p>
+
+                <h2>Buildings by Value ($/sqft)</h2>
+
+                <p>Buildings ranked by price per square foot, lowest first.</p>
+
+                <table class="building-table">
+                    <thead>
+                        <tr>
+                            <th>Building</th>
+                            <th>$/sqft</th>
+                            <th>From</th>
+                            <th>Concession</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Sawyer Heights Lofts</td>
+                            <td>$1.93</td>
+                            <td>$1,320</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Revl Heights</td>
+                            <td>$2.21</td>
+                            <td>$1,568</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="disclaimer">Data from HomeEasy buildings only. Prices reflect starting rents and may vary by unit, floor, and lease term. Concessions change frequently — verify current availability with us.</p>
+
+                <div class="budget-section">
+                    <h3>What Your Budget Gets You Here</h3>
+                    <p><strong>Under $1,400/mo:</strong> Sawyer Heights Lofts at $1,320 is the entry point. At $1.93/sqft it is the best value in The Heights — and actually cheaper per square foot than most Midtown buildings. Loft-style layouts, newer construction.</p>
+                    <p><strong>$1,400-$1,600/mo:</strong> Revl Heights starts at $1,568 with a $2.21/sqft rate — still below the neighborhood median. Two buildings competing for your lease means concessions work in your favor.</p>
+                    <p><strong>$1,600-$1,756/mo:</strong> Top of the range. Larger units, better finishes. At the $1,756 ceiling, you are getting the best The Heights inventory has to offer.</p>
+                    <p><strong>Above $1,756:</strong> You have exceeded The Heights inventory. Look at Montrose ($1,025-$2,140 across 29 buildings) for more options at higher price points.</p>
+                </div>
+
+                <h2>Getting Around</h2>
+
+                <p>No light rail. That is the blunt reality. The Heights Hike and Bike Trail is good for recreation and connects to the bayou trail network, but it is not transit. METRO bus routes exist but are infrequent. A car is necessary for daily life.</p>
+
+                <p>Within the neighborhood, Heights Boulevard and 19th Street are walkable commercial corridors. You can walk to coffee, brunch, a farmers market, local shops. It feels like a small town. But for groceries (H-E-B on North Shepherd), commuting, or anything outside the neighborhood — you are driving.</p>
+
+                <p>The upside: Heights Boulevard itself is one of the most pleasant walking streets in Houston. The esplanade down the center, mature oaks, historic homes on both sides. It is not transit, but it is a reason to go outside, which is more than most Houston neighborhoods offer.</p>
+
+                <h2>Who Does Well Here</h2>
+
+                <p>People who want Houston's best neighborhood character and have a car. People who prioritize the feel of where they live — the street, the shops, the farmers market — over nightlife or transit. Families who want a neighborhood with sidewalks and trees. People who work from home and want to step outside into something that feels like a community.</p>
+
+                <p>If you need transit, go to Midtown. If you need concession leverage, go to Downtown. If you need a neighborhood that feels like a neighborhood — tree-lined streets, local coffee shops, people you recognize — The Heights is it, with 27 buildings to choose from.</p>
+
+                <div class="article-cta">
+                    <h3>Tell Us Your Budget</h3>
+                    <p>We work with 27 buildings in The Heights. Send us your budget and move-in date — we'll show you what's available and what concessions you qualify for.</p>
+                    <a href="/#contact" class="btn btn-pink">See What's Available</a>
+                </div>
+
+                <h2>Nearby Neighborhoods</h2>
+                <ul>
+                    <li><a href="/neighborhoods/houston/midtown.html">Midtown</a> — $2.38/sqft median. 34 buildings. Light rail, walkable nightlife.</li>
+                    <li><a href="/neighborhoods/houston/montrose.html">Montrose</a> — $2.38/sqft median. 29 buildings. Most character after The Heights.</li>
+                    <li><a href="/neighborhoods/houston/downtown.html">Downtown</a> — $2.47/sqft median. 34 buildings, 15 concessions. Best for negotiating power.</li>
+                    <li><a href="/neighborhoods/houston/museum-district.html">Museum District</a> — $2.76/sqft median. Cultural hub, premium pricing, 12 buildings.</li>
+                </ul>
+            </div>
+
+            <div class="neighborhood-sidebar">
+                <div class="sidebar-card">
+                    <h4>The Heights — The Numbers</h4>
+                    <div class="sidebar-stat">
+                        <span class="label">Buildings</span>
+                        <span class="value">27</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Median Rent</span>
+                        <span class="value">$1,595/mo</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Rent Range</span>
+                        <span class="value">$1,320 – $1,756</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Median $/sqft</span>
+                        <span class="value">$2.32</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Active Concessions</span>
+                        <span class="value">3 of 27 buildings</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Best Value</span>
+                        <span class="value">$1.93/sqft (Sawyer Heights Lofts)</span>
+                    </div>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Pro</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Best neighborhood character in Houston. Heights Blvd, local coffee shops, bikeable, farmers market.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Con</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">No light rail. Car-dependent. Many Heights rentals are still direct-to-landlord bungalows and townhomes.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>See What's Available</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem;">Send us your budget and move-in date. We'll match you with Heights buildings that fit.</p>
+                    <a href="/#contact" class="btn btn-pink btn-sm" style="width:100%;text-align:center;">Start</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="../../images/logo.png" alt="HomeEasy">
+                <p>Market data and apartment matching across 3,005 Houston buildings. Free for renters, always.</p>
+            </div>
+            <div><h4>Company</h4><ul><li><a href="/#about">About</a></li><li><a href="/#how-it-works">How It Works</a></li><li><a href="/blog/">Blog</a></li><li><a href="/privacy.html">Privacy Policy</a></li></ul></div>
+            <div><h4>Markets</h4><ul><li><a href="/markets/chicago.html">Chicago</a></li><li><a href="/markets/dfw.html">Dallas-Fort Worth</a></li><li><a href="/markets/houston.html">Houston</a></li><li><a href="/markets/austin.html">Austin</a></li><li><a href="/markets/san-antonio.html">San Antonio</a></li><li><a href="/markets/denver.html">Denver</a></li></ul></div>
+            <div><h4>Contact</h4><div class="footer-contact-info"><p>332 S Michigan Ave<br>Suite 8th Floor<br>Chicago, IL 60604</p><p><a href="tel:+13124689893">(312) 468-9893</a></p></div></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 HomeEasy | Broker Services Co, Inc.</p><p><a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a></p></div>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noai, noimageai">
+    <title>Arlington Apartments DFW | 65 Buildings, Real Pricing Data | HomeEasy</title>
+    <meta name="description" content="Arlington apartment data from 65 buildings. Median rent $1,075/mo, $1.72/sqft. 32 buildings running concessions. Real prices, real trade-offs.">
+    <link rel="canonical" href="https://homeeasy.com/neighborhoods/dfw/arlington.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Arlington Apartments | Real Pricing Data from 65 Buildings | HomeEasy">
+    <meta property="og:description" content="65 buildings. Median $1,075/mo. 32 running concessions. The data on Arlington apartments.">
+    <meta property="og:url" content="https://homeeasy.com/neighborhoods/dfw/arlington.html">
+    <meta property="og:site_name" content="HomeEasy">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Arlington Apartments | Real Data | HomeEasy">
+    <meta name="twitter:description" content="Median rent $1,075. 32 of 65 buildings running concessions. Arlington apartment data from the source.">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "HomeEasy - Arlington TX Apartment Locator",
+        "description": "Market data and apartment matching for Arlington, Texas. 65 buildings. Free for renters.",
+        "url": "https://homeeasy.com/neighborhoods/dfw/arlington.html",
+        "telephone": "+1-312-468-9893",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "332 S Michigan Ave, Suite 8th Floor",
+            "addressLocality": "Chicago",
+            "addressRegion": "IL",
+            "postalCode": "60604",
+            "addressCountry": "US"
+        },
+        "areaServed": {
+            "@type": "City",
+            "name": "Arlington",
+            "containedInPlace": {
+                "@type": "State",
+                "name": "Texas"
+            }
+        },
+        "priceRange": "Free",
+        "openingHours": "Mo-Su 00:00-23:59"
+    }
+    </script>
+
+    <style>
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .data-card {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 1.2rem;
+            text-align: center;
+        }
+        .data-card .number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy, #1a237e);
+            display: block;
+        }
+        .data-card .label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+        .building-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .building-table th {
+            background: var(--navy, #1a237e);
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .building-table td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid #eee;
+        }
+        .building-table tr:hover {
+            background: #f8f8ff;
+        }
+        .concession-tag {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .trade-off-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .trade-off-box .pro, .trade-off-box .con {
+            padding: 1.2rem;
+            border-radius: 8px;
+        }
+        .trade-off-box .pro {
+            background: #e8f5e9;
+            border-left: 4px solid #2e7d32;
+        }
+        .trade-off-box .con {
+            background: #fce4ec;
+            border-left: 4px solid #c62828;
+        }
+        .trade-off-box h4 {
+            margin: 0 0 0.5rem;
+            font-size: 0.95rem;
+        }
+        .trade-off-box p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        .compare-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.4rem 0;
+        }
+        .compare-bar .bar {
+            height: 20px;
+            background: var(--navy, #1a237e);
+            border-radius: 3px;
+            opacity: 0.7;
+        }
+        .compare-bar .bar.highlight {
+            opacity: 1;
+            background: var(--pink, #ff4081);
+        }
+        .compare-bar .hood-label {
+            width: 120px;
+            font-size: 0.8rem;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .compare-bar .bar-value {
+            font-size: 0.8rem;
+            font-weight: 600;
+            flex-shrink: 0;
+            width: 60px;
+        }
+        .budget-section {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .budget-section h3 {
+            margin-top: 0;
+        }
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #888;
+            font-style: italic;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        @media (max-width: 600px) {
+            .trade-off-box {
+                grid-template-columns: 1fr;
+            }
+            .building-table {
+                font-size: 0.8rem;
+            }
+            .building-table th, .building-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav scrolled" id="mainNav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo"><img src="../../images/logo.png" alt="HomeEasy"></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/#how-it-works">How It Works</a>
+                <a href="/#markets">Markets</a>
+                <a href="/blog/">Blog</a>
+                <a href="/data/">Market Data</a>
+                <a href="/#reviews">Reviews</a>
+                <a href="/#about">About</a>
+                <a href="/#contact">Contact</a>
+                <div class="nav-cta"><a href="/#contact" class="btn btn-pink btn-sm">Find Your Apartment</a></div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <section class="neighborhood-hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="neighborhood-hero-content">
+            <div class="breadcrumb"><a href="/">HomeEasy</a> &rsaquo; <a href="/markets/dfw.html">DFW</a> &rsaquo; Arlington</div>
+            <h1>Arlington, DFW</h1>
+            <p class="neighborhood-subtitle">65 buildings. Median rent $1,075. 32 running concessions right now.</p>
+        </div>
+    </section>
+
+    <section class="neighborhood-content">
+        <div class="neighborhood-layout">
+            <div class="neighborhood-main">
+
+                <div class="data-grid">
+                    <div class="data-card">
+                        <span class="number">65</span>
+                        <span class="label">Buildings</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$1,075</span>
+                        <span class="label">Median Rent</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$1.72</span>
+                        <span class="label">Median $/sqft</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">32</span>
+                        <span class="label">Active Concessions</span>
+                    </div>
+                </div>
+
+                <h2>The Market</h2>
+
+                <p>Arlington is the value play in DFW. That's not a euphemism — it's the data. 65 buildings, a $685 entry point, and a median rent of $1,075/mo. At $1.72/sqft, Arlington is 39% cheaper than Uptown ($2.80) and the cheapest major submarket in the metro.</p>
+
+                <p>32 of 65 buildings are running concessions right now. Half the market is offering something — months free, waived fees, reduced deposits. That's vacancy pressure working in your favor. Buildings don't discount when they're full.</p>
+
+                <p>Arlington sits between Dallas and Fort Worth, home to AT&T Stadium and Globe Life Field. It's not walkable. You need a car for everything. But if your budget matters more than your commute, this is where your dollar stretches furthest in DFW.</p>
+
+                <h2>How It Compares</h2>
+
+                <p>Here's what you're choosing between across the DFW metro (median $/sqft):</p>
+
+                <div style="margin: 1.5rem 0;">
+                    <div class="compare-bar">
+                        <span class="hood-label">Knox-Henderson</span>
+                        <div class="bar" style="width: 180px;"></div>
+                        <span class="bar-value">$3.06</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Uptown</span>
+                        <div class="bar" style="width: 165px;"></div>
+                        <span class="bar-value">$2.80</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Downtown Dallas</span>
+                        <div class="bar" style="width: 148px;"></div>
+                        <span class="bar-value">$2.51</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Deep Ellum</span>
+                        <div class="bar" style="width: 137px;"></div>
+                        <span class="bar-value">$2.33</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Las Colinas</span>
+                        <div class="bar" style="width: 130px;"></div>
+                        <span class="bar-value">$2.20</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Fort Worth</span>
+                        <div class="bar" style="width: 126px;"></div>
+                        <span class="bar-value">$2.14</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Oak Lawn</span>
+                        <div class="bar" style="width: 121px;"></div>
+                        <span class="bar-value">$2.05</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Frisco</span>
+                        <div class="bar" style="width: 116px;"></div>
+                        <span class="bar-value">$1.97</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Richardson</span>
+                        <div class="bar" style="width: 112px;"></div>
+                        <span class="bar-value">$1.90</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Plano</span>
+                        <div class="bar" style="width: 109px;"></div>
+                        <span class="bar-value">$1.85</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label" style="font-weight:700;">Arlington</span>
+                        <div class="bar highlight" style="width: 101px;"></div>
+                        <span class="bar-value" style="color: var(--pink, #ff4081);">$1.72</span>
+                    </div>
+                </div>
+
+                <p>Dead last on price per square foot. First on value. That's the Arlington proposition.</p>
+
+                <h2>The Trade-Offs</h2>
+
+                <div class="trade-off-box">
+                    <div class="pro">
+                        <h4>What You Get</h4>
+                        <p>Cheapest major submarket in DFW. 65 buildings to choose from — 2nd largest inventory in the metro. Half running concessions. $685 entry point. More square footage per dollar than anywhere else. AT&T Stadium and Globe Life Field are in your backyard.</p>
+                    </div>
+                    <div class="con">
+                        <h4>What You Give Up</h4>
+                        <p>Car-dependent. Zero walkability. No rail transit — Arlington opted out of DART. 20-30 minute drive to Dallas or Fort Worth. No nightlife scene to speak of. Dining is suburban chains and strip-mall restaurants. If you want urban energy, this is not it.</p>
+                    </div>
+                </div>
+
+                <h2>What's Happening in the Market</h2>
+
+                <p>Arlington's rental market is soft right now. When half your buildings are running concessions, that tells you supply is outpacing demand. For renters, that's a good thing — it means leverage.</p>
+
+                <p>The entertainment district around the stadiums keeps drawing development, but the residential market hasn't caught up in demand. Result: newer buildings offering aggressive move-in specials to fill units. Months free, waived admin fees, reduced deposits.</p>
+
+                <p>Credit requirements tend to be more flexible here than in Dallas's urban core. Budget renters, Section 8 voucher holders, and anyone with imperfect credit will find more doors open in Arlington than in Uptown or Knox-Henderson.</p>
+
+                <h2>Buildings by Value ($/sqft)</h2>
+
+                <p>These are buildings ranked by price per square foot — lowest first. This is where your dollar goes furthest.</p>
+
+                <table class="building-table">
+                    <thead>
+                        <tr>
+                            <th>Building</th>
+                            <th>$/sqft</th>
+                            <th>From</th>
+                            <th>Concession</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Rise North Arlington</td>
+                            <td>$1.03</td>
+                            <td>$685</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Maxwell</td>
+                            <td>$1.18</td>
+                            <td>$835</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Elliot Windsprint</td>
+                            <td>$1.23</td>
+                            <td>$932</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="disclaimer">Data from HomeEasy buildings only. Prices reflect starting rents and may vary by unit, floor, and lease term. Concessions change frequently — verify current availability with us.</p>
+
+                <div class="budget-section">
+                    <h3>What Your Budget Gets You Here</h3>
+                    <p><strong>Under $800/mo:</strong> Rise North Arlington at $685 — $1.03/sqft, the cheapest entry point in all of DFW. Not new, not flashy. But the math works. At this price, you're paying less than some people's car payments.</p>
+                    <p><strong>$800–$1,100/mo:</strong> Your options open up significantly. Maxwell ($835 start), Elliot Windsprint ($932 start), and a dozen more buildings in this range. This is the median price band — the heart of Arlington's market.</p>
+                    <p><strong>$1,100–$1,500/mo:</strong> The sweet spot for space. Two-bedrooms become available. Newer construction with in-unit washer/dryers, pools, fitness centers. Concessions at this tier can knock $100-200/mo off effective rent.</p>
+                    <p><strong>$1,500+:</strong> Top-tier Arlington. Larger two-bedrooms and three-bedrooms in newer communities. At this budget in Arlington, you're getting what $2,500+ buys in Uptown — just without the walkability.</p>
+                </div>
+
+                <h2>Getting Around</h2>
+
+                <p>You need a car. That's not a suggestion — it's a requirement. Arlington is the largest city in the US without a mass transit rail system. They voted against joining DART, and it shows. I-30 and I-20 are your lifelines to Dallas and Fort Worth, with 20-40 minute commutes depending on traffic and direction.</p>
+
+                <p>The upside of car-dependent: free parking everywhere. Wide streets. No circling the block for 20 minutes. Your apartment complex will have a spot for you, usually covered, usually included.</p>
+
+                <h2>Who Does Well Here</h2>
+
+                <p>People who prioritize budget over lifestyle. People who work in Arlington, or midway between Dallas and Fort Worth. Families who need space — a 2BR here costs what a studio costs in Knox-Henderson. Sports fans who want to walk to Cowboys and Rangers games instead of paying $40 to park.</p>
+
+                <p>If you need nightlife, walkability, or urban energy — look at Uptown, Deep Ellum, or Knox-Henderson. If you need the most apartment for the least money in DFW, this is it.</p>
+
+                <div class="article-cta">
+                    <h3>Tell Us Your Budget</h3>
+                    <p>We work with 65 buildings in Arlington. Send us your budget and move-in date — we'll show you what's available and what concessions you qualify for.</p>
+                    <a href="/#contact" class="btn btn-pink">See What's Available</a>
+                </div>
+
+                <h2>Nearby Neighborhoods</h2>
+                <ul>
+                    <li><a href="/neighborhoods/dfw/uptown-dallas.html">Uptown Dallas</a> — $2.80/sqft median. 115 buildings. Walkable, nightlife, McKinney Ave. 63% more expensive.</li>
+                    <li><a href="/neighborhoods/dfw/deep-ellum.html">Deep Ellum</a> — $2.33/sqft median. 25 buildings. Live music, murals, craft breweries.</li>
+                    <li><a href="/neighborhoods/dfw/knox-henderson.html">Knox-Henderson</a> — $3.06/sqft median. 21 buildings. The most expensive submarket in DFW.</li>
+                    <li><a href="/neighborhoods/dfw/victory-park.html">Victory Park</a> — 32 buildings. Arena district, high-rise living near downtown Dallas.</li>
+                </ul>
+            </div>
+
+            <div class="neighborhood-sidebar">
+                <div class="sidebar-card">
+                    <h4>Arlington — The Numbers</h4>
+                    <div class="sidebar-stat">
+                        <span class="label">Buildings</span>
+                        <span class="value">65</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Median Rent</span>
+                        <span class="value">$1,075/mo</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Rent Range</span>
+                        <span class="value">$685 – $2,314</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Median $/sqft</span>
+                        <span class="value">$1.72</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">$/sqft Range</span>
+                        <span class="value">$1.03 – $3.08</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Active Concessions</span>
+                        <span class="value">32 of 65 buildings</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Best Value</span>
+                        <span class="value">$1.03/sqft (Rise North Arlington)</span>
+                    </div>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Pro</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Cheapest major submarket in DFW. 65 buildings, 32 with concessions. $685 entry point.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Con</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Car-dependent. Zero walkability. 20-30 min drive to Dallas or Fort Worth. No nightlife, no transit.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>See What's Available</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem;">Send us your budget and move-in date. We'll match you with Arlington buildings that fit.</p>
+                    <a href="/#contact" class="btn btn-pink btn-sm" style="width:100%;text-align:center;">Start</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="../../images/logo.png" alt="HomeEasy">
+                <p>Market data and apartment matching across 4,294 buildings in DFW. Free for renters, always.</p>
+            </div>
+            <div><h4>Company</h4><ul><li><a href="/#about">About</a></li><li><a href="/#how-it-works">How It Works</a></li><li><a href="/blog/">Blog</a></li><li><a href="/privacy.html">Privacy Policy</a></li></ul></div>
+            <div><h4>Markets</h4><ul><li><a href="/markets/chicago.html">Chicago</a></li><li><a href="/markets/dfw.html">Dallas-Fort Worth</a></li><li><a href="/markets/houston.html">Houston</a></li><li><a href="/markets/austin.html">Austin</a></li><li><a href="/markets/san-antonio.html">San Antonio</a></li><li><a href="/markets/denver.html">Denver</a></li></ul></div>
+            <div><h4>Contact</h4><div class="footer-contact-info"><p>332 S Michigan Ave<br>Suite 8th Floor<br>Chicago, IL 60604</p><p><a href="tel:+13124689893">(312) 468-9893</a></p></div></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 HomeEasy | Broker Services Co, Inc.</p><p><a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a></p></div>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>

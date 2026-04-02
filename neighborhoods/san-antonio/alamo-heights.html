@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noai, noimageai">
+    <title>Alamo Heights Apartments San Antonio | 3 Buildings, Real Data | HomeEasy</title>
+    <meta name="description" content="Alamo Heights apartment data: 3 buildings, all in our portfolio. Sunset Ridge at $1.56/sqft from $1,200. Affluent enclave, mostly single-family homes. Honest data, real trade-offs.">
+    <link rel="canonical" href="https://homeeasy.com/neighborhoods/san-antonio/alamo-heights.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Alamo Heights Apartments SA | 3 Buildings, Real Data | HomeEasy">
+    <meta property="og:description" content="3 buildings. Sunset Ridge at $1.56/sqft from $1,200. Alamo Heights is a homeowner area -- here is what renters need to know.">
+    <meta property="og:url" content="https://homeeasy.com/neighborhoods/san-antonio/alamo-heights.html">
+    <meta property="og:site_name" content="HomeEasy">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Alamo Heights SA Apartments | Real Data | HomeEasy">
+    <meta name="twitter:description" content="3 buildings. $1.56/sqft. Alamo Heights data from the source.">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "HomeEasy - Alamo Heights San Antonio Apartment Locator",
+        "description": "Market data and apartment matching for Alamo Heights, San Antonio. Free for renters.",
+        "url": "https://homeeasy.com/neighborhoods/san-antonio/alamo-heights.html",
+        "telephone": "+1-312-468-9893",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "332 S Michigan Ave, Suite 8th Floor",
+            "addressLocality": "Chicago",
+            "addressRegion": "IL",
+            "postalCode": "60604",
+            "addressCountry": "US"
+        },
+        "areaServed": {
+            "@type": "Neighborhood",
+            "name": "Alamo Heights",
+            "containedInPlace": {
+                "@type": "City",
+                "name": "San Antonio",
+                "containedInPlace": {
+                    "@type": "State",
+                    "name": "Texas"
+                }
+            }
+        },
+        "priceRange": "Free",
+        "openingHours": "Mo-Su 00:00-23:59"
+    }
+    </script>
+
+    <style>
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .data-card {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 1.2rem;
+            text-align: center;
+        }
+        .data-card .number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy, #1a237e);
+            display: block;
+        }
+        .data-card .label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+        .building-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .building-table th {
+            background: var(--navy, #1a237e);
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .building-table td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid #eee;
+        }
+        .building-table tr:hover {
+            background: #f8f8ff;
+        }
+        .concession-tag {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .trade-off-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .trade-off-box .pro, .trade-off-box .con {
+            padding: 1.2rem;
+            border-radius: 8px;
+        }
+        .trade-off-box .pro {
+            background: #e8f5e9;
+            border-left: 4px solid #2e7d32;
+        }
+        .trade-off-box .con {
+            background: #fce4ec;
+            border-left: 4px solid #c62828;
+        }
+        .trade-off-box h4 {
+            margin: 0 0 0.5rem;
+            font-size: 0.95rem;
+        }
+        .trade-off-box p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        .compare-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.4rem 0;
+        }
+        .compare-bar .bar {
+            height: 20px;
+            background: var(--navy, #1a237e);
+            border-radius: 3px;
+            opacity: 0.7;
+        }
+        .compare-bar .bar.highlight {
+            opacity: 1;
+            background: var(--pink, #ff4081);
+        }
+        .compare-bar .hood-label {
+            width: 120px;
+            font-size: 0.8rem;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .compare-bar .bar-value {
+            font-size: 0.8rem;
+            font-weight: 600;
+            flex-shrink: 0;
+            width: 60px;
+        }
+        .budget-section {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .budget-section h3 {
+            margin-top: 0;
+        }
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #888;
+            font-style: italic;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        @media (max-width: 600px) {
+            .trade-off-box {
+                grid-template-columns: 1fr;
+            }
+            .building-table {
+                font-size: 0.8rem;
+            }
+            .building-table th, .building-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav scrolled" id="mainNav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo"><img src="../../images/logo.png" alt="HomeEasy"></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/#how-it-works">How It Works</a>
+                <a href="/#markets">Markets</a>
+                <a href="/blog/">Blog</a>
+                <a href="/data/">Market Data</a>
+                <a href="/#reviews">Reviews</a>
+                <a href="/#about">About</a>
+                <a href="/#contact">Contact</a>
+                <div class="nav-cta"><a href="/#contact" class="btn btn-pink btn-sm">Find Your Apartment</a></div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <section class="neighborhood-hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="neighborhood-hero-content">
+            <div class="breadcrumb"><a href="/">HomeEasy</a> &rsaquo; <a href="/markets/san-antonio.html">San Antonio</a> &rsaquo; Alamo Heights</div>
+            <h1>Alamo Heights, San Antonio</h1>
+            <p class="neighborhood-subtitle">3 buildings. This is a homeowner area -- here is what that means for renters.</p>
+        </div>
+    </section>
+
+    <section class="neighborhood-content">
+        <div class="neighborhood-layout">
+            <div class="neighborhood-main">
+
+                <div class="data-grid">
+                    <div class="data-card">
+                        <span class="number">3</span>
+                        <span class="label">Buildings</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$1,200</span>
+                        <span class="label">Starting Rent</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$1.56</span>
+                        <span class="label">$/sqft</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">1</span>
+                        <span class="label">Active Concession</span>
+                    </div>
+                </div>
+
+                <h2>The Market</h2>
+
+                <p>Alamo Heights has 3 buildings in our portfolio. Sunset Ridge, at $1.56/sqft starting from $1,200, is one of them with an active concession.</p>
+
+                <p>Alamo Heights is an affluent enclave -- technically its own independent city within San Antonio, known locally as "09" for its 78209 zip code. The housing stock is overwhelmingly single-family homes. Large-scale apartment complexes are rare here because the zoning and community character limit them. Most renters in Alamo Heights are in garage apartments, duplexes, or small-scale conversions rented directly by homeowners.</p>
+
+                <h2>How It Compares</h2>
+
+                <p>Alamo Heights at $1.56/sqft sits in the lower half of SA neighborhoods by price per square foot:</p>
+
+                <div style="margin: 1.5rem 0;">
+                    <div class="compare-bar">
+                        <span class="hood-label">Pearl District</span>
+                        <div class="bar" style="width: 160px;"></div>
+                        <span class="bar-value">$2.20</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Downtown</span>
+                        <div class="bar" style="width: 158px;"></div>
+                        <span class="bar-value">$2.18</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Rim/La Cantera</span>
+                        <div class="bar" style="width: 147px;"></div>
+                        <span class="bar-value">$2.02</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Stone Oak</span>
+                        <div class="bar" style="width: 119px;"></div>
+                        <span class="bar-value">$1.64</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label" style="font-weight:700;">Alamo Heights</span>
+                        <div class="bar highlight" style="width: 113px;"></div>
+                        <span class="bar-value" style="color: var(--pink, #ff4081);">$1.56</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Medical Center</span>
+                        <div class="bar" style="width: 105px;"></div>
+                        <span class="bar-value">$1.45</span>
+                    </div>
+                </div>
+
+                <p>The low $/sqft is misleading -- it reflects one building, not a market average. True Alamo Heights rents for direct-to-landlord units are often higher than this but are not in our data set.</p>
+
+                <h2>The Trade-Offs</h2>
+
+                <div class="trade-off-box">
+                    <div class="pro">
+                        <h4>What You Get</h4>
+                        <p>Affluent, tree-lined streets with genuine neighborhood character. Top-rated Alamo Heights ISD -- among the best public schools in Texas. The Broadway corridor has walkable restaurants, coffee shops, and boutiques. McNay Art Museum and Brackenridge Park are within the neighborhood. Quiet residential streets that feel like a small town inside a big city.</p>
+                    </div>
+                    <div class="con">
+                        <h4>What You Give Up</h4>
+                        <p>3 buildings in a homeowner area. Selection is limited compared to other SA neighborhoods. For more options, look at the Pearl District (20 buildings, 10 minutes south) or Stone Oak (20 buildings, 15 minutes north).</p>
+                    </div>
+                </div>
+
+                <h2>The Building</h2>
+
+                <table class="building-table">
+                    <thead>
+                        <tr>
+                            <th>Building</th>
+                            <th>$/sqft</th>
+                            <th>From</th>
+                            <th>Concession</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Sunset Ridge</td>
+                            <td>$1.56</td>
+                            <td>$1,200</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="disclaimer">Data from HomeEasy buildings only. Alamo Heights rental inventory is primarily direct-to-landlord. Prices reflect starting rents and may vary by unit and lease term.</p>
+
+                <h2>Where to Look Instead</h2>
+
+                <p>If you want the Alamo Heights vibe with actual apartment selection, two nearby neighborhoods deliver:</p>
+
+                <div class="budget-section">
+                    <h3>Nearby Alternatives with More Inventory</h3>
+                    <p><strong>Pearl District (10 min south):</strong> 20 buildings, $947-$1,533 range, 6 with concessions. SA's food and culture hub. Same affluent feel, more options.</p>
+                    <p><strong>Stone Oak (15 min north):</strong> 20 buildings, $886-$1,792 range, 9 with concessions. New construction, family-friendly. More space per dollar than anywhere in the city.</p>
+                </div>
+
+                <h2>Getting Around</h2>
+
+                <p>The Broadway corridor provides walkable access to restaurants and shops. Brackenridge Park and the San Antonio Zoo are within walking distance. VIA bus routes serve the main roads. A car is useful but not mandatory if you live near Broadway. Alamo Heights connects to downtown SA in about 10 minutes by car.</p>
+
+                <h2>Who Does Well Here</h2>
+
+                <p>Families who prioritize the Alamo Heights school district above all else. Professionals who want established neighborhood character over new construction amenities. With 3 buildings, we have options here, plus direct-to-landlord garage apartments and small conversions. If you need more selection and concessions, look at the Pearl or Stone Oak -- but Alamo Heights is one of the best places to live in San Antonio.</p>
+
+                <div class="article-cta">
+                    <h3>Tell Us Your Budget</h3>
+                    <p>We have 3 buildings in Alamo Heights and 1,118 buildings across San Antonio. If Alamo Heights is your target, we can check availability and also show you the closest alternatives in Pearl District and Stone Oak.</p>
+                    <a href="/#contact" class="btn btn-pink">See What's Available</a>
+                </div>
+
+                <h2>Nearby Neighborhoods</h2>
+                <ul>
+                    <li><a href="/neighborhoods/san-antonio/pearl-district.html">Pearl District</a> -- $2.20/sqft median. 20 buildings in our portfolio. SA's food scene.</li>
+                    <li><a href="/neighborhoods/san-antonio/stone-oak.html">Stone Oak</a> -- $1.64/sqft median. 20 buildings in our portfolio. New construction, suburban.</li>
+                    <li><a href="/neighborhoods/san-antonio/downtown.html">Downtown</a> -- $2.18/sqft median. 30 buildings in our portfolio. Entry at $554.</li>
+                    <li><a href="/neighborhoods/san-antonio/king-william.html">King William</a> -- Historic district. Limited inventory.</li>
+                </ul>
+            </div>
+
+            <div class="neighborhood-sidebar">
+                <div class="sidebar-card">
+                    <h4>Alamo Heights -- The Numbers</h4>
+                    <div class="sidebar-stat">
+                        <span class="label">Buildings</span>
+                        <span class="value">3</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Starting Rent</span>
+                        <span class="value">$1,200/mo</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">$/sqft</span>
+                        <span class="value">$1.56</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Active Concessions</span>
+                        <span class="value">1 of 3 buildings</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Market Type</span>
+                        <span class="value">Homeowner area</span>
+                    </div>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Pro</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Affluent, tree-lined enclave. Top-rated schools. Genuine small-town feel inside a major city.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Con</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Homeowner area with 3 buildings. Limited apartment inventory compared to other SA neighborhoods.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>See What's Available</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem;">Send us your budget and move-in date. We will check Sunset Ridge and nearby alternatives.</p>
+                    <a href="/#contact" class="btn btn-pink btn-sm" style="width:100%;text-align:center;">Start</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="../../images/logo.png" alt="HomeEasy">
+                <p>Market data and apartment matching across 85,000+ buildings. Free for renters, always.</p>
+            </div>
+            <div><h4>Company</h4><ul><li><a href="/#about">About</a></li><li><a href="/#how-it-works">How It Works</a></li><li><a href="/blog/">Blog</a></li><li><a href="/privacy.html">Privacy Policy</a></li></ul></div>
+            <div><h4>Markets</h4><ul><li><a href="/markets/chicago.html">Chicago</a></li><li><a href="/markets/dfw.html">Dallas-Fort Worth</a></li><li><a href="/markets/houston.html">Houston</a></li><li><a href="/markets/austin.html">Austin</a></li><li><a href="/markets/san-antonio.html">San Antonio</a></li><li><a href="/markets/denver.html">Denver</a></li></ul></div>
+            <div><h4>Contact</h4><div class="footer-contact-info"><p>332 S Michigan Ave<br>Suite 8th Floor<br>Chicago, IL 60604</p><p><a href="tel:+13124689893">(312) 468-9893</a></p></div></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 HomeEasy | Broker Services Co, Inc.</p><p><a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a></p></div>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>

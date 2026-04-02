@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noai, noimageai">
+    <title>Deep Ellum Apartments Dallas | 49 Buildings, Real Pricing Data | HomeEasy</title>
+    <meta name="description" content="Deep Ellum apartment data from 49 buildings (25 in our portfolio). Median rent $1,335/mo, $2.33/sqft. Real prices, real trade-offs.">
+    <link rel="canonical" href="https://homeeasy.com/neighborhoods/dfw/deep-ellum.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Deep Ellum Apartments | Real Pricing Data from 49 Buildings | HomeEasy">
+    <meta property="og:description" content="25 buildings in our portfolio. Median $1,335/mo. The data on Deep Ellum apartments.">
+    <meta property="og:url" content="https://homeeasy.com/neighborhoods/dfw/deep-ellum.html">
+    <meta property="og:site_name" content="HomeEasy">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Deep Ellum Apartments | Real Data | HomeEasy">
+    <meta name="twitter:description" content="Median rent $1,335. 25 buildings in our portfolio. Deep Ellum apartment data from the source.">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "HomeEasy - Deep Ellum Dallas Apartment Locator",
+        "description": "Market data and apartment matching for Deep Ellum, Dallas. 25 buildings in our portfolio. Free for renters.",
+        "url": "https://homeeasy.com/neighborhoods/dfw/deep-ellum.html",
+        "telephone": "+1-312-468-9893",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "332 S Michigan Ave, Suite 8th Floor",
+            "addressLocality": "Chicago",
+            "addressRegion": "IL",
+            "postalCode": "60604",
+            "addressCountry": "US"
+        },
+        "areaServed": {
+            "@type": "Neighborhood",
+            "name": "Deep Ellum",
+            "containedInPlace": {
+                "@type": "City",
+                "name": "Dallas",
+                "containedInPlace": {
+                    "@type": "State",
+                    "name": "Texas"
+                }
+            }
+        },
+        "priceRange": "Free",
+        "openingHours": "Mo-Su 00:00-23:59"
+    }
+    </script>
+
+    <style>
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .data-card {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 1.2rem;
+            text-align: center;
+        }
+        .data-card .number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy, #1a237e);
+            display: block;
+        }
+        .data-card .label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+        .building-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .building-table th {
+            background: var(--navy, #1a237e);
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .building-table td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid #eee;
+        }
+        .building-table tr:hover {
+            background: #f8f8ff;
+        }
+        .concession-tag {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .trade-off-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .trade-off-box .pro, .trade-off-box .con {
+            padding: 1.2rem;
+            border-radius: 8px;
+        }
+        .trade-off-box .pro {
+            background: #e8f5e9;
+            border-left: 4px solid #2e7d32;
+        }
+        .trade-off-box .con {
+            background: #fce4ec;
+            border-left: 4px solid #c62828;
+        }
+        .trade-off-box h4 {
+            margin: 0 0 0.5rem;
+            font-size: 0.95rem;
+        }
+        .trade-off-box p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        .compare-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.4rem 0;
+        }
+        .compare-bar .bar {
+            height: 20px;
+            background: var(--navy, #1a237e);
+            border-radius: 3px;
+            opacity: 0.7;
+        }
+        .compare-bar .bar.highlight {
+            opacity: 1;
+            background: var(--pink, #ff4081);
+        }
+        .compare-bar .hood-label {
+            width: 120px;
+            font-size: 0.8rem;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .compare-bar .bar-value {
+            font-size: 0.8rem;
+            font-weight: 600;
+            flex-shrink: 0;
+            width: 60px;
+        }
+        .budget-section {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .budget-section h3 {
+            margin-top: 0;
+        }
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #888;
+            font-style: italic;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        @media (max-width: 600px) {
+            .trade-off-box {
+                grid-template-columns: 1fr;
+            }
+            .building-table {
+                font-size: 0.8rem;
+            }
+            .building-table th, .building-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav scrolled" id="mainNav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo"><img src="../../images/logo.png" alt="HomeEasy"></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/#how-it-works">How It Works</a>
+                <a href="/#markets">Markets</a>
+                <a href="/blog/">Blog</a>
+                <a href="/data/">Market Data</a>
+                <a href="/#reviews">Reviews</a>
+                <a href="/#about">About</a>
+                <a href="/#contact">Contact</a>
+                <div class="nav-cta"><a href="/#contact" class="btn btn-pink btn-sm">Find Your Apartment</a></div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <section class="neighborhood-hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="neighborhood-hero-content">
+            <div class="breadcrumb"><a href="/">HomeEasy</a> &rsaquo; <a href="/markets/dfw.html">DFW</a> &rsaquo; Deep Ellum</div>
+            <h1>Deep Ellum, Dallas</h1>
+            <p class="neighborhood-subtitle">49 buildings in our database. 25 in our portfolio. Median rent $1,335.</p>
+        </div>
+    </section>
+
+    <section class="neighborhood-content">
+        <div class="neighborhood-layout">
+            <div class="neighborhood-main">
+
+                <div class="data-grid">
+                    <div class="data-card">
+                        <span class="number">49</span>
+                        <span class="label">Buildings in Database</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">25</span>
+                        <span class="label">Buildings</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$1,335</span>
+                        <span class="label">Median Rent</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$2.33</span>
+                        <span class="label">Median $/sqft</span>
+                    </div>
+                </div>
+
+                <h2>The Market</h2>
+
+                <p>Deep Ellum is the arts-and-nightlife district east of downtown Dallas. 49 buildings in our database, 25 in our portfolio — a solid inventory pool at a good price point. At $2.33/sqft median, it runs 17% cheaper than Uptown ($2.80) and 24% below Knox-Henderson ($3.06). This is the cheapest urban Dallas neighborhood in our data.</p>
+
+                <p>With 25 buildings in the pocket, there's real competition for tenants. Entry starts at $1,223, which is about as low as you'll find inside the Dallas core without going suburban.</p>
+
+                <p>The trade-off is clear: this is a bar-and-music district first, a residential neighborhood second. Weekends are loud. The streets are built for nightlife, not strollers. If that's your thing, the pricing is hard to beat. If you need quiet, look elsewhere.</p>
+
+                <h2>How It Compares</h2>
+
+                <p>Here's where Deep Ellum sits against other DFW neighborhoods by median price per square foot:</p>
+
+                <div style="margin: 1.5rem 0;">
+                    <div class="compare-bar">
+                        <span class="hood-label">Knox-Henderson</span>
+                        <div class="bar" style="width: 170px;"></div>
+                        <span class="bar-value">$3.06</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Uptown</span>
+                        <div class="bar" style="width: 155px;"></div>
+                        <span class="bar-value">$2.80</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Downtown Dallas</span>
+                        <div class="bar" style="width: 140px;"></div>
+                        <span class="bar-value">$2.51</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label" style="font-weight:700;">Deep Ellum</span>
+                        <div class="bar highlight" style="width: 130px;"></div>
+                        <span class="bar-value" style="color: var(--pink, #ff4081);">$2.33</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Las Colinas</span>
+                        <div class="bar" style="width: 122px;"></div>
+                        <span class="bar-value">$2.20</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Fort Worth</span>
+                        <div class="bar" style="width: 118px;"></div>
+                        <span class="bar-value">$2.14</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Oak Lawn</span>
+                        <div class="bar" style="width: 114px;"></div>
+                        <span class="bar-value">$2.05</span>
+                    </div>
+                </div>
+
+                <p>Cheaper than Uptown, Downtown, and Knox-Henderson. The only urban Dallas neighborhoods that beat it on price per square foot — Las Colinas, Fort Worth, Oak Lawn — are either suburban or significantly further from the action. Deep Ellum gives you walkable urban Dallas at a suburban price point.</p>
+
+                <h2>The Trade-Offs</h2>
+
+                <div class="trade-off-box">
+                    <div class="pro">
+                        <h4>What You Get</h4>
+                        <p>Cheapest urban Dallas neighborhood. 25 buildings. Live music on your doorstep. Street art on every block. Walkable bars and restaurants. Entry at $1,223 — accessible for most budgets. DART Green Line access to downtown.</p>
+                    </div>
+                    <div class="con">
+                        <h4>What You Give Up</h4>
+                        <p>Loud on weekends, especially Friday and Saturday nights. Not a residential neighborhood in feel. Bar crowds, street noise, and late-night activity are the norm, not the exception. Not for quiet living.</p>
+                    </div>
+                </div>
+
+                <h2>What's Happening in the Market</h2>
+
+                <p>Deep Ellum has 49 buildings tracked in our database. 25 coverage means there's real selection and competition among the buildings here.</p>
+
+                <p>The neighborhood works best for a specific renter: someone who wants nightlife at their front door, doesn't mind noise, and wants to spend less than Uptown or Knox-Henderson for an urban location. That's a real audience, and the buildings know it.</p>
+
+                <p>When a good deal opens up at $2.08/sqft in a neighborhood where the median is $2.33, it doesn't sit. If Deep Ellum is on your list, move quickly when something fits.</p>
+
+                <h2>Buildings by Value ($/sqft)</h2>
+
+                <p>These are buildings ranked by price per square foot — lowest first. This is where your dollar goes furthest.</p>
+
+                <table class="building-table">
+                    <thead>
+                        <tr>
+                            <th>Building</th>
+                            <th>$/sqft</th>
+                            <th>From</th>
+                            <th>Concession</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Marquis at Texas Street</td>
+                            <td>$2.08</td>
+                            <td>$1,301</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Willow</td>
+                            <td>$2.08</td>
+                            <td>$1,335</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Marquis on Gaston</td>
+                            <td>$2.26</td>
+                            <td>$1,260</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="disclaimer">Data from HomeEasy buildings only. Prices reflect starting rents and may vary by unit, floor, and lease term. Concessions change frequently — verify current availability with us.</p>
+
+                <div class="budget-section">
+                    <h3>What Your Budget Gets You Here</h3>
+                    <p><strong>Under $1,300/mo:</strong> Marquis on Gaston starts at $1,260 — the lowest entry point in Deep Ellum. At $2.26/sqft, you're getting urban Dallas for less than most suburban alternatives.</p>
+                    <p><strong>$1,300–$1,400/mo:</strong> The sweet spot. Marquis at Texas Street ($1,301, $2.08/sqft) and Willow ($1,335, $2.08/sqft) are the best value in the neighborhood — and both are running concessions. This is where most renters land.</p>
+                    <p><strong>$1,400–$1,670/mo:</strong> Top of the Deep Ellum range. Larger units, higher floors, more space. At this budget, you could also look at Uptown or Knox-Henderson, but you'll get less square footage per dollar there.</p>
+                </div>
+
+                <h2>Getting Around</h2>
+
+                <p>DART Green Line runs through Deep Ellum — one stop to downtown, connections to the rest of the rail network from there. Within the neighborhood, everything is walkable. Bars, restaurants, music venues, coffee shops — all within a few blocks of each other.</p>
+
+                <p>A car is still useful for the rest of DFW. Dallas is a driving city. But for day-to-day life inside Deep Ellum, you can get by without one more than most Dallas neighborhoods.</p>
+
+                <h2>Who Does Well Here</h2>
+
+                <p>People who want to be in the middle of the nightlife, not adjacent to it. People who work downtown or remote and don't need a quiet suburban street. People who prioritize walkability and culture over space and silence. Young professionals who want urban Dallas at a price point that doesn't require Uptown income.</p>
+
+                <p>If you go to bed at 10pm on Fridays, this isn't your neighborhood. If you're the one out until 2am, it might be the best deal in Dallas.</p>
+
+                <div class="article-cta">
+                    <h3>Tell Us Your Budget</h3>
+                    <p>We work with 25 buildings in Deep Ellum. Send us your budget and move-in date — we'll show you what's available and what concessions you qualify for.</p>
+                    <a href="/#contact" class="btn btn-pink">See What's Available</a>
+                </div>
+
+                <h2>Nearby Neighborhoods</h2>
+                <ul>
+                    <li><a href="/neighborhoods/dfw/uptown-dallas.html">Uptown Dallas</a> — $2.80/sqft median. 115 buildings. Walkable urban village, McKinney Ave nightlife. Higher price.</li>
+                    <li><a href="/neighborhoods/dfw/knox-henderson.html">Knox-Henderson</a> — $3.06/sqft median. 21 buildings. Upscale dining, boutique shopping. Most expensive in DFW.</li>
+                    <li><a href="/neighborhoods/dfw/victory-park.html">Victory Park</a> — 32 buildings. Near downtown and the arena district. Newer towers.</li>
+                    <li><a href="/neighborhoods/dfw/bishop-arts.html">Bishop Arts</a> — Bohemian charm, independent shops, diverse dining. Different vibe, similar price range.</li>
+                </ul>
+            </div>
+
+            <div class="neighborhood-sidebar">
+                <div class="sidebar-card">
+                    <h4>Deep Ellum — The Numbers</h4>
+                    <div class="sidebar-stat">
+                        <span class="label">Buildings in Database</span>
+                        <span class="value">49</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Buildings</span>
+                        <span class="value">25</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Median Rent</span>
+                        <span class="value">$1,335/mo</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Rent Range</span>
+                        <span class="value">$1,223 – $1,670</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Median $/sqft</span>
+                        <span class="value">$2.33</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Best Value</span>
+                        <span class="value">$2.08/sqft (Marquis at Texas St)</span>
+                    </div>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Pro</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Cheapest urban Dallas neighborhood. 25 buildings. Live music, street art, walkable bars — all at $2.33/sqft median.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Con</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Loud on weekends. This is a nightlife district, not a residential neighborhood. Not for quiet living.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>See What's Available</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem;">Send us your budget and move-in date. We'll match you with Deep Ellum buildings that fit.</p>
+                    <a href="/#contact" class="btn btn-pink btn-sm" style="width:100%;text-align:center;">Start</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="../../images/logo.png" alt="HomeEasy">
+                <p>Market data and apartment matching across 4,294 buildings in DFW. Free for renters, always.</p>
+            </div>
+            <div><h4>Company</h4><ul><li><a href="/#about">About</a></li><li><a href="/#how-it-works">How It Works</a></li><li><a href="/blog/">Blog</a></li><li><a href="/privacy.html">Privacy Policy</a></li></ul></div>
+            <div><h4>Markets</h4><ul><li><a href="/markets/chicago.html">Chicago</a></li><li><a href="/markets/dfw.html">Dallas-Fort Worth</a></li><li><a href="/markets/houston.html">Houston</a></li><li><a href="/markets/austin.html">Austin</a></li><li><a href="/markets/san-antonio.html">San Antonio</a></li><li><a href="/markets/denver.html">Denver</a></li></ul></div>
+            <div><h4>Contact</h4><div class="footer-contact-info"><p>332 S Michigan Ave<br>Suite 8th Floor<br>Chicago, IL 60604</p><p><a href="tel:+13124689893">(312) 468-9893</a></p></div></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 HomeEasy | Broker Services Co, Inc.</p><p><a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a></p></div>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>

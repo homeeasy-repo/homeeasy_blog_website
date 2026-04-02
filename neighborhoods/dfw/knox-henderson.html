@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noai, noimageai">
+    <title>Knox-Henderson Apartments Dallas | 37 Buildings, Real Pricing Data | HomeEasy</title>
+    <meta name="description" content="Knox-Henderson apartment data from 37 buildings (21 in our portfolio). Median rent $1,800/mo, $3.06/sqft — most expensive in DFW. Real prices, real trade-offs.">
+    <link rel="canonical" href="https://homeeasy.com/neighborhoods/dfw/knox-henderson.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Knox-Henderson Apartments | Real Pricing Data from 37 Buildings | HomeEasy">
+    <meta property="og:description" content="21 buildings in our portfolio. Median $1,800/mo at $3.06/sqft. Most expensive neighborhood in DFW. The data on Knox-Henderson apartments.">
+    <meta property="og:url" content="https://homeeasy.com/neighborhoods/dfw/knox-henderson.html">
+    <meta property="og:site_name" content="HomeEasy">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Knox-Henderson Apartments | Real Data | HomeEasy">
+    <meta name="twitter:description" content="Median $3.06/sqft — most expensive in DFW. 21 buildings in our portfolio. Knox-Henderson apartment data from the source.">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "HomeEasy - Knox-Henderson Dallas Apartment Locator",
+        "description": "Market data and apartment matching for Knox-Henderson, Dallas. 21 buildings in our portfolio. Free for renters.",
+        "url": "https://homeeasy.com/neighborhoods/dfw/knox-henderson.html",
+        "telephone": "+1-312-468-9893",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "332 S Michigan Ave, Suite 8th Floor",
+            "addressLocality": "Chicago",
+            "addressRegion": "IL",
+            "postalCode": "60604",
+            "addressCountry": "US"
+        },
+        "areaServed": {
+            "@type": "Neighborhood",
+            "name": "Knox-Henderson",
+            "containedInPlace": {
+                "@type": "City",
+                "name": "Dallas",
+                "containedInPlace": {
+                    "@type": "State",
+                    "name": "Texas"
+                }
+            }
+        },
+        "priceRange": "Free",
+        "openingHours": "Mo-Su 00:00-23:59"
+    }
+    </script>
+
+    <style>
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .data-card {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 1.2rem;
+            text-align: center;
+        }
+        .data-card .number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy, #1a237e);
+            display: block;
+        }
+        .data-card .label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+        .building-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .building-table th {
+            background: var(--navy, #1a237e);
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .building-table td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid #eee;
+        }
+        .building-table tr:hover {
+            background: #f8f8ff;
+        }
+        .concession-tag {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .trade-off-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .trade-off-box .pro, .trade-off-box .con {
+            padding: 1.2rem;
+            border-radius: 8px;
+        }
+        .trade-off-box .pro {
+            background: #e8f5e9;
+            border-left: 4px solid #2e7d32;
+        }
+        .trade-off-box .con {
+            background: #fce4ec;
+            border-left: 4px solid #c62828;
+        }
+        .trade-off-box h4 {
+            margin: 0 0 0.5rem;
+            font-size: 0.95rem;
+        }
+        .trade-off-box p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        .compare-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.4rem 0;
+        }
+        .compare-bar .bar {
+            height: 20px;
+            background: var(--navy, #1a237e);
+            border-radius: 3px;
+            opacity: 0.7;
+        }
+        .compare-bar .bar.highlight {
+            opacity: 1;
+            background: var(--pink, #ff4081);
+        }
+        .compare-bar .hood-label {
+            width: 120px;
+            font-size: 0.8rem;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .compare-bar .bar-value {
+            font-size: 0.8rem;
+            font-weight: 600;
+            flex-shrink: 0;
+            width: 60px;
+        }
+        .budget-section {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .budget-section h3 {
+            margin-top: 0;
+        }
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #888;
+            font-style: italic;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        @media (max-width: 600px) {
+            .trade-off-box {
+                grid-template-columns: 1fr;
+            }
+            .building-table {
+                font-size: 0.8rem;
+            }
+            .building-table th, .building-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav scrolled" id="mainNav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo"><img src="../../images/logo.png" alt="HomeEasy"></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/#how-it-works">How It Works</a>
+                <a href="/#markets">Markets</a>
+                <a href="/blog/">Blog</a>
+                <a href="/data/">Market Data</a>
+                <a href="/#reviews">Reviews</a>
+                <a href="/#about">About</a>
+                <a href="/#contact">Contact</a>
+                <div class="nav-cta"><a href="/#contact" class="btn btn-pink btn-sm">Find Your Apartment</a></div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <section class="neighborhood-hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="neighborhood-hero-content">
+            <div class="breadcrumb"><a href="/">HomeEasy</a> &rsaquo; <a href="/markets/dfw.html">DFW</a> &rsaquo; Knox-Henderson</div>
+            <h1>Knox-Henderson, Dallas</h1>
+            <p class="neighborhood-subtitle">37 buildings in our database. 21 in our portfolio. Median rent $1,800. $3.06/sqft — the most expensive neighborhood in DFW.</p>
+        </div>
+    </section>
+
+    <section class="neighborhood-content">
+        <div class="neighborhood-layout">
+            <div class="neighborhood-main">
+
+                <div class="data-grid">
+                    <div class="data-card">
+                        <span class="number">37</span>
+                        <span class="label">Buildings in Database</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">21</span>
+                        <span class="label">Buildings</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$1,800</span>
+                        <span class="label">Median Rent</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$3.06</span>
+                        <span class="label">Median $/sqft</span>
+                    </div>
+                </div>
+
+                <h2>The Market</h2>
+
+                <p>Knox-Henderson is the most expensive pocket of the entire DFW metroplex by price per square foot. At $3.06/sqft median, it costs more than Uptown ($2.80), more than Downtown Dallas ($2.51), more than everywhere. That's the data.</p>
+
+                <p>Why? Henderson Avenue. It's the best dining and bar strip in Dallas outside of Deep Ellum — and it draws a crowd willing to pay a premium to live within walking distance. 37 buildings tracked, 21 in our portfolio — and this is a neighborhood where demand stays strong.</p>
+
+                <p>Rent ranges from $1,620 to $2,217, with a median of $1,800. The $/sqft spread is $2.33 to $3.57. That top end — $3.57 — is a number you'd expect in Chicago, not Dallas. You're paying for location, not square footage.</p>
+
+                <h2>How It Compares</h2>
+
+                <p>Knox-Henderson sits at the top of the DFW pricing ladder:</p>
+
+                <div style="margin: 1.5rem 0;">
+                    <div class="compare-bar">
+                        <span class="hood-label" style="font-weight:700;">Knox-Henderson</span>
+                        <div class="bar highlight" style="width: 170px;"></div>
+                        <span class="bar-value" style="color: var(--pink, #ff4081);">$3.06</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Uptown</span>
+                        <div class="bar" style="width: 155px;"></div>
+                        <span class="bar-value">$2.80</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Downtown Dallas</span>
+                        <div class="bar" style="width: 140px;"></div>
+                        <span class="bar-value">$2.51</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Deep Ellum</span>
+                        <div class="bar" style="width: 130px;"></div>
+                        <span class="bar-value">$2.33</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Las Colinas</span>
+                        <div class="bar" style="width: 122px;"></div>
+                        <span class="bar-value">$2.20</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Fort Worth</span>
+                        <div class="bar" style="width: 119px;"></div>
+                        <span class="bar-value">$2.14</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Oak Lawn</span>
+                        <div class="bar" style="width: 114px;"></div>
+                        <span class="bar-value">$2.05</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Frisco</span>
+                        <div class="bar" style="width: 109px;"></div>
+                        <span class="bar-value">$1.97</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Arlington</span>
+                        <div class="bar" style="width: 96px;"></div>
+                        <span class="bar-value">$1.72</span>
+                    </div>
+                </div>
+
+                <p>The budget alternative: Oak Lawn is adjacent to Knox-Henderson and runs $2.05/sqft — 33% cheaper. You lose the Henderson Avenue walkability. You gain a lot more apartment for your money.</p>
+
+                <h2>The Trade-Offs</h2>
+
+                <div class="trade-off-box">
+                    <div class="pro">
+                        <h4>What You Get</h4>
+                        <p>The best dining and nightlife strip in Dallas outside Deep Ellum. Henderson Avenue is walkable, well-lit, and packed with restaurants, bars, and patios. Small enough that it feels like a neighborhood, not a district. Close to Highland Park, the Katy Trail, and Uptown.</p>
+                    </div>
+                    <div class="con">
+                        <h4>What You Give Up</h4>
+                        <p>The most expensive $/sqft in all of DFW. This is a tight market where buildings don't need to compete on price. If your budget is firm, you get significantly less space here than anywhere else.</p>
+                    </div>
+                </div>
+
+                <h2>What's Happening in the Market</h2>
+
+                <p>Knox-Henderson buildings don't need to offer deals because the demand is there. Henderson Avenue has hit a tipping point where the restaurant scene is self-sustaining — new spots open, regulars keep coming, the walkability creates its own gravity.</p>
+
+                <p>The $/sqft spread from $2.33 to $3.57 tells you there's still a range. Slate at Cole Park and The Henderson sit at the lower end — they're your best value plays in a premium market. The buildings at $3.50+ are charging a pure location premium.</p>
+
+                <p>If you want to be in this exact area but the pricing doesn't work, Oak Lawn is the move. It's immediately adjacent, has 60 buildings in our portfolio, and the median $/sqft is $2.05. That's a 33% price drop for a neighborhood that's a 5-minute drive from Henderson Avenue.</p>
+
+                <h2>Buildings by Value ($/sqft)</h2>
+
+                <p>These are buildings ranked by price per square foot — lowest first. In a neighborhood this expensive, the value end matters:</p>
+
+                <table class="building-table">
+                    <thead>
+                        <tr>
+                            <th>Building</th>
+                            <th>$/sqft</th>
+                            <th>From</th>
+                            <th>Concession</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Slate at Cole Park</td>
+                            <td>$2.33</td>
+                            <td>$1,749</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>The Henderson</td>
+                            <td>$2.42</td>
+                            <td>$1,737</td>
+                            <td>—</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="disclaimer">Table shows the two best-value buildings. 19 additional buildings range from $2.80–$3.57/sqft. Data from HomeEasy buildings only. Prices reflect starting rents and may vary by unit, floor, and lease term. Concessions change frequently — verify current availability with us.</p>
+
+                <div class="budget-section">
+                    <h3>What Your Budget Gets You Here</h3>
+                    <p><strong>Under $1,700/mo:</strong> Knox-Henderson is out of reach. The lowest starting rent in our portfolio here is $1,620, and that's for the smallest units. At this budget, look at <a href="/neighborhoods/dfw/deep-ellum.html">Deep Ellum</a> ($2.33/sqft) or Oak Lawn ($2.05/sqft) for similar vibes at lower prices.</p>
+                    <p><strong>$1,700–$2,000/mo:</strong> Your options open — barely. Slate at Cole Park ($1,749) and The Henderson ($1,737) are the value plays. These are the two buildings where Knox-Henderson pricing doesn't sting as much. The median sits at $1,800, so this range covers about half the inventory.</p>
+                    <p><strong>$2,000–$2,300/mo:</strong> The full Knox-Henderson market is in play. Rent tops out at $2,217 for 1BR starting prices, so this budget gives you choice across all 21 buildings. At the higher $/sqft end, you're getting a smaller unit in a more premium location.</p>
+                    <p><strong>Budget alternative:</strong> If you want the Henderson Avenue lifestyle but not the Henderson Avenue rent, Oak Lawn at $2.05/sqft with 60 buildings is right next door. Same restaurants, same bars — just a short walk or drive instead of your front door.</p>
+                </div>
+
+                <h2>Getting Around</h2>
+
+                <p>Henderson Avenue is walkable — that's the whole point. Restaurants, bars, coffee shops, all on foot. The Katy Trail is nearby for running and cycling. For commuting, you're close to Central Expressway (75) and the Knox/Henderson DART station. Uptown is immediately adjacent. Downtown is a 10-minute drive.</p>
+
+                <p>Groceries: Central Market on Lovers Lane is the go-to — solid selection, reasonable drive. Trader Joe's on Lower Greenville is close. You're not walking to a grocery store from most buildings, but nothing is far.</p>
+
+                <h2>Who Does Well Here</h2>
+
+                <p>People who eat out. A lot. If your social life centers around restaurants and bars, Knox-Henderson puts you at the center of Dallas's best dining strip. Young professionals who value walkable nightlife over square footage. People who've done the Uptown scene and want something a bit more curated.</p>
+
+                <p>If your budget is $1,800+ and restaurants matter more than apartment size, this is the neighborhood. If you need space, concessions, or options — Uptown has 115 buildings and runs 9% cheaper per square foot. Oak Lawn has 60 buildings at 33% less.</p>
+
+                <div class="article-cta">
+                    <h3>Tell Us Your Budget</h3>
+                    <p>We work with 21 buildings in Knox-Henderson and hundreds more in adjacent Uptown and Oak Lawn. Send us your budget and move-in date — we'll show you what's available and whether the Knox-Henderson premium is worth it for your situation.</p>
+                    <a href="/#contact" class="btn btn-pink">See What's Available</a>
+                </div>
+
+                <h2>Nearby Neighborhoods</h2>
+                <ul>
+                    <li><a href="/neighborhoods/dfw/uptown-dallas.html">Uptown Dallas</a> — $2.80/sqft median. 115 buildings. The biggest inventory in central Dallas, 9% cheaper than Knox-Henderson.</li>
+                    <li><a href="/neighborhoods/dfw/deep-ellum.html">Deep Ellum</a> — $2.33/sqft median. 25 buildings. Live music scene, different energy than Henderson Ave but equally walkable.</li>
+                    <li><a href="/neighborhoods/dfw/victory-park.html">Victory Park</a> — $1.85/sqft avg. 32 buildings near AAC. Cheapest central Dallas option.</li>
+                    <li><a href="/neighborhoods/dfw/bishop-arts.html">Bishop Arts District</a> — Indie shops, galleries, diverse food. No buildings in our portfolio.</li>
+                </ul>
+            </div>
+
+            <div class="neighborhood-sidebar">
+                <div class="sidebar-card">
+                    <h4>Knox-Henderson — The Numbers</h4>
+                    <div class="sidebar-stat">
+                        <span class="label">Buildings in Database</span>
+                        <span class="value">37</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Buildings</span>
+                        <span class="value">21</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Median Rent</span>
+                        <span class="value">$1,800/mo</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Rent Range</span>
+                        <span class="value">$1,620 – $2,217</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Median $/sqft</span>
+                        <span class="value">$3.06</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">$/sqft Range</span>
+                        <span class="value">$2.33 – $3.57</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Best Value</span>
+                        <span class="value">$2.33/sqft (Slate at Cole)</span>
+                    </div>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Pro</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Best dining and nightlife strip in Dallas outside Deep Ellum. Henderson Avenue is walkable, packed, and the real draw.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Con</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Most expensive $/sqft in all of DFW. You pay the premium or you go next door to Oak Lawn (60 buildings at $2.05/sqft).</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>See What's Available</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem;">Send us your budget and move-in date. We'll match you with Knox-Henderson buildings that fit — or show you where else that budget goes further.</p>
+                    <a href="/#contact" class="btn btn-pink btn-sm" style="width:100%;text-align:center;">Start</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="../../images/logo.png" alt="HomeEasy">
+                <p>Market data and apartment matching across 4,294 buildings in DFW. Free for renters, always.</p>
+            </div>
+            <div><h4>Company</h4><ul><li><a href="/#about">About</a></li><li><a href="/#how-it-works">How It Works</a></li><li><a href="/blog/">Blog</a></li><li><a href="/privacy.html">Privacy Policy</a></li></ul></div>
+            <div><h4>Markets</h4><ul><li><a href="/markets/chicago.html">Chicago</a></li><li><a href="/markets/dfw.html">Dallas-Fort Worth</a></li><li><a href="/markets/houston.html">Houston</a></li><li><a href="/markets/austin.html">Austin</a></li><li><a href="/markets/san-antonio.html">San Antonio</a></li><li><a href="/markets/denver.html">Denver</a></li></ul></div>
+            <div><h4>Contact</h4><div class="footer-contact-info"><p>332 S Michigan Ave<br>Suite 8th Floor<br>Chicago, IL 60604</p><p><a href="tel:+13124689893">(312) 468-9893</a></p></div></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 HomeEasy | Broker Services Co, Inc.</p><p><a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a></p></div>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>

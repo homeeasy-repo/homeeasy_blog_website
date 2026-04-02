@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noai, noimageai">
+  <title>Why We Built HomeEasy | HomeEasy Blog</title>
+  <meta name="description" content="The founding story of HomeEasy. Why apartment search is broken by information asymmetry, and how analyzing pricing data across thousands of buildings changes the equation for renters.">
+  <link rel="canonical" href="https://homeeasy.com/blog/why-we-built-homeeasy.html">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Why We Built HomeEasy",
+    "datePublished": "2018-01-15",
+    "author": { "@type": "Person", "name": "HomeEasy Team" },
+    "publisher": { "@type": "Organization", "name": "HomeEasy" },
+    "description": "The founding story of HomeEasy. Why apartment search is broken by information asymmetry, and how analyzing pricing data across thousands of buildings changes the equation for renters."
+  }
+  </script>
+</head>
+<body>
+  <nav class="nav scrolled" id="mainNav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><img src="../images/logo.png" alt="HomeEasy"></a>
+      <div class="nav-links" id="navLinks">
+        <a href="/#how-it-works">How It Works</a>
+        <a href="/#markets">Markets</a>
+        <a href="/blog/">Blog</a>
+        <a href="/data/">Market Data</a>
+        <a href="/#reviews">Reviews</a>
+        <a href="/#about">About</a>
+        <a href="/#contact">Contact</a>
+        <div class="nav-cta"><a href="/#contact" class="btn btn-pink btn-sm">Find Your Apartment</a></div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <section class="article-hero">
+    <div class="article-hero-inner">
+      <span class="category">Company</span>
+      <h1>Why We Built HomeEasy</h1>
+      <p class="article-meta">January 15, 2018 &bull; 8 min read</p>
+    </div>
+  </section>
+
+  <article class="article-content">
+    <p>In 2017, I was helping a friend find an apartment in Chicago. She had a budget of $1,800 per month and wanted to be in the West Loop. She did what every renter does: she opened Zillow, Apartments.com, and a few other sites, scrolled through listings, and picked three buildings to tour. She ended up signing a lease at $1,795 per month for a one-bedroom on Randolph Street.</p>
+
+    <p>Two weeks later, I found out the building across the street had an identical floor plan, newer finishes, and a better view of the city for $1,595. That is $200 per month. $2,400 per year. Gone because she did not know it existed.</p>
+
+    <p>This is not a story about one person making a bad decision. This is the story of a structurally broken market. And it is why I built HomeEasy.</p>
+
+    <h2>The Information Asymmetry Problem</h2>
+
+    <p>Here is what most people do not understand about the apartment rental market: buildings know everything about pricing, and renters know almost nothing.</p>
+
+    <p>Large apartment buildings use revenue management software. The two dominant systems are Yieldstar (by RealPage) and LRO (Lease Rent Options). These platforms analyze real-time occupancy data, lease expiration schedules, seasonal demand curves, and competitive set pricing to adjust rents on every unit, every single day. A one-bedroom apartment can change price by $50-200 in a single week depending on how many units of that floor plan are vacant.</p>
+
+    <p>Buildings have this data because they invested in it. Fair enough. But here is the problem: renters have none of it. A renter searching for an apartment sees one price, at one time, on one listing site. They have no idea whether that price is above or below what comparable units in the neighborhood are actually renting for. They have no visibility into occupancy rates, which would tell them whether a building is desperate for tenants or turning people away. They have no concept of seasonal pricing curves, which can swing rents by 10-15% between peak and off-peak months.</p>
+
+    <p>The renter's toolkit is Zillow and prayer. The building's toolkit is an enterprise-grade pricing algorithm running 24/7.</p>
+
+    <p>That is not a fair fight.</p>
+
+    <h2>The Thesis</h2>
+
+    <p>My background is in data and operations. I spent years working in environments where information asymmetry was the business model. When one side of a transaction has better data, that side captures more value. It is a fundamental principle of economics.</p>
+
+    <p>The thesis behind HomeEasy was simple: if you could aggregate and analyze the same pricing data that buildings use, but on behalf of renters, you could systematically find apartments priced below market value.</p>
+
+    <div class="highlight-box">
+      <p><strong>The core insight:</strong> At any given time, roughly 10-20% of Class A apartment units in a major metro are priced meaningfully below comparable units within a 1-2 mile radius. These pricing gaps exist because of occupancy fluctuations, lease expiration timing, new construction absorption, and revenue management algorithm behavior. They are not mistakes. They are features of the system. But only someone tracking thousands of buildings simultaneously can see them.</p>
+    </div>
+
+    <p>Here is a concrete example. Building A is a luxury high-rise in River North, Chicago. It has 400 units and runs at 95% occupancy. Its one-bedrooms are listed at $2,100 per month. Fair market price for the area.</p>
+
+    <p>Building B is one block away. Same quality. Same amenities. Same neighborhood. But Building B just delivered 200 new units six months ago and is still in lease-up mode, running at 82% occupancy. Its one-bedrooms are listed at $1,850 per month, and it is offering one month free on a 13-month lease. That brings the net effective rent to $1,708 per month.</p>
+
+    <p>Same neighborhood, same quality, $392 per month difference. That is $4,704 per year. A renter looking at Zillow would see both buildings listed and have no way to know that Building B is the dramatically better deal unless they did the math on concessions, understood occupancy dynamics, and compared dozens of similar buildings.</p>
+
+    <p>Nobody does that. Until now.</p>
+
+    <h2>Why Chicago First</h2>
+
+    <p>Chicago was the natural starting point for three reasons.</p>
+
+    <p>First, scale. Chicago has over 400,000 rental units, making it one of the largest rental markets in the country. Large markets have more pricing inefficiency because there are more buildings competing for tenants, which means more variation in pricing strategies.</p>
+
+    <p>Second, data availability. Chicago has a healthy mix of large institutional buildings (which use revenue management software and publish pricing online) and smaller buildings (which price based on gut feel and local knowledge). This mix creates the widest pricing spreads.</p>
+
+    <p>Third, seasonal extremes. Chicago has one of the most pronounced seasonal rental cycles in the US. Summer (June through August) is peak moving season, and buildings price accordingly. Winter (November through February) is when buildings offer the deepest discounts to avoid holding empty units through the cold months. This seasonal swing means there is always opportunity if you know when and where to look.</p>
+
+    <h2>The Model: Free for Renters, Always</h2>
+
+    <p>HomeEasy is free for renters. I want to be clear about why, because people are rightfully skeptical when something is free.</p>
+
+    <p>The business model is apartment locating. Buildings pay for the service — renters pay nothing. The renter pays the same rent regardless of whether a locator is involved. It's a marketing expense for the building, funded from the same budget they'd otherwise spend on Apartments.com listings and Google Ads.</p>
+
+    <p>This model exists because customer acquisition is expensive for apartment buildings. The average cost to acquire a new tenant through digital advertising (Google Ads, Facebook, Apartments.com premium listings) is $1,500 to $3,000. Paying a locator 50-100% of one month's rent is often cheaper than the alternative. It is a straightforward economic calculation.</p>
+
+    <p>The incentive alignment matters here. HomeEasy is incentivized to find renters the best possible apartment because happy renters refer their friends, and our reputation is our growth engine. We are not incentivized to push you toward any particular building. We earn the same whether you lease at Building A or Building B.</p>
+
+    <h2>What We Actually Do</h2>
+
+    <p>HomeEasy tracks pricing data across thousands of buildings. We monitor asking rents, concession offers, occupancy indicators, new construction deliveries, and competitive positioning across every major submarket.</p>
+
+    <p>When a renter tells us their budget, preferred neighborhoods, and must-have features, we do not just search listings. We run a comparative analysis. We look at what similar units in the same area are renting for. We identify buildings where the current asking price is below the neighborhood average. We flag concession offers that meaningfully reduce the effective rent. We calculate the total cost of the lease, including utilities, parking, and fees that are not obvious from the listing.</p>
+
+    <p>Then we present options ranked by value, not by who pays us the most.</p>
+
+    <blockquote>The goal is simple: every renter should have the same pricing intelligence that buildings have. The technology exists. Someone just had to build it for the other side of the transaction.</blockquote>
+
+    <h2>Looking Ahead</h2>
+
+    <p>When I started HomeEasy in late 2017, I told people I wanted to build an "information equalizer" for renters. Most people nodded politely and went back to searching Craigslist. That is fine. The idea had to prove itself with data, not words.</p>
+
+    <p>In our first year, we helped renters in Chicago save an average of $1,800 per year compared to what they would have paid based on the first listing they found online. Some saved significantly more. The savings come from better information, not from magic. We just see more of the market than any individual renter can.</p>
+
+    <p>We started in Chicago. We will not stop here. Every major rental market in the US has the same information asymmetry problem. Buildings have the data. Renters do not. We intend to change that, one market at a time.</p>
+
+    <p>If you are paying rent anywhere in Chicago, there is a meaningful chance you are paying more than you need to. Not because you did anything wrong, but because the system is not designed to help you find the best price. It is designed to help buildings maximize revenue.</p>
+
+    <p>HomeEasy exists to rebalance that equation.</p>
+
+    <div class="article-cta">
+      <h3>Ready to Find a Better Deal?</h3>
+      <p>Let HomeEasy analyze thousands of buildings to find the best value for your budget. Free for renters, always.</p>
+      <a href="/#contact" class="btn btn-pink">Find Your Apartment</a>
+    </div>
+  </article>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../images/logo.png" alt="HomeEasy">
+        <p>AI-powered apartment locator analyzing pricing data across 85,000+ buildings. Free for renters, always.</p>
+      </div>
+      <div><h4>Company</h4><ul><li><a href="/#about">About</a></li><li><a href="/#how-it-works">How It Works</a></li><li><a href="/blog/">Blog</a></li><li><a href="/privacy.html">Privacy Policy</a></li></ul></div>
+      <div><h4>Markets</h4><ul><li><a href="/markets/chicago.html">Chicago</a></li><li><a href="/markets/dfw.html">Dallas-Fort Worth</a></li><li><a href="/markets/houston.html">Houston</a></li><li><a href="/markets/austin.html">Austin</a></li><li><a href="/markets/san-antonio.html">San Antonio</a></li><li><a href="/markets/denver.html">Denver</a></li></ul></div>
+      <div><h4>Contact</h4><div class="footer-contact-info"><p>332 S Michigan Ave<br>Suite 8th Floor<br>Chicago, IL 60604</p><p><a href="tel:+13124689893">(312) 468-9893</a></p></div></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 HomeEasy | Broker Services Co, Inc.</p><p><a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a></p></div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noai, noimageai">
+    <title>East Austin Apartments | 30 Buildings | HomeEasy</title>
+    <meta name="description" content="East Austin apartment data from 30 buildings (26 in our portfolio). Median rent $1,790/mo, $3.23/sqft. 5 buildings running concessions. Real prices, real trade-offs.">
+    <link rel="canonical" href="https://homeeasy.com/neighborhoods/austin/east-austin.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="East Austin Apartments | 30 Buildings | HomeEasy">
+    <meta property="og:description" content="26 buildings in our portfolio. Median $1,790/mo. 5 running concessions. The data on East Austin apartments.">
+    <meta property="og:url" content="https://homeeasy.com/neighborhoods/austin/east-austin.html">
+    <meta property="og:site_name" content="HomeEasy">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="East Austin Apartments | Real Data | HomeEasy">
+    <meta name="twitter:description" content="Median rent $1,790. $3.23/sqft — Austin's second most expensive market. East Austin apartment data from the source.">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "HomeEasy - East Austin Apartment Locator",
+        "description": "Market data and apartment matching for East Austin. 26 buildings in our portfolio. Free for renters.",
+        "url": "https://homeeasy.com/neighborhoods/austin/east-austin.html",
+        "telephone": "+1-312-468-9893",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "332 S Michigan Ave, Suite 8th Floor",
+            "addressLocality": "Chicago",
+            "addressRegion": "IL",
+            "postalCode": "60604",
+            "addressCountry": "US"
+        },
+        "areaServed": {
+            "@type": "Neighborhood",
+            "name": "East Austin",
+            "containedInPlace": {
+                "@type": "City",
+                "name": "Austin",
+                "containedInPlace": {
+                    "@type": "State",
+                    "name": "Texas"
+                }
+            }
+        },
+        "priceRange": "Free",
+        "openingHours": "Mo-Su 00:00-23:59"
+    }
+    </script>
+
+    <style>
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .data-card {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 1.2rem;
+            text-align: center;
+        }
+        .data-card .number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy, #1a237e);
+            display: block;
+        }
+        .data-card .label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+        .building-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .building-table th {
+            background: var(--navy, #1a237e);
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .building-table td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid #eee;
+        }
+        .building-table tr:hover {
+            background: #f8f8ff;
+        }
+        .concession-tag {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .trade-off-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .trade-off-box .pro, .trade-off-box .con {
+            padding: 1.2rem;
+            border-radius: 8px;
+        }
+        .trade-off-box .pro {
+            background: #e8f5e9;
+            border-left: 4px solid #2e7d32;
+        }
+        .trade-off-box .con {
+            background: #fce4ec;
+            border-left: 4px solid #c62828;
+        }
+        .trade-off-box h4 {
+            margin: 0 0 0.5rem;
+            font-size: 0.95rem;
+        }
+        .trade-off-box p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        .compare-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.4rem 0;
+        }
+        .compare-bar .bar {
+            height: 20px;
+            background: var(--navy, #1a237e);
+            border-radius: 3px;
+            opacity: 0.7;
+        }
+        .compare-bar .bar.highlight {
+            opacity: 1;
+            background: var(--pink, #ff4081);
+        }
+        .compare-bar .hood-label {
+            width: 100px;
+            font-size: 0.8rem;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .compare-bar .bar-value {
+            font-size: 0.8rem;
+            font-weight: 600;
+            flex-shrink: 0;
+            width: 60px;
+        }
+        .budget-section {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .budget-section h3 {
+            margin-top: 0;
+        }
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #888;
+            font-style: italic;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        @media (max-width: 600px) {
+            .trade-off-box {
+                grid-template-columns: 1fr;
+            }
+            .building-table {
+                font-size: 0.8rem;
+            }
+            .building-table th, .building-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav scrolled" id="mainNav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo"><img src="../../images/logo.png" alt="HomeEasy"></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/#how-it-works">How It Works</a>
+                <a href="/#markets">Markets</a>
+                <a href="/blog/">Blog</a>
+                <a href="/data/">Market Data</a>
+                <a href="/#reviews">Reviews</a>
+                <a href="/#about">About</a>
+                <a href="/#contact">Contact</a>
+                <div class="nav-cta"><a href="/#contact" class="btn btn-pink btn-sm">Find Your Apartment</a></div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <section class="neighborhood-hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="neighborhood-hero-content">
+            <div class="breadcrumb"><a href="/">HomeEasy</a> &rsaquo; <a href="/markets/austin.html">Austin</a> &rsaquo; East Austin</div>
+            <h1>East Austin</h1>
+            <p class="neighborhood-subtitle">26 buildings in our portfolio. Median rent $1,790. Austin's creative district — gentrifying fast, pricing up faster.</p>
+        </div>
+    </section>
+
+    <section class="neighborhood-content">
+        <div class="neighborhood-layout">
+            <div class="neighborhood-main">
+
+                <div class="data-grid">
+                    <div class="data-card">
+                        <span class="number">30</span>
+                        <span class="label">Total Buildings</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">26</span>
+                        <span class="label">Buildings</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$1,790</span>
+                        <span class="label">Median Rent</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$3.23</span>
+                        <span class="label">Median $/sqft</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">5</span>
+                        <span class="label">Active Concessions</span>
+                    </div>
+                </div>
+
+                <h2>The Market</h2>
+
+                <p>East Austin is the second most expensive neighborhood in the metro at $3.23/sqft. That number would have been unthinkable five years ago. This was the affordable, creative side of town — food trucks, galleries, dive bars, the stuff that gave Austin its identity. New construction changed the math. Modern apartment buildings are driving per-square-foot costs toward downtown levels, even if the absolute rents are lower.</p>
+
+                <p>The median rent of $1,790 is about $500 less than downtown, but the $/sqft gap is narrower than you'd expect — $3.23 vs $3.61. What that tells you: East Austin units tend to be smaller. You're paying nearly downtown rates per square foot but getting less space. The trade-off is character. The food trucks, the street art, the Rainey Street spillover energy — that's real, and it's what the premium buys.</p>
+
+                <p>5 of 26 buildings are running concessions. With 30 buildings tracked in the area, the market is well-established and there's room to negotiate, especially at newer buildings competing for first residents.</p>
+
+                <h2>How It Compares</h2>
+
+                <p>East Austin sits just below downtown on the price ladder, but well above the city median:</p>
+
+                <div style="margin: 1.5rem 0;">
+                    <div class="compare-bar">
+                        <span class="hood-label">Downtown</span>
+                        <div class="bar" style="width: 180px;"></div>
+                        <span class="bar-value">$3.61</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label" style="font-weight:700;">East Austin</span>
+                        <div class="bar highlight" style="width: 161px;"></div>
+                        <span class="bar-value" style="color: var(--pink, #ff4081);">$3.23</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">SoCo</span>
+                        <div class="bar" style="width: 143px;"></div>
+                        <span class="bar-value">$2.87</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Mueller</span>
+                        <div class="bar" style="width: 137px;"></div>
+                        <span class="bar-value">$2.75</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">South Lamar</span>
+                        <div class="bar" style="width: 121px;"></div>
+                        <span class="bar-value">$2.42</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">The Domain</span>
+                        <div class="bar" style="width: 103px;"></div>
+                        <span class="bar-value">$2.07</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Cedar Park</span>
+                        <div class="bar" style="width: 81px;"></div>
+                        <span class="bar-value">$1.63</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Round Rock</span>
+                        <div class="bar" style="width: 78px;"></div>
+                        <span class="bar-value">$1.57</span>
+                    </div>
+                </div>
+
+                <p>East Austin is 80% more expensive per square foot than the Austin metro median of $1.79. You're paying for location and culture, not space.</p>
+
+                <h2>The Trade-Offs</h2>
+
+                <div class="trade-off-box">
+                    <div class="pro">
+                        <h4>What You Get</h4>
+                        <p>Austin's creative hub. The best food scene outside downtown — food truck parks, taquerias, breweries, acclaimed restaurants. Street art, galleries, live music venues. Walkable commercial corridors on East Cesar Chavez and East 6th. More personality per block than any other Austin neighborhood.</p>
+                    </div>
+                    <div class="con">
+                        <h4>What You Give Up</h4>
+                        <p>Gentrification is pushing prices toward downtown levels fast. $3.23/sqft is not "affordable creative neighborhood" pricing — it's premium. The character that makes East Austin special is the same thing getting priced out by the new construction driving these numbers up.</p>
+                    </div>
+                </div>
+
+                <h2>What's Happening in the Market</h2>
+
+                <p>East Austin's transformation has been one of the most dramatic in Texas. New apartment buildings, townhome developments, and mixed-use projects are replacing the bungalows and warehouses that defined the neighborhood. Each new building pushes the per-square-foot average higher.</p>
+
+                <p>The concession activity (5 of 26 buildings) reflects newer buildings competing for residents. If you're considering East Austin, this is the window to lock in a deal — once these buildings fill up, the concessions go away and you're paying full freight at near-downtown rates.</p>
+
+                <p>The organic Austin food and arts scene is what draws people here. But that scene predates the new apartment buildings by decades. The question is how long the character survives the pricing. Right now, both still coexist. That may not last.</p>
+
+                <h2>Buildings by Value ($/sqft)</h2>
+
+                <p>Buildings ranked by price per square foot — lowest first:</p>
+
+                <table class="building-table">
+                    <thead>
+                        <tr>
+                            <th>Building</th>
+                            <th>$/sqft</th>
+                            <th>From</th>
+                            <th>Concession</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>E6</td>
+                            <td>$2.60</td>
+                            <td>$1,349</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>AMLI Eastside</td>
+                            <td>$2.83</td>
+                            <td>$1,897</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Eastside Station</td>
+                            <td>$2.87</td>
+                            <td>$1,583</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="disclaimer">Data from HomeEasy buildings only. Prices reflect starting rents and may vary by unit, floor, and lease term. Concessions change frequently — verify current availability with us.</p>
+
+                <div class="budget-section">
+                    <h3>What Your Budget Gets You Here</h3>
+                    <p><strong>Under $1,400/mo:</strong> E6 at $2.60/sqft from $1,349 — the value entry point in East Austin. Concession active. This is where you get into the neighborhood without paying full gentrification prices.</p>
+                    <p><strong>$1,400–$1,800/mo:</strong> Eastside Station starts at $1,583. Mid-range East Austin — newer construction, walkable to the food truck parks and breweries on East Cesar Chavez. Multiple buildings fall in this band.</p>
+                    <p><strong>$1,800+:</strong> AMLI Eastside from $1,897 and the upper end of the market. Premium finishes, full amenity packages. At this price point, also compare downtown — you might get similar $/sqft with more walkability and transit access.</p>
+                </div>
+
+                <h2>Getting Around</h2>
+
+                <p>East Austin is bikeable and increasingly walkable along its main commercial corridors — East Cesar Chavez, East 6th, East 7th. CapMetro bus routes serve the area. The terrain is flat, which makes cycling practical. Downtown is a short ride across I-35.</p>
+
+                <p>A car is still useful for reaching anything outside the immediate neighborhood, which is true of most of Austin. But for daily life — groceries, restaurants, bars, coffee — the main corridors have what you need on foot.</p>
+
+                <h2>Who Does Well Here</h2>
+
+                <p>People who want Austin's creative energy without the Sixth Street tourist crowds. Foodies and brewery enthusiasts. People who work downtown or remotely and want a neighborhood with personality. Artists, musicians, startup people — the ecosystem that built East Austin's reputation.</p>
+
+                <p>If you prioritize space over character, The Domain or South Lamar will give you more square footage per dollar. If you want the neighborhood that most feels like "Austin," this is it — for now.</p>
+
+                <div class="article-cta">
+                    <h3>Tell Us Your Budget</h3>
+                    <p>We track 30 buildings and work with 26 buildings in East Austin. Send us your budget and move-in date — we'll show you what's available and what concessions you qualify for.</p>
+                    <a href="/#contact" class="btn btn-pink">See What's Available</a>
+                </div>
+
+                <h2>Nearby Neighborhoods</h2>
+                <ul>
+                    <li><a href="/neighborhoods/austin/downtown.html">Downtown</a> — $3.61/sqft median. 33 buildings in our portfolio. More walkable, more expensive.</li>
+                    <li><a href="/neighborhoods/austin/mueller.html">Mueller</a> — $2.75/sqft median. 12 buildings in our portfolio. Master-planned, walkable.</li>
+                    <li><a href="/neighborhoods/austin/south-congress.html">South Congress (SoCo)</a> — $2.87/sqft median. 17 buildings in our portfolio.</li>
+                    <li><a href="/neighborhoods/austin/zilker.html">Zilker</a> — $2.42/sqft median. Parks, trails, solid mid-range pricing.</li>
+                </ul>
+            </div>
+
+            <div class="neighborhood-sidebar">
+                <div class="sidebar-card">
+                    <h4>East Austin — The Numbers</h4>
+                    <div class="sidebar-stat">
+                        <span class="label">Total Buildings</span>
+                        <span class="value">30</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Buildings</span>
+                        <span class="value">26</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Median Rent</span>
+                        <span class="value">$1,790/mo</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Rent Range</span>
+                        <span class="value">$1,102 – $1,900</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Median $/sqft</span>
+                        <span class="value">$3.23</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Active Concessions</span>
+                        <span class="value">5 of 26 buildings</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Best Value</span>
+                        <span class="value">$2.60/sqft (E6)</span>
+                    </div>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Pro</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Austin's creative hub. Best food scene outside downtown. The neighborhood that most feels like "Austin."</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Con</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Gentrification is pushing prices toward downtown levels. $3.23/sqft is not affordable — it's premium with character.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>See What's Available</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem;">Send us your budget and move-in date. We'll match you with East Austin buildings that fit.</p>
+                    <a href="/#contact" class="btn btn-pink btn-sm" style="width:100%;text-align:center;">Start</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="../../images/logo.png" alt="HomeEasy">
+                <p>Market data and apartment matching across 85,000+ buildings. Free for renters, always.</p>
+            </div>
+            <div><h4>Company</h4><ul><li><a href="/#about">About</a></li><li><a href="/#how-it-works">How It Works</a></li><li><a href="/blog/">Blog</a></li><li><a href="/privacy.html">Privacy Policy</a></li></ul></div>
+            <div><h4>Markets</h4><ul><li><a href="/markets/chicago.html">Chicago</a></li><li><a href="/markets/dfw.html">Dallas-Fort Worth</a></li><li><a href="/markets/houston.html">Houston</a></li><li><a href="/markets/austin.html">Austin</a></li><li><a href="/markets/san-antonio.html">San Antonio</a></li><li><a href="/markets/denver.html">Denver</a></li></ul></div>
+            <div><h4>Contact</h4><div class="footer-contact-info"><p>332 S Michigan Ave<br>Suite 8th Floor<br>Chicago, IL 60604</p><p><a href="tel:+13124689893">(312) 468-9893</a></p></div></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 HomeEasy | Broker Services Co, Inc.</p><p><a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a></p></div>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>

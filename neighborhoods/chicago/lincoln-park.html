@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noai, noimageai">
+    <title>Lincoln Park Apartments Chicago | 130 Buildings, Real Pricing Data | HomeEasy</title>
+    <meta name="description" content="Lincoln Park apartment data from 154 buildings — 130 in our portfolio. Median $4.03/sqft. Rent from $1,600. Real prices, real trade-offs. Part of 2,763 buildings across Chicago.">
+    <link rel="canonical" href="https://homeeasy.com/neighborhoods/chicago/lincoln-park.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Lincoln Park Apartments | 130 Buildings | HomeEasy">
+    <meta property="og:description" content="130 buildings in our portfolio. Rent from $1,600. Part of 2,763 buildings across Chicago metro.">
+    <meta property="og:url" content="https://homeeasy.com/neighborhoods/chicago/lincoln-park.html">
+    <meta property="og:site_name" content="HomeEasy">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lincoln Park Apartments | 130 Buildings | HomeEasy">
+    <meta name="twitter:description" content="130 buildings in our portfolio. Rent from $1,600. Lincoln Park apartment data from the source.">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "HomeEasy - Lincoln Park Chicago Apartment Locator",
+        "description": "Market data and apartment matching for Lincoln Park, Chicago. 130 buildings in our portfolio. Free for renters.",
+        "url": "https://homeeasy.com/neighborhoods/chicago/lincoln-park.html",
+        "telephone": "+1-312-468-9893",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "332 S Michigan Ave, Suite 8th Floor",
+            "addressLocality": "Chicago",
+            "addressRegion": "IL",
+            "postalCode": "60604",
+            "addressCountry": "US"
+        },
+        "areaServed": {
+            "@type": "Neighborhood",
+            "name": "Lincoln Park",
+            "containedInPlace": {
+                "@type": "City",
+                "name": "Chicago",
+                "containedInPlace": {
+                    "@type": "State",
+                    "name": "Illinois"
+                }
+            }
+        },
+        "priceRange": "Free",
+        "openingHours": "Mo-Su 00:00-23:59"
+    }
+    </script>
+
+    <style>
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .data-card {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 1.2rem;
+            text-align: center;
+        }
+        .data-card .number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy, #1a237e);
+            display: block;
+        }
+        .data-card .label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+        .building-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .building-table th {
+            background: var(--navy, #1a237e);
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .building-table td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid #eee;
+        }
+        .building-table tr:hover {
+            background: #f8f8ff;
+        }
+        .concession-tag {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .trade-off-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .trade-off-box .pro, .trade-off-box .con {
+            padding: 1.2rem;
+            border-radius: 8px;
+        }
+        .trade-off-box .pro {
+            background: #e8f5e9;
+            border-left: 4px solid #2e7d32;
+        }
+        .trade-off-box .con {
+            background: #fce4ec;
+            border-left: 4px solid #c62828;
+        }
+        .trade-off-box h4 {
+            margin: 0 0 0.5rem;
+            font-size: 0.95rem;
+        }
+        .trade-off-box p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        .compare-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.4rem 0;
+        }
+        .compare-bar .bar {
+            height: 20px;
+            background: var(--navy, #1a237e);
+            border-radius: 3px;
+            opacity: 0.7;
+        }
+        .compare-bar .bar.highlight {
+            opacity: 1;
+            background: var(--pink, #ff4081);
+        }
+        .compare-bar .hood-label {
+            width: 100px;
+            font-size: 0.8rem;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .compare-bar .bar-value {
+            font-size: 0.8rem;
+            font-weight: 600;
+            flex-shrink: 0;
+            width: 60px;
+        }
+        .budget-section {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .budget-section h3 {
+            margin-top: 0;
+        }
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #888;
+            font-style: italic;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        @media (max-width: 600px) {
+            .trade-off-box {
+                grid-template-columns: 1fr;
+            }
+            .building-table {
+                font-size: 0.8rem;
+            }
+            .building-table th, .building-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav scrolled" id="mainNav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo"><img src="../../images/logo.png" alt="HomeEasy"></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/#how-it-works">How It Works</a>
+                <a href="/#markets">Markets</a>
+                <a href="/blog/">Blog</a>
+                <a href="/data/">Market Data</a>
+                <a href="/#reviews">Reviews</a>
+                <a href="/#about">About</a>
+                <a href="/#contact">Contact</a>
+                <div class="nav-cta"><a href="/#contact" class="btn btn-pink btn-sm">Find Your Apartment</a></div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <section class="neighborhood-hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="neighborhood-hero-content">
+            <div class="breadcrumb"><a href="/">HomeEasy</a> &rsaquo; <a href="/markets/chicago.html">Chicago</a> &rsaquo; Lincoln Park</div>
+            <h1>Lincoln Park, Chicago</h1>
+            <p class="neighborhood-subtitle">154 buildings tracked. 130 in our portfolio. Rent from $1,600. Median $4.03/sqft. Part of 2,763 buildings across Chicago.</p>
+        </div>
+    </section>
+
+    <section class="neighborhood-content">
+        <div class="neighborhood-layout">
+            <div class="neighborhood-main">
+
+                <div class="data-grid">
+                    <div class="data-card">
+                        <span class="number">154</span>
+                        <span class="label">Buildings Tracked</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">130</span>
+                        <span class="label">Buildings</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$4.03</span>
+                        <span class="label">Median $/sqft</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$2,615</span>
+                        <span class="label">Median Rent</span>
+                    </div>
+                </div>
+
+                <h2>The Market</h2>
+
+                <p>Lincoln Park is the "classic Chicago" neighborhood. The zoo. DePaul. Tree-lined streets that feel like a small town dropped into the north side. People pay a premium to live here, and the data shows it — $4.03/sqft median, which puts it above Lakeview ($3.98) and the South Loop ($3.90) but below the downtown core.</p>
+
+                <p>We track 154 buildings in Lincoln Park — 130 of which are in our portfolio directly. That gives us deep coverage across the neighborhood, from the larger complexes with leasing offices to the mid-size buildings with institutional management. Lincoln Park also has thousands of vintage walk-ups and two-flats outside any locator's network, but our 130 buildings cover the managed inventory well.</p>
+
+                <p>Rent starts at $1,600 (Park View Apartments, built 1926) and runs to $3,500 on the low end of The Belden Stratford, with some units pushing past $9,000. The building stock spans 1923 to 2019, but nothing here is new construction. Every building in our Lincoln Park inventory is pre-2020.</p>
+
+                <h2>How It Compares</h2>
+
+                <p>Lincoln Park sits in the middle of the Chicago pricing spectrum — cheaper than downtown, more expensive than the neighborhoods just north and south:</p>
+
+                <div style="margin: 1.5rem 0;">
+                    <div class="compare-bar">
+                        <span class="hood-label">West Loop</span>
+                        <div class="bar" style="width: 160px;"></div>
+                        <span class="bar-value">$4.45</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Streeterville</span>
+                        <div class="bar" style="width: 155px;"></div>
+                        <span class="bar-value">$4.30</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">River North</span>
+                        <div class="bar" style="width: 153px;"></div>
+                        <span class="bar-value">$4.25</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Gold Coast</span>
+                        <div class="bar" style="width: 153px;"></div>
+                        <span class="bar-value">$4.25</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">The Loop</span>
+                        <div class="bar" style="width: 152px;"></div>
+                        <span class="bar-value">$4.23</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label" style="font-weight:700;">Lincoln Park</span>
+                        <div class="bar highlight" style="width: 145px;"></div>
+                        <span class="bar-value" style="color: var(--pink, #ff4081);">$4.03</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Lakeview</span>
+                        <div class="bar" style="width: 143px;"></div>
+                        <span class="bar-value">$3.98</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">South Loop</span>
+                        <div class="bar" style="width: 140px;"></div>
+                        <span class="bar-value">$3.90</span>
+                    </div>
+                </div>
+
+                <p>The premium over Lakeview is small — about 1%. The discount from downtown is real — 5% below Gold Coast and River North. You're paying for the residential quality, the park, and the schools.</p>
+
+                <h2>The Trade-Offs</h2>
+
+                <div class="trade-off-box">
+                    <div class="pro">
+                        <h4>What You Get</h4>
+                        <p>The park. The zoo (free, year-round). Tree-lined streets that feel like a real neighborhood, not a downtown corridor. Safe, walkable, family-friendly. DePaul campus energy in the south, quiet residential blocks in the north. Lakefront trail access. Maybe the most livable neighborhood in Chicago.</p>
+                    </div>
+                    <div class="con">
+                        <h4>What You Give Up</h4>
+                        <p>Lincoln Park also has thousands of vintage walk-ups and two-flats outside any managed network. If you want a charming courtyard building from a small landlord, that's a different search. Our 130 buildings cover the managed inventory — but the neighborhood's character housing is a separate market.</p>
+                    </div>
+                </div>
+
+                <h2>What's Happening in the Market</h2>
+
+                <p>Lincoln Park isn't in a building cycle. No cranes on the skyline, no new high-rises coming online. The last building in our portfolio was built in 2019. But with 130 buildings, there's still meaningful competition for tenants.</p>
+
+                <p>The building stock here is older. That's not a knock — The Belden Stratford (1923) is a Chicago landmark, and Park View Apartments (1926) offers some of the most affordable entry points in the neighborhood. Older buildings mean character, but also older mechanicals and fewer amenities compared to new South Loop or West Loop construction.</p>
+
+                <p>The real dynamic in Lincoln Park is competition between our 130 buildings and the thousands of vintage walk-ups listed by individual landlords. Buildings in our portfolio need to compete on price and concessions because renters have alternatives. That's leverage for you.</p>
+
+                <h2>Buildings by Value ($/sqft)</h2>
+
+                <p>These are buildings ranked by price per square foot — lowest first. This is where your dollar goes furthest.</p>
+
+                <table class="building-table">
+                    <thead>
+                        <tr>
+                            <th>Building</th>
+                            <th>$/sqft</th>
+                            <th>From</th>
+                            <th>Built</th>
+                            <th>Concession</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2555 N Clark St</td>
+                            <td>$3.35</td>
+                            <td>$2,615</td>
+                            <td>1987</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>2756-60 N. Pine Grove</td>
+                            <td>$3.43</td>
+                            <td>$2,643</td>
+                            <td>1925</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>The Kent</td>
+                            <td>$3.85</td>
+                            <td>$2,586</td>
+                            <td>1984</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Park View Apartments</td>
+                            <td>$4.03</td>
+                            <td>$1,600</td>
+                            <td>1926</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>The Belden Stratford</td>
+                            <td>$5.12</td>
+                            <td>$3,500</td>
+                            <td>1923</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="disclaimer">Data from HomeEasy buildings only. Prices reflect starting rents and may vary by unit, floor, and lease term. Concessions change frequently — verify current availability with us.</p>
+
+                <div class="budget-section">
+                    <h3>What Your Budget Gets You Here</h3>
+                    <p><strong>Under $2,000/mo:</strong> Park View Apartments. Built 1926, starting at $1,600. One of the most affordable entries in Lincoln Park within our portfolio. It's a vintage building — don't expect new construction finishes. But the location is Lincoln Park, and the math works at $4.03/sqft.</p>
+                    <p><strong>$2,000–$2,700/mo:</strong> The main cluster. 2555 N Clark ($2,615, 1987), 2756-60 N. Pine Grove ($2,643, 1925), The Kent ($2,586, 1984). All three sit between $3.35 and $3.85/sqft — the best value range in the neighborhood. These are your highest-sqft-per-dollar options in Lincoln Park.</p>
+                    <p><strong>$2,700+:</strong> You're looking at larger units in the mid-range buildings or stepping up to The Belden Stratford ($3,500 start, $5.12/sqft). The Belden is a 1923 landmark — the price is for the address and the building's history. Units push past $9,000 at the top end.</p>
+                </div>
+
+                <h2>Getting Around</h2>
+
+                <p>Brown and Red lines run through Lincoln Park. Fullerton station puts you on the Red Line to the Loop in about 15 minutes. The Lakefront Trail runs the entire eastern edge — runners, cyclists, and stroller-pushers own it from dawn until dark.</p>
+
+                <p>Armitage Avenue is the commercial spine — groceries, restaurants, coffee. Clark Street runs north-south with more options. You're not going to starve, but this isn't West Loop restaurant density. It's a neighborhood, and the dining scene matches — solid local spots, not Michelin-star rotation.</p>
+
+                <h2>Who Does Well Here</h2>
+
+                <p>Families and couples who want a real neighborhood. People who use the park — runners, dog walkers, people who actually go to the zoo on a Tuesday. DePaul students and faculty who want to walk to campus. Anyone who prioritizes tree-lined streets and safety over nightlife and new construction.</p>
+
+                <p>If you want new finishes and heavy concessions, the South Loop has 102 buildings. If you want the most livable neighborhood in Chicago, Lincoln Park has 130 buildings to work with.</p>
+
+                <div class="article-cta">
+                    <h3>Tell Us Your Budget</h3>
+                    <p>We track 154 buildings and work with 130 buildings in Lincoln Park. Send us your budget and move-in date — we'll show you what's available and what concessions you qualify for.</p>
+                    <a href="/#contact" class="btn btn-pink">See What's Available</a>
+                </div>
+
+                <h2>Nearby Neighborhoods</h2>
+                <ul>
+                    <li><a href="/neighborhoods/chicago/lakeview.html">Lakeview</a> — 186 buildings. $3.98/sqft median. Wrigley Field, lakefront.</li>
+                    <li><a href="/neighborhoods/chicago/gold-coast.html">Gold Coast</a> — 94 buildings. $4.25/sqft median. Magnificent Mile adjacent.</li>
+                    <li><a href="/neighborhoods/chicago/river-north.html">Old Town</a> — Between Lincoln Park and Gold Coast. Comedy clubs, Wells Street, neighborhood bars.</li>
+                    <li><a href="/neighborhoods/chicago/wicker-park.html">Wicker Park</a> — 22 buildings. Creative energy, boutiques, indie scene.</li>
+                </ul>
+            </div>
+
+            <div class="neighborhood-sidebar">
+                <div class="sidebar-card">
+                    <h4>Lincoln Park — The Numbers</h4>
+                    <div class="sidebar-stat">
+                        <span class="label">Buildings Tracked</span>
+                        <span class="value">154</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Buildings</span>
+                        <span class="value">130</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Median Rent</span>
+                        <span class="value">$2,615/mo</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Rent Range</span>
+                        <span class="value">$1,600 – $3,500</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Median $/sqft</span>
+                        <span class="value">$4.03</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Chicago Metro Buildings</span>
+                        <span class="value">2,763</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Year Built Range</span>
+                        <span class="value">1923 – 2019</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Best Value</span>
+                        <span class="value">$3.35/sqft (2555 N Clark)</span>
+                    </div>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Pro</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">The park. The zoo. Tree-lined streets. Maybe the most livable neighborhood in Chicago.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Con</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Most Lincoln Park character housing (vintage walk-ups, two-flats) is outside any managed network. Our 130 buildings cover the institutional inventory.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>See What's Available</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem;">Send us your budget and move-in date. We'll match you with Lincoln Park buildings that fit.</p>
+                    <a href="/#contact" class="btn btn-pink btn-sm" style="width:100%;text-align:center;">Start</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="../../images/logo.png" alt="HomeEasy">
+                <p>Market data and apartment matching across 85,000+ buildings. Free for renters, always.</p>
+            </div>
+            <div><h4>Company</h4><ul><li><a href="/#about">About</a></li><li><a href="/#how-it-works">How It Works</a></li><li><a href="/blog/">Blog</a></li><li><a href="/privacy.html">Privacy Policy</a></li></ul></div>
+            <div><h4>Markets</h4><ul><li><a href="/markets/chicago.html">Chicago</a></li><li><a href="/markets/dfw.html">Dallas-Fort Worth</a></li><li><a href="/markets/houston.html">Houston</a></li><li><a href="/markets/austin.html">Austin</a></li><li><a href="/markets/san-antonio.html">San Antonio</a></li><li><a href="/markets/denver.html">Denver</a></li></ul></div>
+            <div><h4>Contact</h4><div class="footer-contact-info"><p>332 S Michigan Ave<br>Suite 8th Floor<br>Chicago, IL 60604</p><p><a href="tel:+13124689893">(312) 468-9893</a></p></div></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 HomeEasy | Broker Services Co, Inc.</p><p><a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a></p></div>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noai, noimageai">
+    <title>Apartment Market Data | Price Per Square Foot Rankings | HomeEasy</title>
+    <meta name="description" content="Real apartment pricing data across 15,000+ buildings in 8 markets. Price per square foot by city, building era, amenity tier, and unit type. Updated from our live inventory.">
+    <meta name="keywords" content="apartment price per square foot, rent data, apartment pricing, cheapest apartments, apartment market data, rent comparison">
+    <link rel="canonical" href="https://homeeasy.com/data/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Apartment Market Data | HomeEasy">
+    <meta property="og:description" content="Real pricing data from 15,000+ buildings across 8 markets. Price per square foot rankings, amenity analysis, building class breakdowns.">
+    <meta property="og:url" content="https://homeeasy.com/data/">
+
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Dataset",
+        "name": "HomeEasy Apartment Market Data",
+        "description": "Price per square foot data from 15,000+ apartment buildings across 8 US markets",
+        "url": "https://homeeasy.com/data/",
+        "creator": {"@type": "Organization", "name": "HomeEasy"},
+        "spatialCoverage": ["Chicago, IL", "Dallas-Fort Worth, TX", "Houston, TX", "Austin, TX", "San Antonio, TX", "Denver, CO", "Atlanta, GA", "Nashville, TN"],
+        "temporalCoverage": "2026",
+        "variableMeasured": "Price per square foot (USD)"
+    }
+    </script>
+
+    <style>
+        /* Data page specific styles */
+        .data-disclaimer {
+            background: var(--off-white);
+            border-left: 4px solid var(--pink);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            font-size: var(--small);
+            color: var(--text-light);
+            border-radius: 0 var(--radius) var(--radius) 0;
+        }
+        .data-disclaimer strong { color: var(--text); }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .data-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--navy);
+        }
+        .data-card h3 {
+            color: var(--navy);
+            margin-bottom: 1rem;
+            font-size: var(--h3);
+        }
+        .data-card .subtitle {
+            color: var(--text-light);
+            font-size: var(--small);
+            margin-bottom: 1.5rem;
+        }
+
+        /* CSS Bar Charts */
+        .bar-chart { margin: 1rem 0; }
+        .bar-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.6rem;
+            gap: 0.75rem;
+        }
+        .bar-label {
+            min-width: 100px;
+            font-size: var(--small);
+            font-weight: 500;
+            color: var(--text);
+            text-align: right;
+        }
+        .bar-track {
+            flex: 1;
+            background: var(--light-gray);
+            border-radius: 4px;
+            height: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+        .bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            padding-left: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--white);
+            transition: width 0.8s ease;
+        }
+        .bar-fill.navy { background: var(--navy); }
+        .bar-fill.pink { background: var(--pink); }
+        .bar-fill.light { background: var(--navy-light); }
+        .bar-value {
+            font-size: var(--small);
+            font-weight: 600;
+            color: var(--navy);
+            min-width: 70px;
+        }
+
+        /* Percentile Range Chart */
+        .range-chart { margin: 1.5rem 0; }
+        .range-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            gap: 0.75rem;
+        }
+        .range-label {
+            min-width: 110px;
+            font-size: var(--small);
+            font-weight: 600;
+            color: var(--navy);
+        }
+        .range-track {
+            flex: 1;
+            height: 20px;
+            position: relative;
+            background: var(--light-gray);
+            border-radius: 10px;
+        }
+        .range-bar {
+            position: absolute;
+            height: 100%;
+            border-radius: 10px;
+            background: linear-gradient(90deg, var(--navy-light), var(--navy));
+            opacity: 0.7;
+        }
+        .range-median {
+            position: absolute;
+            height: 100%;
+            width: 3px;
+            background: var(--pink);
+            border-radius: 2px;
+            z-index: 1;
+        }
+        .range-values {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            min-width: 140px;
+            text-align: right;
+        }
+
+        /* Data Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: var(--small);
+        }
+        .data-table thead th {
+            background: var(--navy);
+            color: var(--white);
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+        }
+        .data-table thead th:first-child { border-radius: var(--radius) 0 0 0; }
+        .data-table thead th:last-child { border-radius: 0 var(--radius) 0 0; }
+        .data-table tbody td {
+            padding: 0.6rem 1rem;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+        .data-table tbody tr:hover { background: var(--off-white); }
+        .data-table .highlight {
+            color: var(--pink);
+            font-weight: 600;
+        }
+        .data-table .muted { color: var(--text-light); }
+
+        /* Section links */
+        .section-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .section-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--white);
+            border: 2px solid var(--navy);
+            color: var(--navy);
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: var(--small);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .section-link:hover {
+            background: var(--navy);
+            color: var(--white);
+        }
+        .section-link.pink {
+            border-color: var(--pink);
+            color: var(--pink);
+        }
+        .section-link.pink:hover {
+            background: var(--pink);
+            color: var(--white);
+        }
+
+        /* Number highlight */
+        .big-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1;
+        }
+        .big-number .unit { font-size: 1rem; color: var(--text-light); }
+
+        .stat-row {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+        .stat-item {
+            text-align: center;
+            flex: 1;
+            min-width: 120px;
+        }
+        .stat-item .label {
+            font-size: var(--small);
+            color: var(--text-light);
+            margin-top: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="mainNav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">
+                <img src="../images/logo.png" alt="HomeEasy">
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="/#how-it-works">How It Works</a>
+                <a href="/#markets">Markets</a>
+                <a href="/blog/">Blog</a>
+                <a href="/building-intelligence.html">Building Intelligence</a>
+                <a href="/data/" class="active">Market Data</a>
+                <a href="/#contact" class="btn btn-primary nav-cta">Find Your Apartment</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero -->
+        <section class="page-hero" style="background: var(--navy); padding: calc(80px + 3rem) 0 3rem;">
+            <div class="container">
+                <h1 style="color: var(--white); font-size: var(--h1); margin-bottom: 1rem;">Apartment Market Data</h1>
+                <p style="color: rgba(255,255,255,0.8); font-size: 1.2rem; max-width: 700px;">
+                    Real pricing data from our inventory of buildings. Every number comes from a verified listing, not an estimate.
+                </p>
+
+                <div class="stat-row" style="margin-top: 2rem;">
+                    <div class="stat-item">
+                        <div class="big-number" style="color: var(--white);">4,110</div>
+                        <div class="label" style="color: rgba(255,255,255,0.7);">Buildings</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="big-number" style="color: var(--white);">3,923</div>
+                        <div class="label" style="color: rgba(255,255,255,0.7);">With Sqft Data</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="big-number" style="color: var(--white);">8</div>
+                        <div class="label" style="color: rgba(255,255,255,0.7);">Markets</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="big-number" style="color: var(--white);">3,464</div>
+                        <div class="label" style="color: rgba(255,255,255,0.7);">With Move-In Specials</div>
+                    </div>
+                </div>
+
+                <div class="data-disclaimer" style="background: rgba(255,255,255,0.1); border-left-color: var(--pink); color: rgba(255,255,255,0.8); margin-top: 2rem;">
+                    <strong style="color: var(--white);">Data source:</strong> All data comes from apartment buildings we lease for across 8 markets. This is <em>not</em> the full market. Buildings in our portfolio tend to be professionally managed Class A/B properties. Think of this as a curated dataset, not a census.
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Navigation -->
+        <section style="padding: 2rem 0; background: var(--off-white);">
+            <div class="container">
+                <div class="section-links">
+                    <a href="#price-sqft" class="section-link">$/sqft by City</a>
+                    <a href="#building-era" class="section-link">New vs Old</a>
+                    <a href="#unit-type" class="section-link">By Unit Type</a>
+                    <a href="#class-abc" class="section-link">Class A/B/C</a>
+                    <a href="#amenities" class="section-link">Amenity Pricing</a>
+                    <a href="#concessions" class="section-link pink">Best Deals</a>
+                    <a href="#cheapest" class="section-link pink">Cheapest $/sqft</a>
+                    <a href="#city-pages" class="section-link">City Deep Dives</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Price Per Sqft by City -->
+        <section id="price-sqft" style="padding: var(--section-pad);">
+            <div class="container">
+                <h2>Price Per Square Foot by City</h2>
+                <p style="color: var(--text-light); margin-bottom: 0.5rem;">Median $/sqft across buildings with verified square footage data. The spread between P10 and P90 shows the range of deals available.</p>
+
+                <div class="data-grid">
+                    <!-- Bar Chart -->
+                    <div class="data-card">
+                        <h3>Median $/sqft</h3>
+                        <p class="subtitle">Lower = more space for your money</p>
+                        <div class="bar-chart">
+                            <div class="bar-row">
+                                <span class="bar-label">Chicago</span>
+                                <div class="bar-track"><div class="bar-fill navy" style="width: 82%;">$4.10</div></div>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">Denver</span>
+                                <div class="bar-track"><div class="bar-fill navy" style="width: 56%;">$2.78</div></div>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">DFW</span>
+                                <div class="bar-track"><div class="bar-fill navy" style="width: 38%;">$1.91</div></div>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">Austin</span>
+                                <div class="bar-track"><div class="bar-fill navy" style="width: 36%;">$1.79</div></div>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">Houston</span>
+                                <div class="bar-track"><div class="bar-fill navy" style="width: 35%;">$1.76</div></div>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">San Antonio</span>
+                                <div class="bar-track"><div class="bar-fill pink" style="width: 32%;">$1.60</div></div>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 0.5rem;">Chicago's premium: a 542-sqft median apartment costs 2.6x per sqft what a 625-sqft San Antonio unit does.</p>
+                    </div>
+
+                    <!-- Full Percentile Table -->
+                    <div class="data-card">
+                        <h3>Full Price Distribution</h3>
+                        <p class="subtitle">P10 = cheapest 10%, P90 = most expensive 10%</p>
+                        <div style="overflow-x: auto;">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>City</th>
+                                        <th>n</th>
+                                        <th>P10</th>
+                                        <th>P25</th>
+                                        <th>Median</th>
+                                        <th>P75</th>
+                                        <th>P90</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Chicago</strong></td>
+                                        <td class="muted">243</td>
+                                        <td>$3.14</td>
+                                        <td>$3.57</td>
+                                        <td class="highlight">$4.10</td>
+                                        <td>$4.55</td>
+                                        <td>$4.91</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Denver</strong></td>
+                                        <td class="muted">61</td>
+                                        <td>$2.17</td>
+                                        <td>$2.50</td>
+                                        <td class="highlight">$2.78</td>
+                                        <td>$3.09</td>
+                                        <td>$3.40</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>DFW</strong></td>
+                                        <td class="muted">1,438</td>
+                                        <td>$1.48</td>
+                                        <td>$1.68</td>
+                                        <td class="highlight">$1.91</td>
+                                        <td>$2.22</td>
+                                        <td>$2.57</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Austin</strong></td>
+                                        <td class="muted">650</td>
+                                        <td>$1.36</td>
+                                        <td>$1.55</td>
+                                        <td class="highlight">$1.79</td>
+                                        <td>$2.13</td>
+                                        <td>$2.75</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Houston</strong></td>
+                                        <td class="muted">1,082</td>
+                                        <td>$1.31</td>
+                                        <td>$1.51</td>
+                                        <td class="highlight">$1.76</td>
+                                        <td>$2.06</td>
+                                        <td>$2.39</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>San Antonio</strong></td>
+                                        <td class="muted">449</td>
+                                        <td>$1.24</td>
+                                        <td>$1.44</td>
+                                        <td class="highlight">$1.60</td>
+                                        <td>$1.79</td>
+                                        <td>$2.01</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 0.5rem;">Austin has the widest P10-P90 spread ($1.39), meaning the biggest gap between budget and premium options.</p>
+                    </div>
+                </div>
+
+                <!-- Median Rent + Sqft Context -->
+                <div class="data-card" style="margin-top: 1.5rem;">
+                    <h3>What the Medians Actually Mean</h3>
+                    <p class="subtitle">Price per square foot is meaningless without knowing what size you're getting</p>
+                    <div style="overflow-x: auto;">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>City</th>
+                                    <th>Buildings</th>
+                                    <th>Median Rent</th>
+                                    <th>Median Sqft</th>
+                                    <th>Median $/sqft</th>
+                                    <th>What $1,500/mo Gets You</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Chicago</strong></td>
+                                    <td>243</td>
+                                    <td>$2,284</td>
+                                    <td>542 sqft</td>
+                                    <td class="highlight">$4.10</td>
+                                    <td>~366 sqft</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Denver</strong></td>
+                                    <td>61</td>
+                                    <td>$1,659</td>
+                                    <td>594 sqft</td>
+                                    <td class="highlight">$2.78</td>
+                                    <td>~540 sqft</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>DFW</strong></td>
+                                    <td>1,438</td>
+                                    <td>$1,229</td>
+                                    <td>643 sqft</td>
+                                    <td class="highlight">$1.91</td>
+                                    <td>~785 sqft</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Austin</strong></td>
+                                    <td>650</td>
+                                    <td>$1,107</td>
+                                    <td>626 sqft</td>
+                                    <td class="highlight">$1.79</td>
+                                    <td>~838 sqft</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Houston</strong></td>
+                                    <td>1,082</td>
+                                    <td>$1,191</td>
+                                    <td>663 sqft</td>
+                                    <td class="highlight">$1.76</td>
+                                    <td>~852 sqft</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>San Antonio</strong></td>
+                                    <td>449</td>
+                                    <td>$1,005</td>
+                                    <td>625 sqft</td>
+                                    <td class="highlight">$1.60</td>
+                                    <td>~938 sqft</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 0.5rem;">$1,500/month buys you 2.6x more space in San Antonio (938 sqft) than in Chicago (366 sqft). This is why we lead with $/sqft, not rent.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Building Era -->
+        <section id="building-era" style="padding: var(--section-pad); background: var(--off-white);">
+            <div class="container">
+                <h2>New Construction vs Older Buildings</h2>
+                <p style="color: var(--text-light); margin-bottom: 1.5rem;">Do you actually pay more per square foot for a newer building? The data says: yes, but not as much as you'd think.</p>
+
+                <div class="data-grid">
+                    <div class="data-card">
+                        <h3>$/sqft by Building Era</h3>
+                        <div class="bar-chart">
+                            <div class="bar-row">
+                                <span class="bar-label">2020+</span>
+                                <div class="bar-track"><div class="bar-fill navy" style="width: 80%;">$2.09</div></div>
+                                <span class="bar-value">761 bldgs</span>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">2010-2019</span>
+                                <div class="bar-track"><div class="bar-fill navy" style="width: 79%;">$2.07</div></div>
+                                <span class="bar-value">1,043 bldgs</span>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">2000-2009</span>
+                                <div class="bar-track"><div class="bar-fill light" style="width: 66%;">$1.72</div></div>
+                                <span class="bar-value">595 bldgs</span>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">1990-1999</span>
+                                <div class="bar-track"><div class="bar-fill light" style="width: 67%;">$1.74</div></div>
+                                <span class="bar-value">353 bldgs</span>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">Pre-1990</span>
+                                <div class="bar-track"><div class="bar-fill pink" style="width: 63%;">$1.64</div></div>
+                                <span class="bar-value">1,092 bldgs</span>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 1rem;">
+                            <strong>Key finding:</strong> The "new construction premium" is only $0.45/sqft (27%) over pre-1990 buildings. On a 650-sqft 1BR, that's ~$293/month for modern finishes, in-unit W/D, and energy efficiency. Some renters will pay that; others will take the savings.
+                        </p>
+                    </div>
+
+                    <!-- City x Era cross-tab -->
+                    <div class="data-card">
+                        <h3>City x Era Cross-Tab</h3>
+                        <p class="subtitle">Where the arbitrage lives: new construction in cheap markets</p>
+                        <div style="overflow-x: auto;">
+                            <table class="data-table">
+                                <thead>
+                                    <tr><th>City</th><th>Pre-2000</th><th>2000-2009</th><th>2010+</th><th>New vs Old Premium</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Chicago</strong></td>
+                                        <td>$3.72</td>
+                                        <td>$3.57</td>
+                                        <td>$4.27</td>
+                                        <td class="highlight">+15%</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Denver</strong></td>
+                                        <td>$2.50</td>
+                                        <td>$2.23</td>
+                                        <td>$2.90</td>
+                                        <td class="highlight">+16%</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>DFW</strong></td>
+                                        <td>$1.74</td>
+                                        <td>$1.87</td>
+                                        <td>$2.15</td>
+                                        <td class="highlight">+24%</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Houston</strong></td>
+                                        <td>$1.51</td>
+                                        <td>$1.72</td>
+                                        <td>$1.94</td>
+                                        <td class="highlight">+28%</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Austin</strong></td>
+                                        <td>$1.70</td>
+                                        <td>$1.59</td>
+                                        <td>$1.95</td>
+                                        <td class="highlight">+15%</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>San Antonio</strong></td>
+                                        <td>$1.47</td>
+                                        <td>$1.56</td>
+                                        <td>$1.76</td>
+                                        <td class="highlight">+20%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 0.5rem;">Austin 2000-2009 buildings are actually <em>cheaper</em> per sqft than pre-2000 — that's the arbitrage. Slightly newer finishes, lower price.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- By Unit Type -->
+        <section id="unit-type" style="padding: var(--section-pad);">
+            <div class="container">
+                <h2>Price by Unit Type</h2>
+                <p style="color: var(--text-light); margin-bottom: 1.5rem;">Studios cost the most per square foot. Larger units give you better value per sqft — but higher total rent.</p>
+
+                <div class="data-grid">
+                    <div class="data-card">
+                        <h3>$/sqft by Bedroom Count</h3>
+                        <div class="bar-chart">
+                            <div class="bar-row">
+                                <span class="bar-label">Studio</span>
+                                <div class="bar-track"><div class="bar-fill navy" style="width: 100%;">$3.22</div></div>
+                                <span class="bar-value">$1,875 med</span>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">1 Bedroom</span>
+                                <div class="bar-track"><div class="bar-fill navy" style="width: 61%;">$1.97</div></div>
+                                <span class="bar-value">$1,235 med</span>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">2 Bedroom</span>
+                                <div class="bar-track"><div class="bar-fill light" style="width: 56%;">$1.80</div></div>
+                                <span class="bar-value">$1,154 med</span>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">3 Bedroom</span>
+                                <div class="bar-track"><div class="bar-fill light" style="width: 50%;">$1.61</div></div>
+                                <span class="bar-value">$1,140 med</span>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">4 Bedroom</span>
+                                <div class="bar-track"><div class="bar-fill pink" style="width: 45%;">$1.44</div></div>
+                                <span class="bar-value">$1,464 med</span>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 1rem;">
+                            <strong>The roommate math:</strong> A 3BR at $1.61/sqft × 690 sqft = $1,140/mo, split 3 ways = $380/person. A studio at $3.22/sqft × 563 sqft = $1,875 for one person. Roommates save 80%.
+                        </p>
+                    </div>
+
+                    <div class="data-card">
+                        <h3>Median Sizes</h3>
+                        <p class="subtitle">How much space does each unit type actually give you?</p>
+                        <div class="bar-chart">
+                            <div class="bar-row">
+                                <span class="bar-label">Studio</span>
+                                <div class="bar-track"><div class="bar-fill navy" style="width: 58%;">563 sqft</div></div>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">1 Bedroom</span>
+                                <div class="bar-track"><div class="bar-fill navy" style="width: 65%;">626 sqft</div></div>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">2 Bedroom</span>
+                                <div class="bar-track"><div class="bar-fill navy" style="width: 66%;">640 sqft</div></div>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">3 Bedroom</span>
+                                <div class="bar-track"><div class="bar-fill light" style="width: 72%;">690 sqft</div></div>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">4 Bedroom</span>
+                                <div class="bar-track"><div class="bar-fill light" style="width: 100%;">963 sqft</div></div>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 1rem;">
+                            Note: These are minimum sqft per listing — the smallest available floorplan. Actual units may be larger.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Class A/B/C -->
+        <section id="class-abc" style="padding: var(--section-pad); background: var(--off-white);">
+            <div class="container">
+                <h2>Building Class Breakdown</h2>
+                <p style="color: var(--text-light); margin-bottom: 0.5rem;">We classify buildings based on year built + amenity count. Class A = built 2010+ with 8+ amenities. Class B = built 2000+ or 5+ amenities. Class C = everything else.</p>
+                <p style="color: var(--text-light); margin-bottom: 1.5rem; font-size: var(--small);"><em>This is a rough proxy. Real estate class depends on many factors we don't capture in structured data.</em></p>
+
+                <div style="overflow-x: auto;">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>City</th>
+                                <th>Class A (count)</th>
+                                <th>Class A $/sqft</th>
+                                <th>Class B (count)</th>
+                                <th>Class B $/sqft</th>
+                                <th>Class C (count)</th>
+                                <th>Class C $/sqft</th>
+                                <th>A-to-C Premium</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Austin</strong></td>
+                                <td>190</td><td>$2.26</td>
+                                <td>354</td><td>$1.80</td>
+                                <td>104</td><td>$1.74</td>
+                                <td class="highlight">+30%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Chicago</strong></td>
+                                <td>123</td><td>$4.41*</td>
+                                <td>98</td><td>$3.84</td>
+                                <td>31</td><td>$3.45*</td>
+                                <td class="highlight">+28%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Denver</strong></td>
+                                <td>29</td><td>$2.96</td>
+                                <td>27</td><td>$2.69</td>
+                                <td>4</td><td>$2.26</td>
+                                <td class="highlight">+31%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>DFW</strong></td>
+                                <td>390</td><td>$2.30*</td>
+                                <td>618</td><td>$1.98</td>
+                                <td>405</td><td>$1.73*</td>
+                                <td class="highlight">+33%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Houston</strong></td>
+                                <td>342</td><td>$2.25*</td>
+                                <td>454</td><td>$1.97*</td>
+                                <td>281</td><td>$1.53</td>
+                                <td class="highlight">+47%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>San Antonio</strong></td>
+                                <td>92</td><td>$1.86</td>
+                                <td>249</td><td>$1.60</td>
+                                <td>80</td><td>$1.45</td>
+                                <td class="highlight">+28%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 0.5rem;">* Some averages influenced by sqft data quality outliers. Houston has the largest Class A premium (47%) — newer luxury buildings command a significant price jump over older stock.</p>
+            </div>
+        </section>
+
+        <!-- Amenity Pricing -->
+        <section id="amenities" style="padding: var(--section-pad);">
+            <div class="container">
+                <h2>What Amenities Actually Cost</h2>
+                <p style="color: var(--text-light); margin-bottom: 1.5rem;">Buildings with premium amenities charge more per square foot. Here's what each amenity correlates with in price. (Correlation, not causation — buildings with concierges are also in pricier neighborhoods.)</p>
+
+                <div class="data-grid">
+                    <div class="data-card">
+                        <h3>Premium Amenities</h3>
+                        <p class="subtitle">Highest $/sqft correlation</p>
+                        <div class="bar-chart">
+                            <div class="bar-row">
+                                <span class="bar-label">Concierge</span>
+                                <div class="bar-track"><div class="bar-fill navy" style="width: 100%;">$3.71/sqft</div></div>
+                                <span class="bar-value">216 bldgs</span>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">Dry Cleaning</span>
+                                <div class="bar-track"><div class="bar-fill navy" style="width: 96%;">$3.56/sqft</div></div>
+                                <span class="bar-value">163 bldgs</span>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">Parking</span>
+                                <div class="bar-track"><div class="bar-fill navy" style="width: 93%;">$3.45/sqft</div></div>
+                                <span class="bar-value">200 bldgs</span>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">Rooftop Deck</span>
+                                <div class="bar-track"><div class="bar-fill navy" style="width: 88%;">$3.25/sqft</div></div>
+                                <span class="bar-value">383 bldgs</span>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">Gas Appliances</span>
+                                <div class="bar-track"><div class="bar-fill light" style="width: 85%;">$3.17/sqft</div></div>
+                                <span class="bar-value">151 bldgs</span>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">Bike Room</span>
+                                <div class="bar-track"><div class="bar-fill light" style="width: 82%;">$3.03/sqft</div></div>
+                                <span class="bar-value">456 bldgs</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="data-card">
+                        <h3>Standard Amenities</h3>
+                        <p class="subtitle">Most common, moderate $/sqft</p>
+                        <div class="bar-chart">
+                            <div class="bar-row">
+                                <span class="bar-label">EV Charging</span>
+                                <div class="bar-track"><div class="bar-fill light" style="width: 67%;">$2.49/sqft</div></div>
+                                <span class="bar-value">689 bldgs</span>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">Hot Tub</span>
+                                <div class="bar-track"><div class="bar-fill light" style="width: 67%;">$2.48/sqft</div></div>
+                                <span class="bar-value">272 bldgs</span>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">Gated Access</span>
+                                <div class="bar-track"><div class="bar-fill light" style="width: 66%;">$2.46/sqft</div></div>
+                                <span class="bar-value">612 bldgs</span>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">W/D Included</span>
+                                <div class="bar-track"><div class="bar-fill light" style="width: 61%;">$2.26/sqft</div></div>
+                                <span class="bar-value">1,695 bldgs</span>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">Fitness Center</span>
+                                <div class="bar-track"><div class="bar-fill light" style="width: 59%;">$2.17/sqft</div></div>
+                                <span class="bar-value">2,392 bldgs</span>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">Dog Run</span>
+                                <div class="bar-track"><div class="bar-fill light" style="width: 58%;">$2.14/sqft</div></div>
+                                <span class="bar-value">2,002 bldgs</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="data-card" style="grid-column: 1 / -1;">
+                        <h3>Budget-Friendly Amenities</h3>
+                        <p class="subtitle">Buildings with these cost <em>less</em> per sqft — they're in more affordable stock</p>
+                        <div class="bar-chart" style="max-width: 600px;">
+                            <div class="bar-row">
+                                <span class="bar-label">Fenced Yards</span>
+                                <div class="bar-track"><div class="bar-fill pink" style="width: 53%;">$1.95/sqft</div></div>
+                                <span class="bar-value">582 bldgs</span>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">Attached Garage</span>
+                                <div class="bar-track"><div class="bar-fill pink" style="width: 50%;">$1.85/sqft</div></div>
+                                <span class="bar-value">459 bldgs</span>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">Laundry Room</span>
+                                <div class="bar-track"><div class="bar-fill pink" style="width: 50%;">$1.85/sqft</div></div>
+                                <span class="bar-value">443 bldgs</span>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">W/D Connections</span>
+                                <div class="bar-track"><div class="bar-fill pink" style="width: 48%;">$1.78/sqft</div></div>
+                                <span class="bar-value">885 bldgs</span>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">Playground</span>
+                                <div class="bar-track"><div class="bar-fill pink" style="width: 46%;">$1.69/sqft</div></div>
+                                <span class="bar-value">357 bldgs</span>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 1rem;">
+                            <strong>The insight:</strong> If you want a pool but can't afford a rooftop deck, look for buildings with "Fenced Yards" and "Playground" — these are typically suburban-style communities with pools and lower price points.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Concessions -->
+        <section id="concessions" style="padding: var(--section-pad); background: var(--off-white);">
+            <div class="container">
+                <h2>Current Move-In Specials</h2>
+                <p style="color: var(--text-light); margin-bottom: 1.5rem;">3,464 buildings are currently offering move-in incentives. Here are the most aggressive.</p>
+
+                <div class="data-card">
+                    <h3>Top Concessions by Available Units</h3>
+                    <p class="subtitle">Larger available inventory = more negotiating power for you</p>
+                    <div style="overflow-x: auto;">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Building</th>
+                                    <th>City</th>
+                                    <th>From</th>
+                                    <th>Available</th>
+                                    <th>Special</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>The Calahan</strong></td>
+                                    <td>Houston</td>
+                                    <td>$1,350</td>
+                                    <td class="highlight">161/161</td>
+                                    <td>8 Weeks Free + $1,500 Gift Card</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Broadstone Sierra Vista</strong></td>
+                                    <td>Houston</td>
+                                    <td>$1,510</td>
+                                    <td class="highlight">119/149</td>
+                                    <td>4 Weeks Free on 12+ Months</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Strata</strong></td>
+                                    <td>Austin</td>
+                                    <td>$1,265</td>
+                                    <td class="highlight">78/78</td>
+                                    <td>8 Weeks Free</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Alta Sergeant</strong></td>
+                                    <td>Houston</td>
+                                    <td>$1,135</td>
+                                    <td>73/155</td>
+                                    <td>$500 Move-In Credit</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Enclave at La Frontera</strong></td>
+                                    <td>Austin</td>
+                                    <td>$861</td>
+                                    <td class="highlight">72/82</td>
+                                    <td>6 Weeks Free + Waived App/Admin</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Citizen House East Lake</strong></td>
+                                    <td>Austin</td>
+                                    <td>$1,199</td>
+                                    <td>64/86</td>
+                                    <td>10 Weeks Free + $2,500 Gift Card</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Discovery at The Realm</strong></td>
+                                    <td>DFW</td>
+                                    <td>$1,300</td>
+                                    <td>57/145</td>
+                                    <td>10 Weeks Free</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Dream Marine Creek</strong></td>
+                                    <td>DFW</td>
+                                    <td>$1,445</td>
+                                    <td>50/50</td>
+                                    <td>Up to 3 Months Free + Waived Fees</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>The Heights at 8721</strong></td>
+                                    <td>Austin</td>
+                                    <td>$999</td>
+                                    <td>48/48</td>
+                                    <td>3 Months Free</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>1711 Caroline</strong></td>
+                                    <td>Houston</td>
+                                    <td>$1,370</td>
+                                    <td>51/71</td>
+                                    <td>First Month Free on 14+ Months</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 1rem;">
+                        <strong>What this tells you:</strong> Buildings with 100% vacancy are brand new and desperate to fill. That's where the biggest concessions are. Citizen House East Lake is giving 10 weeks free plus a $2,500 gift card — that's roughly $5,000 in total incentives on a 1BR.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cheapest Per City -->
+        <section id="cheapest" style="padding: var(--section-pad);">
+            <div class="container">
+                <h2>Cheapest $/sqft by City</h2>
+                <p style="color: var(--text-light); margin-bottom: 1.5rem;">The 5 buildings offering the most space for the least money in each market. These are real listings with verified square footage.</p>
+
+                <div class="data-grid">
+                    <div class="data-card">
+                        <h3>Chicago</h3>
+                        <p class="subtitle">Median: $4.10/sqft | These are 23-48% below median</p>
+                        <table class="data-table">
+                            <thead><tr><th>Building</th><th>$/sqft</th><th>Rent</th><th>Sqft</th></tr></thead>
+                            <tbody>
+                                <tr><td>Sheridan Lake</td><td class="highlight">$2.15</td><td>$1,616</td><td>750</td></tr>
+                                <tr><td>Sheridan Terrace</td><td class="highlight">$2.19</td><td>$1,574</td><td>720</td></tr>
+                                <tr><td>Prairie Shores</td><td class="highlight">$2.50</td><td>$1,000</td><td>400</td></tr>
+                                <tr><td>777 South State</td><td>$2.67</td><td>$1,995</td><td>747</td></tr>
+                                <tr><td>L Logan Square</td><td>$2.70</td><td>$3,200</td><td>1,186</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="data-card">
+                        <h3>DFW</h3>
+                        <p class="subtitle">Median: $1.91/sqft | These are 46-49% below median</p>
+                        <table class="data-table">
+                            <thead><tr><th>Building</th><th>$/sqft</th><th>Rent</th><th>Sqft</th></tr></thead>
+                            <tbody>
+                                <tr><td>Santa Fe Ranch</td><td class="highlight">$0.98</td><td>$1,030</td><td>1,056</td></tr>
+                                <tr><td>Brooklyn Village</td><td class="highlight">$1.01</td><td>$1,699</td><td>1,679</td></tr>
+                                <tr><td>Lasater Ranch</td><td class="highlight">$1.02</td><td>$2,295</td><td>2,252</td></tr>
+                                <tr><td>The Everly</td><td class="highlight">$1.02</td><td>$551</td><td>540</td></tr>
+                                <tr><td>Rise North Arlington</td><td>$1.03</td><td>$685</td><td>664</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="data-card">
+                        <h3>Houston</h3>
+                        <p class="subtitle">Median: $1.76/sqft | These are 45-50% below median</p>
+                        <table class="data-table">
+                            <thead><tr><th>Building</th><th>$/sqft</th><th>Rent</th><th>Sqft</th></tr></thead>
+                            <tbody>
+                                <tr><td>The Heritage Lofts</td><td class="highlight">$0.88</td><td>$749</td><td>850</td></tr>
+                                <tr><td>Abbey at Briargrove</td><td class="highlight">$0.92</td><td>$1,005</td><td>1,088</td></tr>
+                                <tr><td>Heights at Post Oak</td><td class="highlight">$0.95</td><td>$636</td><td>667</td></tr>
+                                <tr><td>Park on Vista</td><td class="highlight">$0.97</td><td>$703</td><td>725</td></tr>
+                                <tr><td>2151 Kirkwood</td><td class="highlight">$0.97</td><td>$699</td><td>719</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="data-card">
+                        <h3>Austin</h3>
+                        <p class="subtitle">Median: $1.79/sqft | These are 42-63% below median</p>
+                        <table class="data-table">
+                            <thead><tr><th>Building</th><th>$/sqft</th><th>Rent</th><th>Sqft</th></tr></thead>
+                            <tbody>
+                                <tr><td>Cabana Beach San Marcos</td><td class="highlight">$0.67</td><td>$650</td><td>972</td></tr>
+                                <tr><td>South Shore</td><td class="highlight">$0.94</td><td>$659</td><td>700</td></tr>
+                                <tr><td>Southpark Village</td><td class="highlight">$1.00</td><td>$895</td><td>892</td></tr>
+                                <tr><td>Promontory Point</td><td>$1.01</td><td>$983</td><td>972</td></tr>
+                                <tr><td>Forest Creek</td><td>$1.04</td><td>$700</td><td>672</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="data-card">
+                        <h3>San Antonio</h3>
+                        <p class="subtitle">Median: $1.60/sqft | These are 37-51% below median</p>
+                        <table class="data-table">
+                            <thead><tr><th>Building</th><th>$/sqft</th><th>Rent</th><th>Sqft</th></tr></thead>
+                            <tbody>
+                                <tr><td>Palm Tree Apartments</td><td class="highlight">$0.78</td><td>$899</td><td>1,150</td></tr>
+                                <tr><td>Serenity Residences</td><td class="highlight">$0.96</td><td>$653</td><td>680</td></tr>
+                                <tr><td>Alamo Estates</td><td class="highlight">$0.98</td><td>$601</td><td>612</td></tr>
+                                <tr><td>Artisan at Willow Springs</td><td class="highlight">$0.99</td><td>$770</td><td>779</td></tr>
+                                <tr><td>Indigo Apartments</td><td>$1.01</td><td>$725</td><td>720</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="data-card">
+                        <h3>Denver</h3>
+                        <p class="subtitle">Median: $2.78/sqft | These are 25-43% below median</p>
+                        <table class="data-table">
+                            <thead><tr><th>Building</th><th>$/sqft</th><th>Rent</th><th>Sqft</th></tr></thead>
+                            <tbody>
+                                <tr><td>Felix</td><td class="highlight">$1.58</td><td>$1,279</td><td>810</td></tr>
+                                <tr><td>Elm at Panorama</td><td class="highlight">$1.74</td><td>$1,219</td><td>702</td></tr>
+                                <tr><td>Allure</td><td>$2.03</td><td>$1,740</td><td>858</td></tr>
+                                <tr><td>Revel</td><td>$2.09</td><td>$1,224</td><td>587</td></tr>
+                                <tr><td>High Country House</td><td>$2.10</td><td>$2,250</td><td>1,073</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="data-disclaimer">
+                    <strong>About this data:</strong> These rankings are from our inventory of 4,110 buildings — properties that pay HomeEasy a referral fee. We have verified square footage data for ~3,900 of these. Buildings with suspiciously low rents (under $200) or small sizes (under 100 sqft) are excluded as likely data entry errors. All data is from live listings as of early 2026. <a href="/#contact" style="color: var(--pink); font-weight: 600;">Talk to an agent</a> to verify current availability and pricing.
+                </div>
+            </div>
+        </section>
+
+        <!-- Cheapest with Pools / Fitness / New Construction -->
+        <section style="padding: var(--section-pad); background: var(--off-white);">
+            <div class="container">
+                <h2>Best Value by Category</h2>
+                <p style="color: var(--text-light); margin-bottom: 1.5rem;">Looking for a specific feature? Here are the cheapest buildings per square foot that have what you want.</p>
+
+                <div class="data-grid">
+                    <div class="data-card">
+                        <h3>Cheapest with Pool</h3>
+                        <p class="subtitle">Lowest $/sqft among buildings with a pool</p>
+                        <table class="data-table">
+                            <thead><tr><th>Building</th><th>City</th><th>$/sqft</th><th>Rent</th></tr></thead>
+                            <tbody>
+                                <tr><td>Brightleaf at Lakeline</td><td>Austin</td><td class="highlight">$1.58</td><td>$1,085</td></tr>
+                                <tr><td>Landing at Round Rock</td><td>Austin</td><td class="highlight">$1.67</td><td>$1,187</td></tr>
+                                <tr><td>High Oaks</td><td>Austin</td><td>$1.68</td><td>$900</td></tr>
+                                <tr><td>Wind River Crossing</td><td>Austin</td><td>$1.70</td><td>$817</td></tr>
+                                <tr><td>Westhouse Flats</td><td>DFW</td><td>$1.81</td><td>$1,358</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="data-card">
+                        <h3>Cheapest with Fitness Center</h3>
+                        <p class="subtitle">Lowest $/sqft among buildings with gym/fitness</p>
+                        <table class="data-table">
+                            <thead><tr><th>Building</th><th>City</th><th>$/sqft</th><th>Rent</th></tr></thead>
+                            <tbody>
+                                <tr><td>South Shore</td><td>Austin</td><td class="highlight">$0.94</td><td>$659</td></tr>
+                                <tr><td>Alamo Estates</td><td>San Antonio</td><td class="highlight">$0.98</td><td>$601</td></tr>
+                                <tr><td>Metro 5514</td><td>Houston</td><td class="highlight">$0.99</td><td>$996</td></tr>
+                                <tr><td>Bateswood Manor</td><td>Houston</td><td class="highlight">$0.99</td><td>$1,159</td></tr>
+                                <tr><td>Southpark Village</td><td>Austin</td><td>$1.00</td><td>$895</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="data-card" style="grid-column: 1 / -1;">
+                        <h3>Cheapest New Construction (Built 2016+)</h3>
+                        <p class="subtitle">Modern finishes at the lowest $/sqft — the "new construction arbitrage"</p>
+                        <table class="data-table">
+                            <thead><tr><th>Building</th><th>City</th><th>$/sqft</th><th>Rent</th><th>Sqft</th><th>Year</th><th>Beds</th></tr></thead>
+                            <tbody>
+                                <tr><td>Brooklyn Village</td><td>DFW</td><td class="highlight">$1.01</td><td>$1,699</td><td>1,679</td><td>2017</td><td>3BR</td></tr>
+                                <tr><td>Lasater Ranch</td><td>DFW</td><td class="highlight">$1.02</td><td>$2,295</td><td>2,252</td><td>2023</td><td>4BR</td></tr>
+                                <tr><td>Regent Square Brownstones</td><td>Houston</td><td class="highlight">$1.05</td><td>$1,999</td><td>1,898</td><td>2020</td><td>3BR</td></tr>
+                                <tr><td>Pradera Oaks</td><td>Houston</td><td class="highlight">$1.07</td><td>$1,799</td><td>1,688</td><td>2023</td><td>3BR</td></tr>
+                                <tr><td>Townhomes at Princeton Meadows</td><td>DFW</td><td class="highlight">$1.10</td><td>$1,799</td><td>1,633</td><td>2020</td><td>3BR</td></tr>
+                                <tr><td>Copper Pointe</td><td>San Antonio</td><td class="highlight">$1.12</td><td>$955</td><td>850</td><td>2019</td><td>2BR</td></tr>
+                                <tr><td>Legacy Ranch @ Dessau East</td><td>Austin</td><td class="highlight">$1.14</td><td>$943</td><td>824</td><td>2020</td><td>2BR</td></tr>
+                            </tbody>
+                        </table>
+                        <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 1rem;">
+                            <strong>The pattern:</strong> New construction under $1.15/sqft is almost exclusively 3-4 bedroom townhome-style units in DFW and Houston suburbs. If you want a newer 1BR, expect $1.80-2.10/sqft.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- City Deep Dive Links -->
+        <section id="city-pages" style="padding: var(--section-pad);">
+            <div class="container">
+                <h2>City Deep Dives</h2>
+                <p style="color: var(--text-light); margin-bottom: 1.5rem;">Detailed market data, neighborhood rankings, and building-level analysis for each city.</p>
+                <div class="section-links">
+                    <a href="/markets/chicago.html" class="section-link">Chicago (243 buildings)</a>
+                    <a href="/markets/dfw.html" class="section-link">Dallas-Fort Worth (1,438 buildings)</a>
+                    <a href="/markets/houston.html" class="section-link">Houston (1,082 buildings)</a>
+                    <a href="/markets/austin.html" class="section-link">Austin (650 buildings)</a>
+                    <a href="/markets/san-antonio.html" class="section-link">San Antonio (449 buildings)</a>
+                    <a href="/markets/denver.html" class="section-link">Denver (61 buildings)</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section style="padding: var(--section-pad); background: var(--navy); text-align: center;">
+            <div class="container">
+                <h2 style="color: var(--white); margin-bottom: 1rem;">Data Is Only Useful If You Act On It</h2>
+                <p style="color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto 2rem;">
+                    Our agents use this data (and much more that isn't public) to find you the best deal. Tell us your budget, move date, and what matters to you. We'll show you the numbers behind every recommendation.
+                </p>
+                <a href="/#contact" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">Find Your Apartment</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="/#about">About</a>
+                    <a href="/#how-it-works">How It Works</a>
+                    <a href="/#reviews">Reviews</a>
+                    <a href="/privacy.html">Privacy Policy</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Markets</h4>
+                    <a href="/markets/chicago.html">Chicago</a>
+                    <a href="/markets/dfw.html">Dallas-Fort Worth</a>
+                    <a href="/markets/houston.html">Houston</a>
+                    <a href="/markets/austin.html">Austin</a>
+                    <a href="/markets/san-antonio.html">San Antonio</a>
+                    <a href="/markets/denver.html">Denver</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Data</h4>
+                    <a href="/data/">Market Data Hub</a>
+                    <a href="/building-intelligence.html">Building Intelligence</a>
+                    <a href="/blog/">Blog</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>332 S Michigan Ave, Suite 8th Floor<br>Chicago, IL 60604</p>
+                    <p><a href="tel:+13124689893">(312) 468-9893</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; HomeEasy 2026 | Broker Services Co, Inc.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

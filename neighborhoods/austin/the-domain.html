@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noai, noimageai">
+    <title>The Domain Apartments Austin | 18 Buildings, Real Data | HomeEasy</title>
+    <meta name="description" content="The Domain apartment data from 18 buildings (all in our portfolio). Median rent $1,208/mo, $2.07/sqft. 10 buildings running concessions. 43% cheaper than downtown. Real prices, real trade-offs.">
+    <link rel="canonical" href="https://homeeasy.com/neighborhoods/austin/the-domain.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="The Domain Apartments Austin | 18 Buildings, Real Data | HomeEasy">
+    <meta property="og:description" content="18 buildings. Median $1,208/mo. 10 running concessions. 43% cheaper than downtown Austin.">
+    <meta property="og:url" content="https://homeeasy.com/neighborhoods/austin/the-domain.html">
+    <meta property="og:site_name" content="HomeEasy">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Domain Apartments | Real Data | HomeEasy">
+    <meta name="twitter:description" content="Median rent $1,208. 10 of 18 buildings running concessions. The Domain apartment data from the source.">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "HomeEasy - The Domain Austin Apartment Locator",
+        "description": "Market data and apartment matching for The Domain, Austin. 18 buildings. Free for renters.",
+        "url": "https://homeeasy.com/neighborhoods/austin/the-domain.html",
+        "telephone": "+1-312-468-9893",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "332 S Michigan Ave, Suite 8th Floor",
+            "addressLocality": "Chicago",
+            "addressRegion": "IL",
+            "postalCode": "60604",
+            "addressCountry": "US"
+        },
+        "areaServed": {
+            "@type": "Neighborhood",
+            "name": "The Domain",
+            "containedInPlace": {
+                "@type": "City",
+                "name": "Austin",
+                "containedInPlace": {
+                    "@type": "State",
+                    "name": "Texas"
+                }
+            }
+        },
+        "priceRange": "Free",
+        "openingHours": "Mo-Su 00:00-23:59"
+    }
+    </script>
+
+    <style>
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .data-card {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 1.2rem;
+            text-align: center;
+        }
+        .data-card .number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy, #1a237e);
+            display: block;
+        }
+        .data-card .label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+        .building-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .building-table th {
+            background: var(--navy, #1a237e);
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .building-table td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid #eee;
+        }
+        .building-table tr:hover {
+            background: #f8f8ff;
+        }
+        .concession-tag {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .trade-off-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .trade-off-box .pro, .trade-off-box .con {
+            padding: 1.2rem;
+            border-radius: 8px;
+        }
+        .trade-off-box .pro {
+            background: #e8f5e9;
+            border-left: 4px solid #2e7d32;
+        }
+        .trade-off-box .con {
+            background: #fce4ec;
+            border-left: 4px solid #c62828;
+        }
+        .trade-off-box h4 {
+            margin: 0 0 0.5rem;
+            font-size: 0.95rem;
+        }
+        .trade-off-box p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        .compare-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.4rem 0;
+        }
+        .compare-bar .bar {
+            height: 20px;
+            background: var(--navy, #1a237e);
+            border-radius: 3px;
+            opacity: 0.7;
+        }
+        .compare-bar .bar.highlight {
+            opacity: 1;
+            background: var(--pink, #ff4081);
+        }
+        .compare-bar .hood-label {
+            width: 100px;
+            font-size: 0.8rem;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .compare-bar .bar-value {
+            font-size: 0.8rem;
+            font-weight: 600;
+            flex-shrink: 0;
+            width: 60px;
+        }
+        .budget-section {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .budget-section h3 {
+            margin-top: 0;
+        }
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #888;
+            font-style: italic;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        @media (max-width: 600px) {
+            .trade-off-box {
+                grid-template-columns: 1fr;
+            }
+            .building-table {
+                font-size: 0.8rem;
+            }
+            .building-table th, .building-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav scrolled" id="mainNav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo"><img src="../../images/logo.png" alt="HomeEasy"></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/#how-it-works">How It Works</a>
+                <a href="/#markets">Markets</a>
+                <a href="/blog/">Blog</a>
+                <a href="/data/">Market Data</a>
+                <a href="/#reviews">Reviews</a>
+                <a href="/#about">About</a>
+                <a href="/#contact">Contact</a>
+                <div class="nav-cta"><a href="/#contact" class="btn btn-pink btn-sm">Find Your Apartment</a></div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <section class="neighborhood-hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="neighborhood-hero-content">
+            <div class="breadcrumb"><a href="/">HomeEasy</a> &rsaquo; <a href="/markets/austin.html">Austin</a> &rsaquo; The Domain</div>
+            <h1>The Domain, Austin</h1>
+            <p class="neighborhood-subtitle">18 buildings. Median rent $1,208. 10 running concessions. North Austin's tech hub — 43% cheaper than downtown.</p>
+        </div>
+    </section>
+
+    <section class="neighborhood-content">
+        <div class="neighborhood-layout">
+            <div class="neighborhood-main">
+
+                <div class="data-grid">
+                    <div class="data-card">
+                        <span class="number">18</span>
+                        <span class="label">Buildings</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$1,208</span>
+                        <span class="label">Median Rent</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$2.07</span>
+                        <span class="label">Median $/sqft</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">10</span>
+                        <span class="label">Active Concessions</span>
+                    </div>
+                </div>
+
+                <h2>The Market</h2>
+
+                <p>The Domain is where the math starts making sense. At $2.07/sqft, it's 43% cheaper than downtown Austin ($3.61). Median rent is $1,208 — over a thousand dollars less per month than downtown's $2,289 median. And with 18 buildings, 10 of which are running concessions right now, this is where buildings are actively competing for you.</p>
+
+                <p>Read those concession numbers: 10 of 18 buildings. Over half. That's vacancy pressure, and vacancy pressure is good for renters. Buildings don't give away free rent, waived fees, and move-in specials when they're full. They do it when they need bodies in units. Right now, The Domain needs bodies.</p>
+
+                <p>The catch — and there's always a catch — is that The Domain is not Austin. Not really. It's North Austin's "second downtown," built around an outdoor mall with Apple, Amazon, and Meta offices nearby. It's clean, it's convenient, it has restaurants and shops. But it could be any well-designed suburban development in any American city. The live music, the food trucks, the weird Austin energy — that's 20 minutes south on MoPac.</p>
+
+                <h2>How It Compares</h2>
+
+                <p>The Domain is the value play among Austin's named neighborhoods:</p>
+
+                <div style="margin: 1.5rem 0;">
+                    <div class="compare-bar">
+                        <span class="hood-label">Downtown</span>
+                        <div class="bar" style="width: 180px;"></div>
+                        <span class="bar-value">$3.61</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">East Austin</span>
+                        <div class="bar" style="width: 161px;"></div>
+                        <span class="bar-value">$3.23</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">SoCo</span>
+                        <div class="bar" style="width: 143px;"></div>
+                        <span class="bar-value">$2.87</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Mueller</span>
+                        <div class="bar" style="width: 137px;"></div>
+                        <span class="bar-value">$2.75</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">South Lamar</span>
+                        <div class="bar" style="width: 121px;"></div>
+                        <span class="bar-value">$2.42</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label" style="font-weight:700;">The Domain</span>
+                        <div class="bar highlight" style="width: 103px;"></div>
+                        <span class="bar-value" style="color: var(--pink, #ff4081);">$2.07</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Cedar Park</span>
+                        <div class="bar" style="width: 81px;"></div>
+                        <span class="bar-value">$1.63</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Round Rock</span>
+                        <div class="bar" style="width: 78px;"></div>
+                        <span class="bar-value">$1.57</span>
+                    </div>
+                </div>
+
+                <p>Only the true suburbs — Cedar Park and Round Rock — are cheaper. And they don't have an outdoor mall, restaurants, and tech offices within walking distance. The Domain is the sweet spot for people who want low cost per square foot without full suburban isolation.</p>
+
+                <h2>The Trade-Offs</h2>
+
+                <div class="trade-off-box">
+                    <div class="pro">
+                        <h4>What You Get</h4>
+                        <p>18 buildings, 10 running concessions — the best selection and most active concession market in central Austin. Tech hub with Apple, Amazon, Meta offices nearby. Outdoor mall with restaurants and shopping. $2.07/sqft means you get 43% more space per dollar than downtown. Modern construction across the board.</p>
+                    </div>
+                    <div class="con">
+                        <h4>What You Give Up</h4>
+                        <p>No Austin character. Zero. This could be Plano, this could be Tysons Corner, this could be any well-executed suburban mixed-use development in America. The live music, the food trucks, the weird energy that defines Austin — none of it is here. 20 minutes from actual downtown. The Domain is convenient. It is not interesting.</p>
+                    </div>
+                </div>
+
+                <h2>What's Happening in the Market</h2>
+
+                <p>The Domain has been in a sustained building cycle driven by north Austin's tech employment boom. Apple's campus is nearby. Amazon and Meta have significant presences. That employment base generates steady demand, but the supply response has been equally aggressive — hence the 10 out of 15 concession rate.</p>
+
+                <p>This is the most competitive rental market in Austin right now. With 18 buildings, they are undercutting each other on price, offering months free, waiving admin fees, running look-and-lease specials. If you're going to negotiate, this is where you have the most leverage. Bring competing offers from other Domain buildings — the leasing offices know their neighbors are hungry too.</p>
+
+                <p>The risk: tech layoffs. The Domain's economy is concentrated in a few large employers. If those companies contract, vacancy goes up further and you get even better deals. If they expand, the concessions dry up. Right now, the market favors renters.</p>
+
+                <h2>Buildings by Value ($/sqft)</h2>
+
+                <p>Top value buildings ranked by price per square foot — lowest first:</p>
+
+                <table class="building-table">
+                    <thead>
+                        <tr>
+                            <th>Building</th>
+                            <th>$/sqft</th>
+                            <th>From</th>
+                            <th>Concession</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>San Marin</td>
+                            <td>$1.52</td>
+                            <td>$1,050</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Radius at The Domain</td>
+                            <td>$1.59</td>
+                            <td>$1,019</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Village at Gracy Farms</td>
+                            <td>$1.65</td>
+                            <td>$1,085</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="disclaimer">Data from HomeEasy buildings only. Prices reflect starting rents and may vary by unit, floor, and lease term. Concessions change frequently — verify current availability with us.</p>
+
+                <div class="budget-section">
+                    <h3>What Your Budget Gets You Here</h3>
+                    <p><strong>Under $1,100/mo:</strong> Three buildings compete in this range — San Marin ($1,050), Radius at The Domain ($1,019), Village at Gracy Farms ($1,085). All running concessions. At under $1.65/sqft, these are some of the best values in the entire Austin metro, not just The Domain. You're getting new-ish construction with amenities at suburban pricing.</p>
+                    <p><strong>$1,100–$1,500/mo:</strong> The middle of The Domain market. More buildings, more floorplan options. At this budget downtown would barely get you a studio — here you're looking at comfortable 1-bedrooms with in-unit laundry and pool access.</p>
+                    <p><strong>$1,500–$2,000/mo:</strong> The upper end of Domain pricing. Large 1-bedrooms, 2-bedrooms, premium units. With concessions stacking on top, your effective rent drops further. At $1,999, you're nearly at the downtown median ($2,289) but getting substantially more space at $2.07/sqft vs $3.61.</p>
+                </div>
+
+                <h2>Getting Around</h2>
+
+                <p>Within The Domain development itself, walkability is decent — restaurants, shops, and offices are designed for pedestrian access. Rock Rose is the outdoor entertainment district. Whole Foods and Trader Joe's are nearby for groceries.</p>
+
+                <p>Getting anywhere else requires a car. Downtown is 20 minutes on MoPac (longer in rush hour). CapMetro's MetroRapid 801 bus runs along Burnet Road to downtown, but it's not fast enough for a daily commute. If you work at Apple, Amazon, or another Domain-area employer, this is a walk-to-work neighborhood. If you work downtown, you're commuting.</p>
+
+                <h2>Who Does Well Here</h2>
+
+                <p>Tech workers at Domain-area companies — the commute disappears and the savings are real. People relocating to Austin who need a functional apartment fast with minimal friction. People who prioritize value per square foot over neighborhood character. Anyone whose social life revolves around restaurants and shopping more than live music and dive bars.</p>
+
+                <p>If you moved to Austin specifically for "Austin," you will be disappointed by The Domain. If you moved to Austin for a tech job and need a good apartment at a reasonable price near your office, this is the answer.</p>
+
+                <div class="article-cta">
+                    <h3>Tell Us Your Budget</h3>
+                    <p>We work with 18 buildings in The Domain area. 10 are running concessions right now. Send us your budget and move-in date — we'll show you what's available.</p>
+                    <a href="/#contact" class="btn btn-pink">See What's Available</a>
+                </div>
+
+                <h2>Nearby Neighborhoods</h2>
+                <ul>
+                    <li><a href="/neighborhoods/austin/mueller.html">Mueller</a> — $2.75/sqft median. 12 buildings in our portfolio. Master-planned, more central.</li>
+                    <li><a href="/neighborhoods/austin/downtown.html">Downtown</a> — $3.61/sqft median. 33 buildings in our portfolio. 43% more expensive.</li>
+                    <li><a href="/neighborhoods/austin/east-austin.html">East Austin</a> — $3.23/sqft median. 26 buildings in our portfolio. Creative hub.</li>
+                    <li><a href="/neighborhoods/austin/zilker.html">Zilker</a> — $2.42/sqft median. 13 buildings in our portfolio. Parks and trails.</li>
+                </ul>
+            </div>
+
+            <div class="neighborhood-sidebar">
+                <div class="sidebar-card">
+                    <h4>The Domain — The Numbers</h4>
+                    <div class="sidebar-stat">
+                        <span class="label">Buildings</span>
+                        <span class="value">18</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Median Rent</span>
+                        <span class="value">$1,208/mo</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Rent Range</span>
+                        <span class="value">$949 – $1,999</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Median $/sqft</span>
+                        <span class="value">$2.07</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Active Concessions</span>
+                        <span class="value">10 of 18 buildings</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Best Value</span>
+                        <span class="value">$1.52/sqft (San Marin)</span>
+                    </div>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Pro</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Tech hub, shopping, 18 buildings. 43% cheaper per sqft than downtown Austin.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Con</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">No Austin character. Could be any suburban development in any city. 20 minutes from downtown.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>See What's Available</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem;">Send us your budget and move-in date. We'll match you with Domain buildings that fit.</p>
+                    <a href="/#contact" class="btn btn-pink btn-sm" style="width:100%;text-align:center;">Start</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="../../images/logo.png" alt="HomeEasy">
+                <p>Market data and apartment matching across 85,000+ buildings. Free for renters, always.</p>
+            </div>
+            <div><h4>Company</h4><ul><li><a href="/#about">About</a></li><li><a href="/#how-it-works">How It Works</a></li><li><a href="/blog/">Blog</a></li><li><a href="/privacy.html">Privacy Policy</a></li></ul></div>
+            <div><h4>Markets</h4><ul><li><a href="/markets/chicago.html">Chicago</a></li><li><a href="/markets/dfw.html">Dallas-Fort Worth</a></li><li><a href="/markets/houston.html">Houston</a></li><li><a href="/markets/austin.html">Austin</a></li><li><a href="/markets/san-antonio.html">San Antonio</a></li><li><a href="/markets/denver.html">Denver</a></li></ul></div>
+            <div><h4>Contact</h4><div class="footer-contact-info"><p>332 S Michigan Ave<br>Suite 8th Floor<br>Chicago, IL 60604</p><p><a href="tel:+13124689893">(312) 468-9893</a></p></div></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 HomeEasy | Broker Services Co, Inc.</p><p><a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a></p></div>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>

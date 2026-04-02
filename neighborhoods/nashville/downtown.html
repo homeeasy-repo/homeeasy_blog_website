@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noai, noimageai">
+    <title>Downtown / SoBro Apartments Nashville | 17 Buildings, Real Data | HomeEasy</title>
+    <meta name="description" content="Downtown Nashville and SoBro apartment data from 17 buildings. Broadway, entertainment district, high-rise living. 415 buildings across the Nashville metro.">
+    <link rel="canonical" href="https://homeeasy.com/neighborhoods/nashville/downtown.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Downtown / SoBro Apartments Nashville | Real Data from 17 Buildings | HomeEasy">
+    <meta property="og:description" content="17 buildings in Downtown/SoBro Nashville. 415 across Nashville metro. Data from the source.">
+    <meta property="og:url" content="https://homeeasy.com/neighborhoods/nashville/downtown.html">
+    <meta property="og:site_name" content="HomeEasy">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Downtown Nashville Apartments | Real Data | HomeEasy">
+    <meta name="twitter:description" content="17 buildings. Downtown/SoBro data from the source.">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "HomeEasy - Downtown Nashville Apartment Locator",
+        "description": "Market data and apartment matching for Downtown/SoBro, Nashville. 17 buildings. Free for renters.",
+        "url": "https://homeeasy.com/neighborhoods/nashville/downtown.html",
+        "telephone": "+1-312-468-9893",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "332 S Michigan Ave, Suite 8th Floor",
+            "addressLocality": "Chicago",
+            "addressRegion": "IL",
+            "postalCode": "60604",
+            "addressCountry": "US"
+        },
+        "areaServed": {
+            "@type": "Neighborhood",
+            "name": "Downtown / SoBro",
+            "containedInPlace": {
+                "@type": "City",
+                "name": "Nashville",
+                "containedInPlace": {
+                    "@type": "State",
+                    "name": "Tennessee"
+                }
+            }
+        },
+        "priceRange": "Free",
+        "openingHours": "Mo-Su 00:00-23:59"
+    }
+    </script>
+
+    <style>
+        .data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+        .data-card { background: #f5f5f5; border-radius: 8px; padding: 1.2rem; text-align: center; }
+        .data-card .number { font-size: 1.8rem; font-weight: 700; color: var(--navy, #1a237e); display: block; }
+        .data-card .label { font-size: 0.85rem; color: #666; margin-top: 0.3rem; }
+        .building-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
+        .building-table th { background: var(--navy, #1a237e); color: white; padding: 0.8rem; text-align: left; font-weight: 600; }
+        .building-table td { padding: 0.7rem 0.8rem; border-bottom: 1px solid #eee; }
+        .building-table tr:hover { background: #f8f8ff; }
+        .concession-tag { display: inline-block; background: #e8f5e9; color: #2e7d32; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: 500; }
+        .trade-off-box { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0; }
+        .trade-off-box .pro, .trade-off-box .con { padding: 1.2rem; border-radius: 8px; }
+        .trade-off-box .pro { background: #e8f5e9; border-left: 4px solid #2e7d32; }
+        .trade-off-box .con { background: #fce4ec; border-left: 4px solid #c62828; }
+        .trade-off-box h4 { margin: 0 0 0.5rem; font-size: 0.95rem; }
+        .trade-off-box p { margin: 0; font-size: 0.9rem; }
+        .compare-bar { display: flex; align-items: center; gap: 0.5rem; margin: 0.4rem 0; }
+        .compare-bar .bar { height: 20px; background: var(--navy, #1a237e); border-radius: 3px; opacity: 0.7; }
+        .compare-bar .bar.highlight { opacity: 1; background: var(--pink, #ff4081); }
+        .compare-bar .hood-label { width: 120px; font-size: 0.8rem; text-align: right; flex-shrink: 0; }
+        .compare-bar .bar-value { font-size: 0.8rem; font-weight: 600; flex-shrink: 0; width: 60px; }
+        .budget-section { background: #f5f5f5; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; }
+        .budget-section h3 { margin-top: 0; }
+        .disclaimer { font-size: 0.8rem; color: #888; font-style: italic; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #eee; }
+        @media (max-width: 600px) { .trade-off-box { grid-template-columns: 1fr; } .building-table { font-size: 0.8rem; } .building-table th, .building-table td { padding: 0.5rem; } }
+    </style>
+</head>
+<body>
+    <nav class="nav scrolled" id="mainNav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo"><img src="../../images/logo.png" alt="HomeEasy"></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/#how-it-works">How It Works</a><a href="/#markets">Markets</a><a href="/blog/">Blog</a><a href="/data/">Market Data</a><a href="/#reviews">Reviews</a><a href="/#about">About</a><a href="/#contact">Contact</a>
+                <div class="nav-cta"><a href="/#contact" class="btn btn-pink btn-sm">Find Your Apartment</a></div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <section class="neighborhood-hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="neighborhood-hero-content">
+            <div class="breadcrumb"><a href="/">HomeEasy</a> &rsaquo; <a href="/markets/nashville.html">Nashville</a> &rsaquo; Downtown / SoBro</div>
+            <h1>Downtown / SoBro, Nashville</h1>
+            <p class="neighborhood-subtitle">17 buildings out of 21 total. Broadway, the entertainment district, convention center corridor. This is Nashville's most visible address -- the data tells us what that visibility actually costs.</p>
+        </div>
+    </section>
+
+    <section class="neighborhood-content">
+        <div class="neighborhood-layout">
+            <div class="neighborhood-main">
+
+                <div class="data-grid">
+                    <div class="data-card">
+                        <span class="number">17</span>
+                        <span class="label">Buildings</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">21</span>
+                        <span class="label">Total Buildings</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">81%</span>
+                        <span class="label">Coverage</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">415</span>
+                        <span class="label">Nashville Metro Buildings</span>
+                    </div>
+                </div>
+
+                <h2>The Market</h2>
+
+                <p>Downtown Nashville and SoBro (South of Broadway) is the core. 21 buildings mapped, 17 in our portfolio -- an 81% portfolio coverage. These are predominantly high-rise and mid-rise towers built in the last decade, clustered around Broadway, the Music City Center convention complex, and the Cumberland River waterfront.</p>
+
+                <p>The data tells us Downtown/SoBro is Nashville's premium tier. You are paying for proximity to everything that makes Nashville Nashville -- Lower Broadway honky-tonks, Bridgestone Arena, Nissan Stadium, the entertainment district. The trade-off is noise, tourist density, and pricing that reflects the address. New supply keeps delivering here, which means concession cycles are real. When a new tower opens, existing buildings respond. We track those responses across all 17 buildings.</p>
+
+                <h2>How It Compares</h2>
+
+                <p>Here is where Downtown/SoBro sits relative to Nashville's other neighborhoods by building count:</p>
+
+                <div style="margin: 1.5rem 0;">
+                    <div class="compare-bar">
+                        <span class="hood-label">The Gulch</span>
+                        <div class="bar" style="width: 174px;"></div>
+                        <span class="bar-value">29</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Germantown</span>
+                        <div class="bar" style="width: 156px;"></div>
+                        <span class="bar-value">26</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label" style="font-weight:700;">Downtown/SoBro</span>
+                        <div class="bar highlight" style="width: 102px;"></div>
+                        <span class="bar-value" style="color: var(--pink, #ff4081);">17</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">East Nashville</span>
+                        <div class="bar" style="width: 66px;"></div>
+                        <span class="bar-value">11</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Hillsboro Village</span>
+                        <div class="bar" style="width: 48px;"></div>
+                        <span class="bar-value">8</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">12 South</span>
+                        <div class="bar" style="width: 24px;"></div>
+                        <span class="bar-value">4</span>
+                    </div>
+                </div>
+
+                <p>Downtown/SoBro is the third-largest neighborhood cluster in Nashville. The Gulch leads with 29, Germantown has 26. Downtown's 17 buildings are concentrated in a tight radius -- you can walk between most of them. The density per block here is arguably the highest in the metro.</p>
+
+                <h2>The Trade-Offs</h2>
+
+                <div class="trade-off-box">
+                    <div class="pro">
+                        <h4>What You Get</h4>
+                        <p>Walking distance to everything. Broadway entertainment. Bridgestone Arena. Nissan Stadium across the river. Convention center access. Newest construction in Nashville. High-rise views of the skyline and Cumberland River. Restaurants, bars, and nightlife at your doorstep. No car needed for daily life.</p>
+                    </div>
+                    <div class="con">
+                        <h4>What You Give Up</h4>
+                        <p>Tourist noise -- Broadway is loud, especially weekends. Premium pricing for the address. Parking costs are high if you keep a car. Limited grocery options within walking distance. The neighborhood empties out of locals on weekend nights when tourists take over. Less neighborhood character than Germantown or East Nashville.</p>
+                    </div>
+                </div>
+
+                <div class="budget-section">
+                    <h3>What the Numbers Tell Us</h3>
+                    <p>Downtown/SoBro is 17 of Nashville's 415 buildings -- about 4% of the metro inventory concentrated in a few blocks. When new towers deliver, they compete aggressively for tenants. That competition creates concession windows: free months, waived admin fees, reduced deposits. The buildings we work with tell us about these offers directly. You do not have to wait for listing sites to update.</p>
+                    <p><strong>Nashville context:</strong> These are 17 of 415 buildings in the metro. If Downtown pricing does not work for your budget, The Gulch is a 10-minute walk with 29 buildings, and Germantown is a 15-minute walk with 26. Tell us your budget and we pull from all 415.</p>
+                </div>
+
+                <h2>Getting Around</h2>
+
+                <p>Downtown Nashville is walkable within its core. The WeGo public transit hub connects bus routes across the metro. The Music City Star commuter rail runs from Riverfront Station to the eastern suburbs. Scooters and bikes are everywhere. I-40 and I-65 converge here, so driving out of downtown is straightforward -- getting into downtown during events is the harder part. A car is useful for reaching neighborhoods outside the core, but not necessary for daily life downtown.</p>
+
+                <h2>Nashville Market Context</h2>
+
+                <p>Nashville has 493 total buildings in our database and 415 in our portfolio. Downtown/SoBro accounts for 17 of those. This is a premium pocket -- when you work with us on a Downtown search, you are comparing 17 buildings against each other and against the 398 other buildings across Nashville. A property manager shows you their one tower. We show you where your dollar goes further and where the concessions are running.</p>
+
+                <h2>Who Does Well Here</h2>
+
+                <p>People who want to be in the center of Nashville's energy. Remote workers who want walkability and nightlife access without a commute. Professionals working in the convention, entertainment, or hospitality industries. People relocating to Nashville who want to start downtown and explore neighborhoods later. If noise sensitivity or grocery access matters to you, The Gulch or Germantown are the adjacent alternatives.</p>
+
+                <div class="article-cta">
+                    <h3>Tell Us Your Budget</h3>
+                    <p>We work with 17 buildings in Downtown/SoBro and 415 across Nashville. Send us your budget and move-in date -- we will show you what is available across all of them.</p>
+                    <a href="/#contact" class="btn btn-pink">See What's Available</a>
+                </div>
+
+                <h2>Nearby Neighborhoods</h2>
+                <ul>
+                    <li><a href="/neighborhoods/nashville/the-gulch.html">The Gulch</a> -- 29 buildings. 10-minute walk south. Nashville's densest new-construction cluster.</li>
+                    <li><a href="/neighborhoods/nashville/germantown.html">Germantown</a> -- 26 buildings. 15-minute walk north. Historic, walkable, lower pricing.</li>
+                    <li><a href="/neighborhoods/nashville/east-nashville.html">East Nashville</a> -- 11 buildings. Across the river. Creative neighborhood at a different price point.</li>
+                </ul>
+            </div>
+
+            <div class="neighborhood-sidebar">
+                <div class="sidebar-card">
+                    <h4>Downtown / SoBro -- The Numbers</h4>
+                    <div class="sidebar-stat"><span class="label">Buildings</span><span class="value">17</span></div>
+                    <div class="sidebar-stat"><span class="label">Total Buildings</span><span class="value">21</span></div>
+                    <div class="sidebar-stat"><span class="label">Coverage</span><span class="value">81%</span></div>
+                    <div class="sidebar-stat"><span class="label">Nashville Metro Buildings</span><span class="value">415 buildings</span></div>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Pro</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Walking distance to everything Nashville is known for. Newest high-rise construction. No car needed. Concession cycles create pricing gaps when new towers open.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Con</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Tourist noise on Broadway weekends. Premium pricing. Limited grocery within walking distance. Less neighborhood character than surrounding areas.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>See What's Available</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem;">17 buildings in Downtown/SoBro. 415 across Nashville. Send us your budget and move-in date.</p>
+                    <a href="/#contact" class="btn btn-pink btn-sm" style="width:100%;text-align:center;">Start</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand"><img src="../../images/logo.png" alt="HomeEasy"><p>Market data and apartment matching across 85,000+ buildings. Free for renters, always.</p></div>
+            <div><h4>Company</h4><ul><li><a href="/#about">About</a></li><li><a href="/#how-it-works">How It Works</a></li><li><a href="/blog/">Blog</a></li><li><a href="/privacy.html">Privacy Policy</a></li></ul></div>
+            <div><h4>Markets</h4><ul><li><a href="/markets/chicago.html">Chicago</a></li><li><a href="/markets/dfw.html">Dallas-Fort Worth</a></li><li><a href="/markets/houston.html">Houston</a></li><li><a href="/markets/austin.html">Austin</a></li><li><a href="/markets/san-antonio.html">San Antonio</a></li><li><a href="/markets/denver.html">Denver</a></li><li><a href="/markets/nashville.html">Nashville</a></li></ul></div>
+            <div><h4>Contact</h4><div class="footer-contact-info"><p>332 S Michigan Ave<br>Suite 8th Floor<br>Chicago, IL 60604</p><p><a href="tel:+13124689893">(312) 468-9893</a></p></div></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 HomeEasy | Broker Services Co, Inc.</p><p><a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a></p></div>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>

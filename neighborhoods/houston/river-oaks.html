@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noai, noimageai">
+    <title>River Oaks Houston Apartments | 1 Building | HomeEasy</title>
+    <meta name="description" content="River Oaks is Houston's wealthiest neighborhood. 1 building. Honest data on what's available and where to look instead.">
+    <link rel="canonical" href="https://homeeasy.com/neighborhoods/houston/river-oaks.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="River Oaks Houston Apartments | Honest Market Data | HomeEasy">
+    <meta property="og:description" content="Houston's most prestigious address. 1 building. Here's the honest picture and nearby alternatives.">
+    <meta property="og:url" content="https://homeeasy.com/neighborhoods/houston/river-oaks.html">
+    <meta property="og:site_name" content="HomeEasy">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="River Oaks Houston Apartments | Honest Data | HomeEasy">
+    <meta name="twitter:description" content="Houston's wealthiest neighborhood. 1 building. What you need to know and where to look instead.">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "HomeEasy - River Oaks Houston Apartment Locator",
+        "description": "Market data and apartment matching for River Oaks area, Houston. Free for renters.",
+        "url": "https://homeeasy.com/neighborhoods/houston/river-oaks.html",
+        "telephone": "+1-312-468-9893",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "332 S Michigan Ave, Suite 8th Floor",
+            "addressLocality": "Chicago",
+            "addressRegion": "IL",
+            "postalCode": "60604",
+            "addressCountry": "US"
+        },
+        "areaServed": {
+            "@type": "Neighborhood",
+            "name": "River Oaks",
+            "containedInPlace": {
+                "@type": "City",
+                "name": "Houston",
+                "containedInPlace": {
+                    "@type": "State",
+                    "name": "Texas"
+                }
+            }
+        },
+        "priceRange": "Free",
+        "openingHours": "Mo-Su 00:00-23:59"
+    }
+    </script>
+
+    <style>
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .data-card {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 1.2rem;
+            text-align: center;
+        }
+        .data-card .number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy, #1a237e);
+            display: block;
+        }
+        .data-card .label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+        .building-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .building-table th {
+            background: var(--navy, #1a237e);
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .building-table td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid #eee;
+        }
+        .building-table tr:hover {
+            background: #f8f8ff;
+        }
+        .concession-tag {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .trade-off-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .trade-off-box .pro, .trade-off-box .con {
+            padding: 1.2rem;
+            border-radius: 8px;
+        }
+        .trade-off-box .pro {
+            background: #e8f5e9;
+            border-left: 4px solid #2e7d32;
+        }
+        .trade-off-box .con {
+            background: #fce4ec;
+            border-left: 4px solid #c62828;
+        }
+        .trade-off-box h4 {
+            margin: 0 0 0.5rem;
+            font-size: 0.95rem;
+        }
+        .trade-off-box p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        .compare-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.4rem 0;
+        }
+        .compare-bar .bar {
+            height: 20px;
+            background: var(--navy, #1a237e);
+            border-radius: 3px;
+            opacity: 0.7;
+        }
+        .compare-bar .bar.highlight {
+            opacity: 1;
+            background: var(--pink, #ff4081);
+        }
+        .compare-bar .hood-label {
+            width: 120px;
+            font-size: 0.8rem;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .compare-bar .bar-value {
+            font-size: 0.8rem;
+            font-weight: 600;
+            flex-shrink: 0;
+            width: 60px;
+        }
+        .budget-section {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .budget-section h3 {
+            margin-top: 0;
+        }
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #888;
+            font-style: italic;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        @media (max-width: 600px) {
+            .trade-off-box {
+                grid-template-columns: 1fr;
+            }
+            .building-table {
+                font-size: 0.8rem;
+            }
+            .building-table th, .building-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav scrolled" id="mainNav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo"><img src="../../images/logo.png" alt="HomeEasy"></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/#how-it-works">How It Works</a>
+                <a href="/#markets">Markets</a>
+                <a href="/blog/">Blog</a>
+                <a href="/data/">Market Data</a>
+                <a href="/#reviews">Reviews</a>
+                <a href="/#about">About</a>
+                <a href="/#contact">Contact</a>
+                <div class="nav-cta"><a href="/#contact" class="btn btn-pink btn-sm">Find Your Apartment</a></div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <section class="neighborhood-hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="neighborhood-hero-content">
+            <div class="breadcrumb"><a href="/">HomeEasy</a> &rsaquo; <a href="/markets/houston.html">Houston</a> &rsaquo; River Oaks</div>
+            <h1>River Oaks, Houston</h1>
+            <p class="neighborhood-subtitle">Houston's most prestigious address. 1 building in the area.</p>
+        </div>
+    </section>
+
+    <section class="neighborhood-content">
+        <div class="neighborhood-layout">
+            <div class="neighborhood-main">
+
+                <div class="data-grid">
+                    <div class="data-card">
+                        <span class="number">1</span>
+                        <span class="label">Building</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$2.18</span>
+                        <span class="label">Galleria/Uptown $/sqft</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">29</span>
+                        <span class="label">Montrose Buildings (Nearby)</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$1,582</span>
+                        <span class="label">Montrose Median Rent</span>
+                    </div>
+                </div>
+
+                <h2>The Honest Picture</h2>
+
+                <p>River Oaks is Houston's wealthiest residential neighborhood. Tree-lined boulevards, mansion estates, the River Oaks Country Club. It is the most prestigious address in the city, and it has been since the 1920s.</p>
+
+                <p>Here is the problem if you are looking for an apartment: River Oaks is a homeowner neighborhood. The residential core is single-family estates and private rentals that do not go through apartment locators. We have 1 building in the River Oaks area.</p>
+
+                <p>The Galleria/Uptown area adjacent to River Oaks sits at $2.18/sqft median with rents from $1,324 to $2,299. The inventory is on the edges, near Westheimer and Kirby, not in the heart of River Oaks itself.</p>
+
+                <p>We are being direct about this because the alternative is pretending we have inventory we do not have. If you want to live in River Oaks proper, you are looking at private rental listings, not apartment buildings.</p>
+
+                <h2>How the Area Compares</h2>
+
+                <p>The Galleria/Uptown adjacent buildings near River Oaks sit in the middle of Houston's pricing spectrum:</p>
+
+                <div style="margin: 1.5rem 0;">
+                    <div class="compare-bar">
+                        <span class="hood-label">Medical Center</span>
+                        <div class="bar" style="width: 160px;"></div>
+                        <span class="bar-value">$2.76</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Downtown</span>
+                        <div class="bar" style="width: 143px;"></div>
+                        <span class="bar-value">$2.47</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Montrose</span>
+                        <div class="bar" style="width: 138px;"></div>
+                        <span class="bar-value">$2.38</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">The Heights</span>
+                        <div class="bar" style="width: 135px;"></div>
+                        <span class="bar-value">$2.32</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label" style="font-weight:700;">Galleria/Uptown</span>
+                        <div class="bar highlight" style="width: 126px;"></div>
+                        <span class="bar-value" style="color: var(--pink, #ff4081);">$2.18</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Sugar Land</span>
+                        <div class="bar" style="width: 117px;"></div>
+                        <span class="bar-value">$2.02</span>
+                    </div>
+                </div>
+
+                <p>$2.18/sqft for Galleria/Uptown is actually below Montrose and Midtown. The "prestige" premium does not show up in the building data because the truly premium River Oaks housing is in the private market.</p>
+
+                <h2>The Trade-Offs</h2>
+
+                <div class="trade-off-box">
+                    <div class="pro">
+                        <h4>What You Get</h4>
+                        <p>Houston's most prestigious address. Tree-lined streets, mature live oaks, quiet residential character. River Oaks District shopping and dining. Buffalo Bayou Park on the northern edge. Central inner-loop location with quick access to Downtown, Galleria, and Medical Center.</p>
+                    </div>
+                    <div class="con">
+                        <h4>What You Give Up</h4>
+                        <p>1 building. This is a homeowner neighborhood. If you need apartment options, flexibility, and concession negotiating power, look at Montrose (29 buildings) or Downtown (34 buildings) instead.</p>
+                    </div>
+                </div>
+
+                <h2>Where to Look Instead</h2>
+
+                <p>If you want the River Oaks area but need apartment inventory, here are your realistic options:</p>
+
+                <div class="budget-section">
+                    <h3>Nearby Inventory</h3>
+                    <p><strong>Galleria/Uptown ($1,324-$2,299):</strong> The closest inventory to River Oaks. Galleria shopping, Westheimer corridor, Post Oak Boulevard. At $2.18/sqft, these are actually cheaper per square foot than Montrose or Midtown.</p>
+                    <p><strong>Montrose (29 buildings, $1,025-$2,140):</strong> Immediately south of River Oaks. Most character in Houston. Galleries, dining, LGBTQ+ community. At $2.38/sqft with 8 concessions, this is where the options are.</p>
+                    <p><strong>Midtown (34 buildings, $1,019-$1,525):</strong> Southeast of River Oaks. Light rail access, walkable nightlife. Most affordable urban option at $2.38/sqft.</p>
+                    <p><strong>Downtown (34 buildings, $1,044-$2,445):</strong> East of River Oaks. Largest inventory in inner Houston. 15 buildings with concessions. Best for negotiating power.</p>
+                </div>
+
+                <h2>Getting Around</h2>
+
+                <p>River Oaks is car-dependent. No METRORail, limited bus service. Westheimer Road and Kirby Drive are the commercial corridors. River Oaks District is walkable from the Galleria/Uptown adjacent buildings but not from the residential core. Buffalo Bayou Park trails run along the northern edge for running and cycling.</p>
+
+                <p>The inner-loop location means short drives to most Houston destinations. Downtown is 10 minutes. Galleria is 5 minutes. Medical Center is 15 minutes. But "short drive" is the operating phrase — without a car, this area does not work.</p>
+
+                <h2>Who Does Well Here</h2>
+
+                <p>People with a specific reason to be in River Oaks — proximity to the Country Club, Galleria employment, or a preference for the quietest, most established residential environment Houston has to offer. People who already know that apartment inventory is minimal and want an honest assessment of what is actually available.</p>
+
+                <p>For most apartment renters, Montrose next door is the better play. 29 buildings, more options, more character, and lower $/sqft. River Oaks is a homeowner neighborhood. The apartment market here is on the periphery.</p>
+
+                <div class="article-cta">
+                    <h3>Tell Us Your Budget</h3>
+                    <p>River Oaks has 1 building, but we work with 29 buildings in adjacent Montrose. Send us your budget and we'll show you what is available in the area.</p>
+                    <a href="/#contact" class="btn btn-pink">See What's Available</a>
+                </div>
+
+                <h2>Nearby Neighborhoods</h2>
+                <ul>
+                    <li><a href="/neighborhoods/houston/montrose.html">Montrose</a> — $2.38/sqft median. 29 buildings, 8 concessions. Most character in Houston.</li>
+                    <li><a href="/neighborhoods/houston/midtown.html">Midtown</a> — $2.38/sqft median. 34 buildings. Light rail, walkable nightlife.</li>
+                    <li><a href="/neighborhoods/houston/museum-district.html">Museum District</a> — $2.76/sqft median. 12 buildings. Cultural hub, TMC adjacent.</li>
+                    <li><a href="/neighborhoods/houston/the-heights.html">The Heights</a> — $2.32/sqft median. 27 buildings. Best neighborhood character.</li>
+                </ul>
+            </div>
+
+            <div class="neighborhood-sidebar">
+                <div class="sidebar-card">
+                    <h4>River Oaks Area — The Numbers</h4>
+                    <div class="sidebar-stat">
+                        <span class="label">Buildings</span>
+                        <span class="value">1</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Galleria/Uptown Nearby</span>
+                        <span class="value">Galleria-adjacent</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Galleria Rent Range</span>
+                        <span class="value">$1,324 – $2,299</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Galleria $/sqft</span>
+                        <span class="value">$2.18</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Montrose Alternative</span>
+                        <span class="value">29 buildings, $2.38/sqft</span>
+                    </div>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Pro</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Houston's most prestigious address. Tree-lined streets, quiet character, central location.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Con</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">1 building. This is a homeowner neighborhood, not a renter neighborhood.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>See What's Available Nearby</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem;">Send us your budget and move-in date. We'll match you with buildings in Montrose, Galleria, and the River Oaks periphery.</p>
+                    <a href="/#contact" class="btn btn-pink btn-sm" style="width:100%;text-align:center;">Start</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="../../images/logo.png" alt="HomeEasy">
+                <p>Market data and apartment matching across 3,005 Houston buildings. Free for renters, always.</p>
+            </div>
+            <div><h4>Company</h4><ul><li><a href="/#about">About</a></li><li><a href="/#how-it-works">How It Works</a></li><li><a href="/blog/">Blog</a></li><li><a href="/privacy.html">Privacy Policy</a></li></ul></div>
+            <div><h4>Markets</h4><ul><li><a href="/markets/chicago.html">Chicago</a></li><li><a href="/markets/dfw.html">Dallas-Fort Worth</a></li><li><a href="/markets/houston.html">Houston</a></li><li><a href="/markets/austin.html">Austin</a></li><li><a href="/markets/san-antonio.html">San Antonio</a></li><li><a href="/markets/denver.html">Denver</a></li></ul></div>
+            <div><h4>Contact</h4><div class="footer-contact-info"><p>332 S Michigan Ave<br>Suite 8th Floor<br>Chicago, IL 60604</p><p><a href="tel:+13124689893">(312) 468-9893</a></p></div></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 HomeEasy | Broker Services Co, Inc.</p><p><a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a></p></div>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>

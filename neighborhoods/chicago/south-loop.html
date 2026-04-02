@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noai, noimageai">
+    <title>South Loop Apartments Chicago | 102 Buildings, Real Pricing Data | HomeEasy</title>
+    <meta name="description" content="South Loop apartment data from 122 buildings — 102 in our portfolio. Median rent $2,141/mo, $3.90/sqft. Real prices, real trade-offs. Part of 2,763 buildings across Chicago.">
+    <link rel="canonical" href="https://homeeasy.com/neighborhoods/chicago/south-loop.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="South Loop Apartments | 102 Buildings | HomeEasy">
+    <meta property="og:description" content="102 buildings in our portfolio. Median $2,141/mo. Part of 2,763 buildings across Chicago metro.">
+    <meta property="og:url" content="https://homeeasy.com/neighborhoods/chicago/south-loop.html">
+    <meta property="og:site_name" content="HomeEasy">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="South Loop Apartments | 102 Buildings | HomeEasy">
+    <meta name="twitter:description" content="102 buildings in our portfolio. Median rent $2,141. South Loop apartment data from the source.">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "HomeEasy - South Loop Chicago Apartment Locator",
+        "description": "Market data and apartment matching for South Loop, Chicago. 102 buildings in our portfolio. Free for renters.",
+        "url": "https://homeeasy.com/neighborhoods/chicago/south-loop.html",
+        "telephone": "+1-312-468-9893",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "332 S Michigan Ave, Suite 8th Floor",
+            "addressLocality": "Chicago",
+            "addressRegion": "IL",
+            "postalCode": "60604",
+            "addressCountry": "US"
+        },
+        "areaServed": {
+            "@type": "Neighborhood",
+            "name": "South Loop",
+            "containedInPlace": {
+                "@type": "City",
+                "name": "Chicago",
+                "containedInPlace": {
+                    "@type": "State",
+                    "name": "Illinois"
+                }
+            }
+        },
+        "priceRange": "Free",
+        "openingHours": "Mo-Su 00:00-23:59"
+    }
+    </script>
+
+    <style>
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .data-card {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 1.2rem;
+            text-align: center;
+        }
+        .data-card .number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy, #1a237e);
+            display: block;
+        }
+        .data-card .label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+        .building-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .building-table th {
+            background: var(--navy, #1a237e);
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .building-table td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid #eee;
+        }
+        .building-table tr:hover {
+            background: #f8f8ff;
+        }
+        .concession-tag {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .trade-off-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .trade-off-box .pro, .trade-off-box .con {
+            padding: 1.2rem;
+            border-radius: 8px;
+        }
+        .trade-off-box .pro {
+            background: #e8f5e9;
+            border-left: 4px solid #2e7d32;
+        }
+        .trade-off-box .con {
+            background: #fce4ec;
+            border-left: 4px solid #c62828;
+        }
+        .trade-off-box h4 {
+            margin: 0 0 0.5rem;
+            font-size: 0.95rem;
+        }
+        .trade-off-box p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        .compare-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.4rem 0;
+        }
+        .compare-bar .bar {
+            height: 20px;
+            background: var(--navy, #1a237e);
+            border-radius: 3px;
+            opacity: 0.7;
+        }
+        .compare-bar .bar.highlight {
+            opacity: 1;
+            background: var(--pink, #ff4081);
+        }
+        .compare-bar .hood-label {
+            width: 100px;
+            font-size: 0.8rem;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .compare-bar .bar-value {
+            font-size: 0.8rem;
+            font-weight: 600;
+            flex-shrink: 0;
+            width: 60px;
+        }
+        .budget-section {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .budget-section h3 {
+            margin-top: 0;
+        }
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #888;
+            font-style: italic;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        @media (max-width: 600px) {
+            .trade-off-box {
+                grid-template-columns: 1fr;
+            }
+            .building-table {
+                font-size: 0.8rem;
+            }
+            .building-table th, .building-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav scrolled" id="mainNav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo"><img src="../../images/logo.png" alt="HomeEasy"></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/#how-it-works">How It Works</a>
+                <a href="/#markets">Markets</a>
+                <a href="/blog/">Blog</a>
+                <a href="/data/">Market Data</a>
+                <a href="/#reviews">Reviews</a>
+                <a href="/#about">About</a>
+                <a href="/#contact">Contact</a>
+                <div class="nav-cta"><a href="/#contact" class="btn btn-pink btn-sm">Find Your Apartment</a></div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <section class="neighborhood-hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="neighborhood-hero-content">
+            <div class="breadcrumb"><a href="/">HomeEasy</a> &rsaquo; <a href="/markets/chicago.html">Chicago</a> &rsaquo; South Loop</div>
+            <h1>South Loop, Chicago</h1>
+            <p class="neighborhood-subtitle">122 buildings tracked. 102 in our portfolio. Median rent $2,141. Part of 2,763 buildings across Chicago.</p>
+        </div>
+    </section>
+
+    <section class="neighborhood-content">
+        <div class="neighborhood-layout">
+            <div class="neighborhood-main">
+
+                <div class="data-grid">
+                    <div class="data-card">
+                        <span class="number">122</span>
+                        <span class="label">Buildings Tracked</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">102</span>
+                        <span class="label">Buildings</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$3.90</span>
+                        <span class="label">Median $/sqft</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$2,141</span>
+                        <span class="label">Median Rent</span>
+                    </div>
+                </div>
+
+                <h2>The Market</h2>
+
+                <p>The South Loop is where you get the most square footage for your dollar in downtown Chicago. That's not marketing — it's the data. At $3.90/sqft, the South Loop runs 8% cheaper than River North ($4.25) and 12% below the West Loop ($4.45).</p>
+
+                <p>We track 122 buildings in the South Loop — 102 of which are in our portfolio directly. That depth of market intelligence means vacancy pressure is visible to us before it shows up anywhere else, and vacancy pressure is good for you.</p>
+
+                <p>Rent starts at $1,000 (Prairie Shores, built 1961) and runs up to $2,735 on the high end, with some luxury units pushing past $14,000. The sweet spot for most renters is $1,800–$2,400.</p>
+
+                <h2>How It Compares</h2>
+
+                <p>Here's what you're choosing between when you look at downtown and near-downtown Chicago:</p>
+
+                <div style="margin: 1.5rem 0;">
+                    <div class="compare-bar">
+                        <span class="hood-label">West Loop</span>
+                        <div class="bar" style="width: 160px;"></div>
+                        <span class="bar-value">$4.45</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Streeterville</span>
+                        <div class="bar" style="width: 155px;"></div>
+                        <span class="bar-value">$4.30</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">River North</span>
+                        <div class="bar" style="width: 153px;"></div>
+                        <span class="bar-value">$4.25</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Gold Coast</span>
+                        <div class="bar" style="width: 153px;"></div>
+                        <span class="bar-value">$4.25</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">The Loop</span>
+                        <div class="bar" style="width: 152px;"></div>
+                        <span class="bar-value">$4.23</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label" style="font-weight:700;">South Loop</span>
+                        <div class="bar highlight" style="width: 140px;"></div>
+                        <span class="bar-value" style="color: var(--pink, #ff4081);">$3.90</span>
+                    </div>
+                </div>
+
+                <p>Same skyline access. Same L train proximity. Lower price per square foot. That's the trade the South Loop offers.</p>
+
+                <h2>The Trade-Offs</h2>
+
+                <div class="trade-off-box">
+                    <div class="pro">
+                        <h4>What You Get</h4>
+                        <p>New construction (12 buildings built after 2010). Museum Campus, Grant Park, and lakefront within walking distance. More square footage per dollar than any other downtown neighborhood. Heavy concession activity — up to 2 months free on longer leases.</p>
+                    </div>
+                    <div class="con">
+                        <h4>What You Give Up</h4>
+                        <p>Nightlife is limited compared to River North or Wicker Park. Grocery options are improving but still thin south of Roosevelt. Some blocks south of 18th feel quieter than most people expect from "downtown." It's not the Loop — it's adjacent.</p>
+                    </div>
+                </div>
+
+                <h2>What's Happening in the Market</h2>
+
+                <p>The South Loop has been in a building cycle since the mid-2000s and it hasn't stopped. New high-rises keep coming online, which means two things: modern finishes and competition for tenants.</p>
+
+                <p>When buildings compete, you benefit. With 102 buildings, concessions are widespread — waived admin fees, months free, look-and-lease specials. These concessions aren't permanent. They exist because buildings need to fill units. When they do, the specials disappear.</p>
+
+                <p>Credit requirements vary. Newer buildings tend to be stricter (680+). Older buildings like Prairie Shores and 777 South State are more flexible. If your credit isn't where you want it, there are still options — you just need to know which buildings to approach.</p>
+
+                <h2>Buildings by Value ($/sqft)</h2>
+
+                <p>These are buildings ranked by price per square foot — lowest first. This is where your dollar goes furthest.</p>
+
+                <table class="building-table">
+                    <thead>
+                        <tr>
+                            <th>Building</th>
+                            <th>$/sqft</th>
+                            <th>From</th>
+                            <th>Built</th>
+                            <th>Concession</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Prairie Shores</td>
+                            <td>$2.50</td>
+                            <td>$1,000</td>
+                            <td>1961</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>777 South State</td>
+                            <td>$2.67</td>
+                            <td>$1,995</td>
+                            <td>1978</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Wells Place Apartments</td>
+                            <td>$2.81</td>
+                            <td>$2,556</td>
+                            <td>2016</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>The Shelby</td>
+                            <td>$3.03</td>
+                            <td>$2,424</td>
+                            <td>2010</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Roosevelt Collection Lofts</td>
+                            <td>$3.04</td>
+                            <td>$2,320</td>
+                            <td>2009</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>1001 South State</td>
+                            <td>—</td>
+                            <td>$1,795</td>
+                            <td>2009</td>
+                            <td><span class="concession-tag">½ month free</span></td>
+                        </tr>
+                        <tr>
+                            <td>1000M</td>
+                            <td>—</td>
+                            <td>$2,050</td>
+                            <td>2024</td>
+                            <td><span class="concession-tag">1 month free</span></td>
+                        </tr>
+                        <tr>
+                            <td>1000 South Clark</td>
+                            <td>—</td>
+                            <td>$1,715</td>
+                            <td>2020</td>
+                            <td><span class="concession-tag">$600 credit</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="disclaimer">Data from HomeEasy buildings only. Prices reflect starting rents and may vary by unit, floor, and lease term. Concessions change frequently — verify current availability with us.</p>
+
+                <div class="budget-section">
+                    <h3>What Your Budget Gets You Here</h3>
+                    <p><strong>Under $1,500/mo:</strong> Prairie Shores. Built 1961, solid mid-rise, on-site parking available. Not new, not fancy. But the math works — $2.50/sqft is the best value in all of downtown Chicago.</p>
+                    <p><strong>$1,500–$2,000/mo:</strong> Your options open up. 1000 South Clark (2020, $1,715 start), 1001 South State (2009, concession active), 777 South State (1978, $1,995). Mix of vintage and newer construction.</p>
+                    <p><strong>$2,000–$2,500/mo:</strong> The sweet spot. New construction with concessions — The Shelby, Roosevelt Collection Lofts, Wells Place. Modern finishes, in-unit laundry in most, rooftop decks.</p>
+                    <p><strong>$2,500+:</strong> Top-floor units, 2-bedrooms, buildings like 1000M (brand new, 2024). This is where concessions make the biggest dollar difference — 1 month free on a $2,700 unit saves $225/mo effective rent.</p>
+                </div>
+
+                <h2>Getting Around</h2>
+
+                <p>Red, Green, and Orange lines all run through the South Loop. Roosevelt station puts you 2 stops from the Loop, 4 from River North. The Lakefront Trail is right there — runners and cyclists are on it before most neighborhoods' residents finish their coffee.</p>
+
+                <p>Groceries: Jewel-Osco on Roosevelt, Trader Joe's on South State. Both walkable from most buildings. It's not West Loop restaurant row, but you're not starving.</p>
+
+                <h2>Who Does Well Here</h2>
+
+                <p>People who want new construction at downtown-adjacent prices. People who prioritize square footage over nightlife. Remote workers who need space and a view but don't need to be in the middle of everything. People relocating to Chicago who don't know the neighborhoods yet — the South Loop is a safe starting point.</p>
+
+                <p>If you need to be out at bars until 2am every weekend, River North is a better fit. If you want a good apartment at a fair price near the lake, this is it.</p>
+
+                <div class="article-cta">
+                    <h3>Tell Us Your Budget</h3>
+                    <p>We track 122 buildings and work with 102 buildings in the South Loop. Send us your budget and move-in date — we'll show you what's available and what concessions you qualify for.</p>
+                    <a href="/#contact" class="btn btn-pink">See What's Available</a>
+                </div>
+
+                <h2>Nearby Neighborhoods</h2>
+                <ul>
+                    <li><a href="/neighborhoods/chicago/the-loop.html">The Loop</a> — 95 buildings. $4.23/sqft median. The business district.</li>
+                    <li><a href="/neighborhoods/chicago/west-loop.html">West Loop</a> — 62 buildings. $4.45/sqft median. Restaurant Row.</li>
+                    <li><a href="/neighborhoods/chicago/river-north.html">River North</a> — 81 buildings. $4.25/sqft median. Nightlife, galleries.</li>
+                    <li><a href="/neighborhoods/chicago/lakeview.html">Lakeview</a> — 186 buildings. $3.98/sqft median. Wrigley Field, lakefront.</li>
+                </ul>
+            </div>
+
+            <div class="neighborhood-sidebar">
+                <div class="sidebar-card">
+                    <h4>South Loop — The Numbers</h4>
+                    <div class="sidebar-stat">
+                        <span class="label">Buildings Tracked</span>
+                        <span class="value">122</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Buildings</span>
+                        <span class="value">102</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Median Rent</span>
+                        <span class="value">$2,141/mo</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Rent Range</span>
+                        <span class="value">$1,000 – $2,735</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Median $/sqft</span>
+                        <span class="value">$3.90</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Chicago Metro Buildings</span>
+                        <span class="value">2,763</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Year Built Range</span>
+                        <span class="value">1898 – 2024</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Best Value</span>
+                        <span class="value">$2.50/sqft (Prairie Shores)</span>
+                    </div>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Pro</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Best price per square foot in downtown Chicago. New construction with aggressive concessions.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Con</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Not a nightlife neighborhood. Dining scene is growing but not there yet. Some blocks feel quiet.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>See What's Available</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem;">Send us your budget and move-in date. We'll match you with South Loop buildings that fit.</p>
+                    <a href="/#contact" class="btn btn-pink btn-sm" style="width:100%;text-align:center;">Start</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="../../images/logo.png" alt="HomeEasy">
+                <p>Market data and apartment matching across 85,000+ buildings. Free for renters, always.</p>
+            </div>
+            <div><h4>Company</h4><ul><li><a href="/#about">About</a></li><li><a href="/#how-it-works">How It Works</a></li><li><a href="/blog/">Blog</a></li><li><a href="/privacy.html">Privacy Policy</a></li></ul></div>
+            <div><h4>Markets</h4><ul><li><a href="/markets/chicago.html">Chicago</a></li><li><a href="/markets/dfw.html">Dallas-Fort Worth</a></li><li><a href="/markets/houston.html">Houston</a></li><li><a href="/markets/austin.html">Austin</a></li><li><a href="/markets/san-antonio.html">San Antonio</a></li><li><a href="/markets/denver.html">Denver</a></li></ul></div>
+            <div><h4>Contact</h4><div class="footer-contact-info"><p>332 S Michigan Ave<br>Suite 8th Floor<br>Chicago, IL 60604</p><p><a href="tel:+13124689893">(312) 468-9893</a></p></div></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 HomeEasy | Broker Services Co, Inc.</p><p><a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a></p></div>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>

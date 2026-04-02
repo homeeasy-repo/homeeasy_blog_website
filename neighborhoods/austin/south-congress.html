@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noai, noimageai">
+    <title>South Congress (SoCo) Apartments Austin | 22 Buildings | HomeEasy</title>
+    <meta name="description" content="South Congress apartment data from 22 buildings (17 in our portfolio). Median rent $1,903/mo, $2.87/sqft. Austin's most iconic street. Real prices, real trade-offs.">
+    <link rel="canonical" href="https://homeeasy.com/neighborhoods/austin/south-congress.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="South Congress (SoCo) Apartments | 22 Buildings | HomeEasy">
+    <meta property="og:description" content="17 buildings in our portfolio. Median $1,903/mo. Austin's iconic street with real apartment data.">
+    <meta property="og:url" content="https://homeeasy.com/neighborhoods/austin/south-congress.html">
+    <meta property="og:site_name" content="HomeEasy">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="South Congress Apartments | Real Data | HomeEasy">
+    <meta name="twitter:description" content="SoCo — Austin's most famous street. 17 buildings in our portfolio. Here's the data.">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "HomeEasy - South Congress Austin Apartment Locator",
+        "description": "Market data and apartment matching for South Congress (SoCo), Austin. 17 buildings in our portfolio. Free for renters.",
+        "url": "https://homeeasy.com/neighborhoods/austin/south-congress.html",
+        "telephone": "+1-312-468-9893",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "332 S Michigan Ave, Suite 8th Floor",
+            "addressLocality": "Chicago",
+            "addressRegion": "IL",
+            "postalCode": "60604",
+            "addressCountry": "US"
+        },
+        "areaServed": {
+            "@type": "Neighborhood",
+            "name": "South Congress",
+            "containedInPlace": {
+                "@type": "City",
+                "name": "Austin",
+                "containedInPlace": {
+                    "@type": "State",
+                    "name": "Texas"
+                }
+            }
+        },
+        "priceRange": "Free",
+        "openingHours": "Mo-Su 00:00-23:59"
+    }
+    </script>
+
+    <style>
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .data-card {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 1.2rem;
+            text-align: center;
+        }
+        .data-card .number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy, #1a237e);
+            display: block;
+        }
+        .data-card .label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+        .building-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .building-table th {
+            background: var(--navy, #1a237e);
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .building-table td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid #eee;
+        }
+        .building-table tr:hover {
+            background: #f8f8ff;
+        }
+        .concession-tag {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .trade-off-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .trade-off-box .pro, .trade-off-box .con {
+            padding: 1.2rem;
+            border-radius: 8px;
+        }
+        .trade-off-box .pro {
+            background: #e8f5e9;
+            border-left: 4px solid #2e7d32;
+        }
+        .trade-off-box .con {
+            background: #fce4ec;
+            border-left: 4px solid #c62828;
+        }
+        .trade-off-box h4 {
+            margin: 0 0 0.5rem;
+            font-size: 0.95rem;
+        }
+        .trade-off-box p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        .compare-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.4rem 0;
+        }
+        .compare-bar .bar {
+            height: 20px;
+            background: var(--navy, #1a237e);
+            border-radius: 3px;
+            opacity: 0.7;
+        }
+        .compare-bar .bar.highlight {
+            opacity: 1;
+            background: var(--pink, #ff4081);
+        }
+        .compare-bar .hood-label {
+            width: 100px;
+            font-size: 0.8rem;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .compare-bar .bar-value {
+            font-size: 0.8rem;
+            font-weight: 600;
+            flex-shrink: 0;
+            width: 60px;
+        }
+        .budget-section {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .budget-section h3 {
+            margin-top: 0;
+        }
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #888;
+            font-style: italic;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        @media (max-width: 600px) {
+            .trade-off-box {
+                grid-template-columns: 1fr;
+            }
+            .building-table {
+                font-size: 0.8rem;
+            }
+            .building-table th, .building-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav scrolled" id="mainNav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo"><img src="../../images/logo.png" alt="HomeEasy"></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/#how-it-works">How It Works</a>
+                <a href="/#markets">Markets</a>
+                <a href="/blog/">Blog</a>
+                <a href="/data/">Market Data</a>
+                <a href="/#reviews">Reviews</a>
+                <a href="/#about">About</a>
+                <a href="/#contact">Contact</a>
+                <div class="nav-cta"><a href="/#contact" class="btn btn-pink btn-sm">Find Your Apartment</a></div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <section class="neighborhood-hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="neighborhood-hero-content">
+            <div class="breadcrumb"><a href="/">HomeEasy</a> &rsaquo; <a href="/markets/austin.html">Austin</a> &rsaquo; South Congress (SoCo)</div>
+            <h1>South Congress (SoCo), Austin</h1>
+            <p class="neighborhood-subtitle">17 buildings in our portfolio. Austin's most iconic street — with solid apartment options through our portfolio.</p>
+        </div>
+    </section>
+
+    <section class="neighborhood-content">
+        <div class="neighborhood-layout">
+            <div class="neighborhood-main">
+
+                <div class="data-grid">
+                    <div class="data-card">
+                        <span class="number">22</span>
+                        <span class="label">Total Buildings</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">17</span>
+                        <span class="label">Buildings</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$1,903</span>
+                        <span class="label">Median Rent</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$2.87</span>
+                        <span class="label">Median $/sqft</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">1</span>
+                        <span class="label">Active Concession</span>
+                    </div>
+                </div>
+
+                <h2>The Market</h2>
+
+                <p>South Congress is Austin's most iconic street. The vintage shops, the food trucks, the "I love you so much" mural, the Congress Avenue Bridge bats at sunset. It's the postcard version of Austin, and for good reason — it genuinely has character that most of this city's newer developments can't replicate.</p>
+
+                <p>We track 22 buildings in the South Congress area, 17 in our portfolio. That is a solid network for a neighborhood that was historically dominated by vintage bungalows, duplexes, and small rental properties. The inventory has expanded significantly as new construction has come online along the corridor.</p>
+
+                <p>The buildings span a wide range: The Brook Apartments starts at $850 ($1.55/sqft) and The Lola starts at $1,903 ($2.87/sqft). That gap reflects the mix of old Austin and new Austin that coexists along this corridor.</p>
+
+                <h2>How It Compares</h2>
+
+                <p>SoCo's $2.87/sqft median (based on The Lola — the higher-end of the two options) places it between East Austin and Mueller:</p>
+
+                <div style="margin: 1.5rem 0;">
+                    <div class="compare-bar">
+                        <span class="hood-label">Downtown</span>
+                        <div class="bar" style="width: 180px;"></div>
+                        <span class="bar-value">$3.61</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">East Austin</span>
+                        <div class="bar" style="width: 161px;"></div>
+                        <span class="bar-value">$3.23</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label" style="font-weight:700;">SoCo</span>
+                        <div class="bar highlight" style="width: 143px;"></div>
+                        <span class="bar-value" style="color: var(--pink, #ff4081);">$2.87</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Mueller</span>
+                        <div class="bar" style="width: 137px;"></div>
+                        <span class="bar-value">$2.75</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">South Lamar</span>
+                        <div class="bar" style="width: 121px;"></div>
+                        <span class="bar-value">$2.42</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">The Domain</span>
+                        <div class="bar" style="width: 103px;"></div>
+                        <span class="bar-value">$2.07</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Cedar Park</span>
+                        <div class="bar" style="width: 81px;"></div>
+                        <span class="bar-value">$1.63</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Round Rock</span>
+                        <div class="bar" style="width: 78px;"></div>
+                        <span class="bar-value">$1.57</span>
+                    </div>
+                </div>
+
+                <p>SoCo pricing varies depending on the specific property — from old Austin rentals at under $1,000 to new construction near $2,000+.</p>
+
+                <h2>The Trade-Offs</h2>
+
+                <div class="trade-off-box">
+                    <div class="pro">
+                        <h4>What You Get</h4>
+                        <p>Austin's most iconic street. Walkable, vibrant, full of character. Vintage shops, food trucks, live music, the Congress Avenue Bridge bats. Lady Bird Lake is right there. The closest thing to a "Main Street" Austin has. You can walk to downtown across the bridge.</p>
+                    </div>
+                    <div class="con">
+                        <h4>What You Give Up</h4>
+                        <p>Tourist foot traffic is heavy on weekends. Parking is a headache. The inventory spans a wide range from very affordable (The Brook at $850) to newer/premium (The Lola at $1,903).</p>
+                    </div>
+                </div>
+
+                <h2>What's Happening in the Market</h2>
+
+                <p>SoCo's housing stock is a mix of small-scale vintage properties and newer construction. With 22 buildings tracked and 17 in our portfolio, we have solid coverage here. New development along the corridor has expanded the inventory considerably.</p>
+
+                <p>If SoCo is your target, we can help with 17 buildings, and we can also point you toward adjacent neighborhoods — Zilker/South Lamar to the west, downtown to the north — where our building network adds even more options within walking or biking distance of the SoCo strip.</p>
+
+                <h2>Buildings by Value ($/sqft)</h2>
+
+                <p>Buildings ranked by price per square foot — lowest first:</p>
+
+                <table class="building-table">
+                    <thead>
+                        <tr>
+                            <th>Building</th>
+                            <th>$/sqft</th>
+                            <th>From</th>
+                            <th>Concession</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>The Brook Apartments</td>
+                            <td>$1.55</td>
+                            <td>$850</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>The Lola</td>
+                            <td>$2.87</td>
+                            <td>$1,903</td>
+                            <td><span class="concession-tag">Active</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="disclaimer">Data from HomeEasy buildings only. Prices reflect starting rents and may vary by unit, floor, and lease term. Concessions change frequently — verify current availability with us.</p>
+
+                <div class="budget-section">
+                    <h3>What Your Budget Gets You Here</h3>
+                    <p><strong>Under $1,000/mo:</strong> The Brook Apartments from $850 at $1.55/sqft. This is an older property — don't expect modern finishes or a resort pool. But it's SoCo-adjacent at a price that barely exists in central Austin. The value is the location at that price point.</p>
+                    <p><strong>$1,000–$1,900/mo:</strong> The middle of the SoCo market. Multiple buildings serve this range. Also consider the <a href="/neighborhoods/austin/zilker.html">Zilker/South Lamar corridor</a> where 13 buildings add more options.</p>
+                    <p><strong>$1,900+:</strong> The Lola at $2.87/sqft from $1,903. Newer construction with an active concession. This is the premium SoCo apartment experience through our portfolio.</p>
+                </div>
+
+                <h2>Getting Around</h2>
+
+                <p>South Congress itself is highly walkable — shops, restaurants, and bars line the street, and you can walk across the Congress Avenue Bridge to downtown in 15 minutes. Lady Bird Lake's hike-and-bike trail is immediately accessible. CapMetro bus routes run along Congress Avenue.</p>
+
+                <p>Beyond the immediate corridor, a car helps. But if your daily life revolves around SoCo, downtown, and the Lady Bird Lake trail, you can make it work without one.</p>
+
+                <h2>Who Does Well Here</h2>
+
+                <p>People who want the Austin experience above all else. With 17 buildings, we have solid options here — from The Brook for budget to The Lola for newer construction and everything in between.</p>
+
+                <p>If you want the SoCo vibe with even more apartment options, also look at Zilker/South Lamar. It's one neighborhood over, 13 buildings, and you can bike to SoCo in 10 minutes.</p>
+
+                <div class="article-cta">
+                    <h3>Tell Us Your Budget</h3>
+                    <p>We track 22 buildings and work with 17 buildings on South Congress — plus 13 more in the adjacent Zilker/South Lamar corridor. Send us your budget and we'll show you what works.</p>
+                    <a href="/#contact" class="btn btn-pink">See What's Available</a>
+                </div>
+
+                <h2>Nearby Neighborhoods</h2>
+                <ul>
+                    <li><a href="/neighborhoods/austin/zilker.html">Zilker</a> — $2.42/sqft median. 13 buildings in our portfolio. Barton Springs, Lady Bird Lake.</li>
+                    <li><a href="/neighborhoods/austin/downtown.html">Downtown</a> — $3.61/sqft median. 33 buildings in our portfolio. Walk across the bridge.</li>
+                    <li><a href="/neighborhoods/austin/east-austin.html">East Austin</a> — $3.23/sqft median. 26 buildings in our portfolio. Creative energy.</li>
+                    <li><a href="/neighborhoods/austin/the-domain.html">The Domain</a> — $2.07/sqft median. 18 buildings and 10 concessions.</li>
+                </ul>
+            </div>
+
+            <div class="neighborhood-sidebar">
+                <div class="sidebar-card">
+                    <h4>South Congress — The Numbers</h4>
+                    <div class="sidebar-stat">
+                        <span class="label">Total Buildings</span>
+                        <span class="value">22</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Buildings</span>
+                        <span class="value">17</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Median Rent</span>
+                        <span class="value">$1,903/mo</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Rent Range</span>
+                        <span class="value">$850 – $1,903</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">$/sqft Range</span>
+                        <span class="value">$1.55 – $2.87</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Active Concessions</span>
+                        <span class="value">1 of 17 buildings</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Best Value</span>
+                        <span class="value">$1.55/sqft (The Brook)</span>
+                    </div>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Pro</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Austin's most iconic street. Walkable, vibrant, character. The postcard version of Austin — and it's real.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Con</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Tourist foot traffic on weekends. Parking headaches. Wide price spread from old Austin to new construction.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>See What's Available</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem;">Send us your budget and move-in date. We'll match you with SoCo or nearby buildings that fit.</p>
+                    <a href="/#contact" class="btn btn-pink btn-sm" style="width:100%;text-align:center;">Start</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="../../images/logo.png" alt="HomeEasy">
+                <p>Market data and apartment matching across 85,000+ buildings. Free for renters, always.</p>
+            </div>
+            <div><h4>Company</h4><ul><li><a href="/#about">About</a></li><li><a href="/#how-it-works">How It Works</a></li><li><a href="/blog/">Blog</a></li><li><a href="/privacy.html">Privacy Policy</a></li></ul></div>
+            <div><h4>Markets</h4><ul><li><a href="/markets/chicago.html">Chicago</a></li><li><a href="/markets/dfw.html">Dallas-Fort Worth</a></li><li><a href="/markets/houston.html">Houston</a></li><li><a href="/markets/austin.html">Austin</a></li><li><a href="/markets/san-antonio.html">San Antonio</a></li><li><a href="/markets/denver.html">Denver</a></li></ul></div>
+            <div><h4>Contact</h4><div class="footer-contact-info"><p>332 S Michigan Ave<br>Suite 8th Floor<br>Chicago, IL 60604</p><p><a href="tel:+13124689893">(312) 468-9893</a></p></div></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 HomeEasy | Broker Services Co, Inc.</p><p><a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a></p></div>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>

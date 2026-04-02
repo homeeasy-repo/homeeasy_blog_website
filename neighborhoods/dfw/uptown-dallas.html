@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noai, noimageai">
+    <title>Uptown Dallas Apartments | 206 Buildings, Real Pricing Data | HomeEasy</title>
+    <meta name="description" content="Uptown Dallas apartment data from 206 buildings (115 in our portfolio). Median rent $1,730/mo, $2.80/sqft. Real prices, real trade-offs.">
+    <link rel="canonical" href="https://homeeasy.com/neighborhoods/dfw/uptown-dallas.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Uptown Dallas Apartments | Real Pricing Data from 206 Buildings | HomeEasy">
+    <meta property="og:description" content="115 buildings in our portfolio. Median $1,730/mo. The data on Uptown Dallas apartments.">
+    <meta property="og:url" content="https://homeeasy.com/neighborhoods/dfw/uptown-dallas.html">
+    <meta property="og:site_name" content="HomeEasy">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Uptown Dallas Apartments | Real Data | HomeEasy">
+    <meta name="twitter:description" content="Median rent $1,730. 115 buildings in our portfolio. Uptown Dallas apartment data from the source.">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "HomeEasy - Uptown Dallas Apartment Locator",
+        "description": "Market data and apartment matching for Uptown Dallas. 115 buildings in our portfolio. Free for renters.",
+        "url": "https://homeeasy.com/neighborhoods/dfw/uptown-dallas.html",
+        "telephone": "+1-312-468-9893",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "332 S Michigan Ave, Suite 8th Floor",
+            "addressLocality": "Chicago",
+            "addressRegion": "IL",
+            "postalCode": "60604",
+            "addressCountry": "US"
+        },
+        "areaServed": {
+            "@type": "Neighborhood",
+            "name": "Uptown Dallas",
+            "containedInPlace": {
+                "@type": "City",
+                "name": "Dallas",
+                "containedInPlace": {
+                    "@type": "State",
+                    "name": "Texas"
+                }
+            }
+        },
+        "priceRange": "Free",
+        "openingHours": "Mo-Su 00:00-23:59"
+    }
+    </script>
+
+    <style>
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .data-card {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 1.2rem;
+            text-align: center;
+        }
+        .data-card .number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy, #1a237e);
+            display: block;
+        }
+        .data-card .label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+        .building-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .building-table th {
+            background: var(--navy, #1a237e);
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .building-table td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid #eee;
+        }
+        .building-table tr:hover {
+            background: #f8f8ff;
+        }
+        .concession-tag {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .trade-off-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .trade-off-box .pro, .trade-off-box .con {
+            padding: 1.2rem;
+            border-radius: 8px;
+        }
+        .trade-off-box .pro {
+            background: #e8f5e9;
+            border-left: 4px solid #2e7d32;
+        }
+        .trade-off-box .con {
+            background: #fce4ec;
+            border-left: 4px solid #c62828;
+        }
+        .trade-off-box h4 {
+            margin: 0 0 0.5rem;
+            font-size: 0.95rem;
+        }
+        .trade-off-box p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        .compare-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.4rem 0;
+        }
+        .compare-bar .bar {
+            height: 20px;
+            background: var(--navy, #1a237e);
+            border-radius: 3px;
+            opacity: 0.7;
+        }
+        .compare-bar .bar.highlight {
+            opacity: 1;
+            background: var(--pink, #ff4081);
+        }
+        .compare-bar .hood-label {
+            width: 120px;
+            font-size: 0.8rem;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .compare-bar .bar-value {
+            font-size: 0.8rem;
+            font-weight: 600;
+            flex-shrink: 0;
+            width: 60px;
+        }
+        .budget-section {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .budget-section h3 {
+            margin-top: 0;
+        }
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #888;
+            font-style: italic;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        @media (max-width: 600px) {
+            .trade-off-box {
+                grid-template-columns: 1fr;
+            }
+            .building-table {
+                font-size: 0.8rem;
+            }
+            .building-table th, .building-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav scrolled" id="mainNav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo"><img src="../../images/logo.png" alt="HomeEasy"></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/#how-it-works">How It Works</a>
+                <a href="/#markets">Markets</a>
+                <a href="/blog/">Blog</a>
+                <a href="/data/">Market Data</a>
+                <a href="/#reviews">Reviews</a>
+                <a href="/#about">About</a>
+                <a href="/#contact">Contact</a>
+                <div class="nav-cta"><a href="/#contact" class="btn btn-pink btn-sm">Find Your Apartment</a></div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <section class="neighborhood-hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="neighborhood-hero-content">
+            <div class="breadcrumb"><a href="/">HomeEasy</a> &rsaquo; <a href="/markets/dfw.html">DFW</a> &rsaquo; Uptown Dallas</div>
+            <h1>Uptown Dallas</h1>
+            <p class="neighborhood-subtitle">206 buildings in our database. 115 in our portfolio. Median rent $1,730.</p>
+        </div>
+    </section>
+
+    <section class="neighborhood-content">
+        <div class="neighborhood-layout">
+            <div class="neighborhood-main">
+
+                <div class="data-grid">
+                    <div class="data-card">
+                        <span class="number">206</span>
+                        <span class="label">Buildings in Database</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">115</span>
+                        <span class="label">Buildings</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$1,730</span>
+                        <span class="label">Median Rent</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="number">$2.80</span>
+                        <span class="label">Median $/sqft</span>
+                    </div>
+                </div>
+
+                <h2>The Market</h2>
+
+                <p>Uptown is the largest inventory pool in DFW. 206 buildings in our database, 115 in our portfolio — more than any other neighborhood in the metro. That matters because selection means leverage. More buildings competing for tenants means better pricing, more concessions, and more room to negotiate.</p>
+
+                <p>At $2.80/sqft median, Uptown is the second most expensive neighborhood in DFW after Knox-Henderson ($3.06). That's the premium for walkability. Dallas is a car city. Uptown is the exception — McKinney Avenue trolley, Katy Trail, restaurants and bars within walking distance. You're paying for something that barely exists anywhere else in the metro.</p>
+
+                <p>Rent starts at $854 on the low end and runs to $2,995. The sweet spot for most renters is $1,400-$1,800. With 115 buildings, there are concessions and opportunities across the market if you know where to look.</p>
+
+                <h2>How It Compares</h2>
+
+                <p>Here's where Uptown sits against the rest of DFW by median price per square foot:</p>
+
+                <div style="margin: 1.5rem 0;">
+                    <div class="compare-bar">
+                        <span class="hood-label">Knox-Henderson</span>
+                        <div class="bar" style="width: 153px;"></div>
+                        <span class="bar-value">$3.06</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label" style="font-weight:700;">Uptown Dallas</span>
+                        <div class="bar highlight" style="width: 140px;"></div>
+                        <span class="bar-value" style="color: var(--pink, #ff4081);">$2.80</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Downtown Dallas</span>
+                        <div class="bar" style="width: 126px;"></div>
+                        <span class="bar-value">$2.51</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Deep Ellum</span>
+                        <div class="bar" style="width: 117px;"></div>
+                        <span class="bar-value">$2.33</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Las Colinas</span>
+                        <div class="bar" style="width: 110px;"></div>
+                        <span class="bar-value">$2.20</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Fort Worth</span>
+                        <div class="bar" style="width: 107px;"></div>
+                        <span class="bar-value">$2.14</span>
+                    </div>
+                    <div class="compare-bar">
+                        <span class="hood-label">Oak Lawn</span>
+                        <div class="bar" style="width: 103px;"></div>
+                        <span class="bar-value">$2.05</span>
+                    </div>
+                </div>
+
+                <p>Uptown is under $3/sqft. Knox-Henderson is the only neighborhood that costs more. If you want cheaper, Oak Lawn is literally next door at $2.05 — but you lose the walkability and the trolley.</p>
+
+                <h2>The Trade-Offs</h2>
+
+                <div class="trade-off-box">
+                    <div class="pro">
+                        <h4>What You Get</h4>
+                        <p>The most walkable neighborhood in DFW. McKinney Avenue trolley (free), Katy Trail for running and biking, restaurants and bars you can actually walk to. 115 buildings means the widest selection in the metro — more floor plans, more price points, more leverage.</p>
+                    </div>
+                    <div class="con">
+                        <h4>What You Give Up</h4>
+                        <p>Most expensive DFW market after Knox-Henderson. Parking is a pain — street parking is scarce and most buildings charge extra. If cheap rent is the priority, Arlington and Plano will stretch your dollar further. You're paying the walkability tax here.</p>
+                    </div>
+                </div>
+
+                <h2>What's Happening in the Market</h2>
+
+                <p>Uptown has been building nonstop. That's why you have 206 buildings tracked in one neighborhood — the density is real. New construction keeps coming online, and when supply grows faster than demand, concessions appear.</p>
+
+                <p>With 115 buildings, enough are competing that you can shop around. Concessions in Uptown typically look like waived admin fees, a month free on 13-month leases, or look-and-lease specials. They don't last forever — when units fill, the specials go away.</p>
+
+                <p>The value play in Uptown is the buildings that don't get the Instagram attention. Everyone knows the new towers on McKinney. Fewer people know about Hall Street Flats at $2.04/sqft or Gateway East at $2.14/sqft. Those pricing gaps exist because the market is big enough to have them.</p>
+
+                <h2>Buildings by Value ($/sqft)</h2>
+
+                <p>These are buildings ranked by price per square foot — lowest first. This is where your dollar goes furthest in Uptown.</p>
+
+                <table class="building-table">
+                    <thead>
+                        <tr>
+                            <th>Building</th>
+                            <th>$/sqft</th>
+                            <th>From</th>
+                            <th>Concession</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Hall Street Flats</td>
+                            <td>$2.04</td>
+                            <td>$1,485</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Gateway East at Arts District</td>
+                            <td>$2.14</td>
+                            <td>$1,211</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Mondrian West Village</td>
+                            <td>$2.16</td>
+                            <td>$1,994</td>
+                            <td>—</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="disclaimer">Data from HomeEasy buildings only. Prices reflect starting rents and may vary by unit, floor, and lease term. Concessions change frequently — verify current availability with us.</p>
+
+                <div class="budget-section">
+                    <h3>What Your Budget Gets You Here</h3>
+                    <p><strong>Under $1,200/mo:</strong> It exists. Gateway East at Arts District starts at $1,211. That's the entry point to Uptown — not the shiny part of McKinney Avenue, but you're in the neighborhood. At $2.14/sqft, the math actually works.</p>
+                    <p><strong>$1,200–$1,500/mo:</strong> Hall Street Flats at $1,485 gives you $2.04/sqft — the best value per square foot in Uptown. You're getting more space for less money than most of the neighborhood. Selection starts to open up in this range.</p>
+                    <p><strong>$1,500–$1,800/mo:</strong> The sweet spot. This is where the bulk of Uptown inventory lives. Newer construction, in-unit laundry in most, pools, fitness centers. Mondrian West Village sits here at $1,994 start with $2.16/sqft. Concession-eligible units make this range even more accessible.</p>
+                    <p><strong>$1,800–$2,995:</strong> Top-tier Uptown. Newer towers, premium finishes, rooftop views of downtown Dallas. This is where concessions make the biggest dollar impact — a month free on a $2,500 unit drops your effective rent by $200/mo. The high end of the market, but you're getting the full Uptown experience.</p>
+                </div>
+
+                <h2>Getting Around</h2>
+
+                <p>The McKinney Avenue trolley runs free through the heart of Uptown and connects to the DART rail system at Cityplace/Uptown station. That gets you downtown in minutes. The Katy Trail — 3.5 miles of converted rail line — runs through the neighborhood and doubles as both commuter path and social scene. Runners, cyclists, dogs, post-work drinks at trailside bars.</p>
+
+                <p>Walk Score hovers around 80, which is exceptional for Dallas. You can walk to groceries, restaurants, bars. That said, this is still Texas — a car helps for anything outside the neighborhood. But for day-to-day living, Uptown is as close to car-optional as DFW gets.</p>
+
+                <h2>Who Does Well Here</h2>
+
+                <p>People who want to walk places in a city built for cars. Young professionals who want nightlife on their doorstep. People relocating to DFW who don't know the market yet — Uptown is the safe starting point, the neighborhood where you figure out Dallas before committing to a suburb.</p>
+
+                <p>If your priority is cheap rent, look at Arlington or Plano. If your priority is space, the suburbs will give you more square footage per dollar. But if you want the one neighborhood in DFW where you can leave your car parked and still have a life, this is it.</p>
+
+                <div class="article-cta">
+                    <h3>Tell Us Your Budget</h3>
+                    <p>We work with 115 buildings in Uptown Dallas. Send us your budget and move-in date — we'll show you what's available and what concessions you qualify for.</p>
+                    <a href="/#contact" class="btn btn-pink">See What's Available</a>
+                </div>
+
+                <h2>Nearby Neighborhoods</h2>
+                <ul>
+                    <li><a href="/neighborhoods/dfw/knox-henderson.html">Knox-Henderson</a> — $3.06/sqft median. The most expensive in DFW. Boutique dining, brunch culture.</li>
+                    <li><a href="/neighborhoods/dfw/deep-ellum.html">Deep Ellum</a> — $2.33/sqft median. 25 buildings. Live music, murals, craft breweries east of downtown.</li>
+                    <li><a href="/neighborhoods/dfw/victory-park.html">Victory Park</a> — 32 buildings. Arena district, towers near downtown. Different vibe, similar price range.</li>
+                    <li><a href="/neighborhoods/dfw/bishop-arts.html">Bishop Arts</a> — Independent shops, diverse dining, more affordable south of the river.</li>
+                </ul>
+            </div>
+
+            <div class="neighborhood-sidebar">
+                <div class="sidebar-card">
+                    <h4>Uptown Dallas — The Numbers</h4>
+                    <div class="sidebar-stat">
+                        <span class="label">Buildings in Database</span>
+                        <span class="value">206</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Buildings</span>
+                        <span class="value">115</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Median Rent</span>
+                        <span class="value">$1,730/mo</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Rent Range</span>
+                        <span class="value">$854 – $2,995</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Median $/sqft</span>
+                        <span class="value">$2.80</span>
+                    </div>
+                    <div class="sidebar-stat">
+                        <span class="label">Best Value</span>
+                        <span class="value">$2.04/sqft (Hall Street Flats)</span>
+                    </div>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Pro</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Most walkable neighborhood in DFW. 115 buildings means the widest selection in the entire metro.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>Greatest Con</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Most expensive DFW market after Knox-Henderson. Parking is a pain. If cheap is the goal, this isn't it.</p>
+                </div>
+                <div class="sidebar-card">
+                    <h4>See What's Available</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem;">Send us your budget and move-in date. We'll match you across 115 Uptown buildings.</p>
+                    <a href="/#contact" class="btn btn-pink btn-sm" style="width:100%;text-align:center;">Start</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="../../images/logo.png" alt="HomeEasy">
+                <p>Market data and apartment matching across 4,294 buildings in DFW. Free for renters, always.</p>
+            </div>
+            <div><h4>Company</h4><ul><li><a href="/#about">About</a></li><li><a href="/#how-it-works">How It Works</a></li><li><a href="/blog/">Blog</a></li><li><a href="/privacy.html">Privacy Policy</a></li></ul></div>
+            <div><h4>Markets</h4><ul><li><a href="/markets/chicago.html">Chicago</a></li><li><a href="/markets/dfw.html">Dallas-Fort Worth</a></li><li><a href="/markets/houston.html">Houston</a></li><li><a href="/markets/austin.html">Austin</a></li><li><a href="/markets/san-antonio.html">San Antonio</a></li><li><a href="/markets/denver.html">Denver</a></li></ul></div>
+            <div><h4>Contact</h4><div class="footer-contact-info"><p>332 S Michigan Ave<br>Suite 8th Floor<br>Chicago, IL 60604</p><p><a href="tel:+13124689893">(312) 468-9893</a></p></div></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 HomeEasy | Broker Services Co, Inc.</p><p><a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a></p></div>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>
