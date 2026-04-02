@@ -49,6 +49,24 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /* ------------------------------------------
+     Property Type Tabs
+     ------------------------------------------ */
+  var propertyTabs = document.querySelectorAll('.property-tab');
+  if (propertyTabs.length) {
+    propertyTabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        propertyTabs.forEach(function (t) { t.classList.remove('active'); });
+        tab.classList.add('active');
+        // Scroll to contact — all types funnel through the same team
+        var contactSection = document.getElementById('contact');
+        if (contactSection && tab.dataset.type !== 'all') {
+          contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  }
+
+  /* ------------------------------------------
      Smooth Scroll for anchor links
      ------------------------------------------ */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
