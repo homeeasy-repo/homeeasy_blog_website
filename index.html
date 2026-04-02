@@ -30,6 +30,14 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Bland.ai Chat Widget -->
+    <script>
+      window.blandSettings = {
+        widget_id: "8314fa30-b023-493f-8c65-6ee808445a0e"
+      };
+    </script>
+    <script src="https://widget.bland.ai/loader.js" defer></script>
+
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
     {
@@ -791,6 +799,18 @@
             <p><a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a></p>
         </div>
     </footer>
+
+    <!-- Floating Voice Button -->
+    <button id="voiceBtn" class="voice-fab" aria-label="Talk to our AI assistant">
+        <svg class="voice-fab-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" y1="19" x2="12" y2="23"/>
+            <line x1="8" y1="23" x2="16" y2="23"/>
+        </svg>
+        <span class="voice-fab-label">Talk to us</span>
+        <span class="voice-fab-pulse"></span>
+    </button>
 
     <script src="script.js"></script>
 </body>

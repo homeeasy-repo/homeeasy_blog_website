@@ -249,6 +249,49 @@ document.addEventListener('DOMContentLoaded', function () {
   /* Contact form removed — replaced with voice-first CTA */
 
   /* ------------------------------------------
+     Bland.ai Chat Widget — Floating Voice Button
+     The Bland widget (loader.js) self-initializes via
+     window.blandSettings in <head>. This code adds a
+     custom FAB that opens the widget on click, with a
+     fallback to the phone CTA if the widget isn't loaded.
+     ------------------------------------------ */
+  var voiceBtn = document.getElementById('voiceBtn');
+  if (voiceBtn) {
+    voiceBtn.addEventListener('click', function () {
+      // Bland's loader injects an iframe; try to open it
+      var blandFrame = document.querySelector('iframe[src*="bland"]');
+      var blandButton = document.querySelector('[data-bland-widget]');
+
+      if (blandButton) {
+        blandButton.click();
+        voiceBtn.classList.add('hidden');
+      } else if (blandFrame) {
+        // Widget exists but uses a different trigger — try toggling visibility
+        blandFrame.style.display = blandFrame.style.display === 'none' ? 'block' : 'none';
+        voiceBtn.classList.add('hidden');
+      } else {
+        // Fallback: scroll to CTA section with phone/text options
+        var ctaSection = document.getElementById('contact');
+        if (ctaSection) {
+          ctaSection.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.location.href = 'tel:+13124689893';
+        }
+      }
+    });
+
+    // When Bland widget closes, show our FAB again
+    if (window.blandSettings) {
+      window.blandSettings.enable_widget_state_events = true;
+    }
+    window.addEventListener('message', function (e) {
+      if (e.data && e.data.type === 'bland-widget-close') {
+        voiceBtn.classList.remove('hidden');
+      }
+    });
+  }
+
+  /* ------------------------------------------
      Interactive Chat Demo
      ------------------------------------------ */
   var chatMessages = document.getElementById('chatMessages');

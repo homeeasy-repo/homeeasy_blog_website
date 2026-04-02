@@ -2307,10 +2307,117 @@ h1, h2, h3, h4 {
 .mb-4 { margin-bottom: 2rem; }
 
 /* ============================================
+   Floating Voice Button (Bland.ai Widget)
+   ============================================ */
+.voice-fab {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.875rem 1.25rem;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  box-shadow: 0 4px 24px rgba(26, 35, 126, 0.35);
+  transition: all 0.3s ease;
+}
+
+.voice-fab:hover {
+  background: var(--navy-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 32px rgba(26, 35, 126, 0.45);
+}
+
+.voice-fab:active {
+  transform: translateY(0);
+}
+
+.voice-fab-mic {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.voice-fab-label {
+  white-space: nowrap;
+}
+
+/* Pulse ring */
+.voice-fab-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  border-radius: 50px;
+  border: 2px solid var(--pink);
+  animation: voice-pulse 2.5s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes voice-pulse {
+  0% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+}
+
+/* Active / listening state */
+.voice-fab.listening {
+  background: var(--pink);
+  box-shadow: 0 4px 24px rgba(255, 64, 129, 0.4);
+}
+
+.voice-fab.listening .voice-fab-pulse {
+  border-color: var(--white);
+}
+
+.voice-fab.listening .voice-fab-mic {
+  animation: mic-bounce 0.6s ease infinite alternate;
+}
+
+@keyframes mic-bounce {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.15); }
+}
+
+/* Collapse to icon-only on small screens */
+@media (max-width: 480px) {
+  .voice-fab {
+    padding: 1rem;
+    bottom: 1.25rem;
+    right: 1.25rem;
+  }
+  .voice-fab-label {
+    display: none;
+  }
+}
+
+/* Hide when Bland widget is open */
+.voice-fab.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.8);
+}
+
+/* ============================================
    Print Styles
    ============================================ */
 @media print {
-  .nav, .footer, .contact-section, .social-section {
+  .nav, .footer, .contact-section, .social-section, .voice-fab {
     display: none;
   }
   body {
